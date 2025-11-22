@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce website Ecom.</title>
+    <!-- Стандартна іконка -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png">
+
+    <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png" type="image/png">
+
+    <!-- Apple пристрої -->
+    <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+    <div class="container">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKVAnDF8iXSIj2o0qEhrciuo37kir_wBzOzQ6PdbisXCoM2yph6nGkFo0v-QbcYT5OrL4kKtdN3VPDVxKMRCpwOr0WU4dT8lhqNyTsgyJB89bfR9hNiA-vIBHg23Gd1Hr00fEYA-a-Qfr8ZHAJ4aPLXrZuQcfzyU8fnwalx4GhztnIOtD2asMwNuy4c5L-/s1600/logo1.png" alt="">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i id="bar" class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="test.html">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <!-- <i class="fal fa-search"></i> -->
+          <i class="fal fa-shopping-bag"></i>
+        </li>
+        <li class="nav-item">
+          <i id="theme-toggle" class="fas fa-moon theme-toggle-icon"></i>
+        </li>
+       </ul>
+    </div>
+  </div>
+    </nav>
+
+<section id="home" data-light="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWVMkqQFYlB9-9u9EQx9O69X-jPbohrA8pRaOUA8wm2ochZjNJ7rgMNjPOqnro3NLU6pzcWHq4k2ua2vXzT2X0qvASYyAFbWmhRxkK8Ex5PEWRaDOPmpdj_HTMgOMIUSFEvgne1d48PFyQLYKrwamFQtTEG0wemOi8cYbrpOLFYyHa88UXzL3O4ldwFhx2/s16000/26610%20(1).jpg" data-dark="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGSGI6nVAHJQm85iwrxs7UZ50dbv0XE73N48NZo6f0jFuU5OMKkA8N8DN7GaM7EddzUxMDmXKo7KXGOi4q1nBKulZWe98qo4lBrLdQ_MHLb3cLQvAwIiU2KUwjL3EKqsLSEOAgUbzEYgtTXesYviXOxKSSUNZ5Zg8q23zWQHstV4qil5-tpVfzdVj6iMJz/s16000/ChatGPT%20Image%2022%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2011_59_41.png">
+    <div class="container">
+        <h5>NEW ARRAIVALS</h5>
+        <h1><span>Best Price</span> This Year</h1>
+        <p>Shoomatic offers your very comfortable time<br>on walking and exercises.</p>
+        <a href="test.html">
+        <button>Shop Now</button>
+        </a>
+    </div>
+</section>
+
+<section id="brand" class="container">
+    <div class="row m-0 py-5">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW9D18D_oudSTJRSCdqQNKcxUj6ezUuuHE1XKHm6LZErFV1snsK4_DXKlq27y-VB70A3-b3VF5iI09ik-EprZQ7SwCNoZLooEykkSUDeZPWhgidAfj_O_m1X8U9TiDiSAzLNRDltNxUyK4DaYnuSfefgNKsanJ_KVZC9v-53Auy3cgB5aR1dkfuGWdrjlL/s1600/1.png" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglOOqwkUSaE36cDArrSl1S6FBXS5_NCPlytgK1jpZ_b-AMRqegKp4nvzUyuozAQhqs-K_I_ZeYVpfniWPpS1JyhkLPdZW0c4W8sQYJrvukxv3SeWgBkMBCEW5rrni-Zptb_oYOX9NvGzh3_UlPal4aIJOgz_kmB_Oq9l2s09BBD08WJwqSvzYS2zXO21He/s1600/2.png" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIW2LaD_mtpYXToonwjGd_h-O7VzZSjHbqI_DbmnY21_piuTM_PxDR-maq32E9DXSpiFndRWY2-ClNs8sNgZkpGTj_1gDTQR8isGQZEi48-B1NGHPr3wFuGfd1xXso8yYs6p88xq60yonpAyCHnnRbo4Dw1JDyjzL5S3004aHkUZCTgdKdVYkV0EtGqB-1/s1600/3.png" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsqMWvhMDpIzS8Zz8PZSZG3MLN_DaEs54Mce95P9uWHtOAqQXBlDCrclFy-F5ctd7HWkISEnJyyy8FaLVk3pee_HEpCZc-MLbrlhWHUMh78j2Xx-YOM7RudkNytFmfBTSE9tvItNNp9rw_M1ta5jZdGL_qRcuzgFSTk2lzgBkXy7ygUBxY-eWatLFXtNqS/s1600/4.png" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEif_d0oJ9eIj8NNhgaO36bfrb6ikHq7FGn_RiIR4N8NfzYhfF6cjQvs9ldqsH0gxT6XX2sQoTtJS7r3JoWR-tIuid330Uyc7OcmSpYyLjeLDBHl8ICOpYYd7lAPhY3XL2VfqVhmTFAdokSk0_7OxRrz676SjRbxK3RcEqw_4hd3pnKiLdI3RaZFQp1fYjys/s1600/5.png" alt="">
+        <img class="img-fluid col-lg-2 col-md-4 col-6" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3lxGIvdBDlap-itZwzl4N_Tl2-PINIrKkVKQlPdHm7pXEJjTHFMjlpZcAhtZIySuVhlToGLwwMbVZoX-oWKbhayG-k1-JafRvGelpuwZ4MdnNo83FkIoroYnDZ28Nzdczguy7Br8aYg68hvas5K__S4yJ6zwao79EpSgkqt6B2120KIAZL3Bt4yO3HWXt/s1600/6.png" alt="">
+
+    </div>
+</section>
+
+<section id="new" class="w-100">
+    <div class="row p-0 m-0">
+        <div class="one col-lg-4 col-md-12 col-12 p-0">
+            <img class="img-fluid" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDzEbnMDQkEq554CNVXtb68CA-LN4C_rTTnBWC3aJQyDtNnh9ptPFfjCJC6lyM29Fuq0uky0WpTmqyKLsBYABN5-utoAvs0Gn9MHMZWC9QeA_K9px8iwS0fls6q1nT2GVTq9627ta_BB3jC1x0iJOac0V9FC6rkas7TqzNdH-9ChdSTr9QqnuIJOVJVIpz/s16000/1.jpg" alt="">
+            <div class="details">
+                <h2>Extreme Rare Sneakers</h2>
+                <button class="text-uppercase">Shop now</button>
+            </div>
+        </div>
+        <div class="one col-lg-4 col-md-12 col-12 p-0">
+            <img class="img-fluid" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWgeztcIUMS07e4kOJc9wESnqFcARmN_ubrb_vxjfinotrcjuCTwR69AwVsTPwBKf_JM-gXyd6_8VI0X7cZVWtwco_oBWn0cm00tl-g2tnsgX2Nh01vPfSvCbwf8R0U8L77AzDFboWs-8mTL9hSdP__sZQiCu34yoZBBCIKjPXF4ao44SunXiM1QVTY66p/s16000/5.jpg" alt="">
+            <div class="details">
+                <h2>Awesome Blank Outfit</h2>
+                <button class="text-uppercase">Shop now</button>
+            </div>
+        </div>
+        <div class="one col-lg-4 col-md-12 col-12 p-0">
+            <img class="img-fluid" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNzPYO0KnXG_2zvDfVWm7s-xmQjoru5JkyiElGFGN_eKmh8H1Sbw4F576pUGbti_0ldH52TZJ8jxnCT3xx3gtjWuNIQO1G_odiFJUqp1Tir6dhrkhYAya4stwBEi9U1O0DmQbuWMMOZp9CAa0fkWePLol3nGZoj_ZCv6hDCBJOaU3YdHFTO0_UzlJ2o7yy/s16000/3.png" alt="">
+            <div class="details">
+                <h2>Sportwear Up to 50% Off</h2>
+                <button class="text-uppercase">Shop now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="featured" class="my-5 pb-5">
+    <div class="container text-center mt-5 py-5">
+        <h3>Our Featured</h3>
+        <hr class="mx-auto">
+        <p>Here you can check out our new products with fair price on rymo.</p>
+    </div>
+    <div class="row mx-auto container-fluid">
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO_AsEMMuYhWGgmy3eTR27mNf1p_Pm1bmHIC-C8VjNT0eLBDIq8_SHSCV2Ywxy3U39vyUnQk2ByCQuxr8F6g0UiKX-WXCG6thitoIN4EO6SjfTE_7oWmT9BmQsTtfpAPtfMzG5DVa4iCMKAKvi8YL5yPQZ9e0fQDYRoy_kr9f6d33lzVgMZaiRmPKo2v9G/s16000/1.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Classic White Kicks</h5>
+            <h4 class="p-price">$92.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjS5Rd8hZJS1HJ0_DOvgOuEvVi12f-I-S5NWANdFjHUemOlm-aFx1Q0LkLEcXnlP-s5tUtY4zYPTN7sIhTiPaLBs0O157bMY6U9pZRRPX5S5l2vdEy8FFOQI3ILOYMPvLnXrEjFlv8funIiKcYlfzE6Rui0QAyP96cLbRMtRQjjFmCVv9AKzwuV_X4d7AKP/s16000/2.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Crimson Grip Boots</h5>
+            <h4 class="p-price">$80.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHg7L2q3fgNoSkGUql6pPA53YyY4608l9zseTuVai1XF3x9Rv39qdNaL7qB35lxjybLOGd05WGlpBy0bH6e-pOvdSminyvrlK1zSzXOUmbmaN44LYp5EyKgo0mZwbqopT2px2JuTVe6-BPgCnjs6RH-JhjCWAi11LDlaGtADBF_PjV8szLr88cT33cyYHh/s16000/3.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Midnight Urban Pack</h5>
+            <h4 class="p-price">$22.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0Qy738fpPgaSXIANFUN7qaizxY06N5G4HdK_PPRy_qFAmQX_qjay6-bv6kFwHYtQd3e63qfmzd-JsOkT6_SL5Ku5SRZ2HPlmklBWpp-CEg4F06c6aCPh6X4FDKl49ncx_tKs-cTucb9yD0kkty2g_FB7QaZfT5CuKI9CfCfjm0q30fdSYJbPBw4aMV-5q/s16000/4.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Soft Knit Beanie</h5>
+            <h4 class="p-price">$30.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<section id="banner" class="my-5 py-5">
+    <div class="container">
+        <h4>MID SEASON'S SALE</h4>
+        <h1>Autumn Collection<br>UP TO 20% OFF</h1>
+        <button class="text-uppercase">Shop Now</button>
+    </div>
+</section>
+
+<section id="clothes" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3>Dresses & Jumpsuits</h3>
+        <hr class="mx-auto">
+        <p>Here you can check out our new products with fair price on rymo.</p>
+    </div>
+    <div class="row mx-auto container-fluid">
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgj9P3dY0APXq4ZgzDhgC-Xix7GZFmOlitGqyxbpu214qNjb6rn5zOTx8pqU1UOdOxSwhh40UZjUA9sib-wtpx5m2aAjM4tb0iORbGnnMcnlVmSE_6jG77MchQmXLT6bMtXBW43M9E2_saBzUxXw9CMhPGHNwQYiyiAABAv6UcdiY0y3tZye1qtuUPsNDZy/s16000/1.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Striped Crest Blazer</h5>
+            <h4 class="p-price">$42.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr8idV3E6Lxf5g-L-jfouP59pVDvXlsNIBaHA_I4RQ1Q3Tv-PFqQ_2i_vrM7IAgJ7ysmXXfGvfN0_qIhu-XqczvGYq00-ofEUImfArs1HJdMKrJGpGm9Trv2S5Xxm1nBFFRXgVqqhnAx_acAL3t9N2JepvGzRZBJ_pOuoPZsuEtsG6zGe-mVI8ouDplaQM/s16000/2.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Waves Knit Dress</h5>
+            <h4 class="p-price">$54.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1l6hiC8UNwiJls6Awe1kOwUXkgJLwM9HpbGBAFQQ0fs6H8vgql8N0EUQKiw1h4jOWa-q4yl8FOyKLhDrYB22HWtiPb4I9Iz81kkqxDwK5RDV4ku2V9buGtOZ7IHVy86XSwcnxMEQjcakUj6hyzAq5o1vDlw26uSxyBRIUAbCfkb1bYpN8cCIxFhNqvtpu/s16000/3.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Eye Graphic Tee</h5>
+            <h4 class="p-price">$12.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm6UJkFuhvtVXxfyjT74GgxKlhSZURrjhrY_rfziP4Xj7cmO6-YU3HGu2ZMGC0JaD2ZdB48NVi6wuLifG_qwzh1YyQFkjB7ka0H4ZXVxA3gBjWfvTufu188R9HV67qq1NnvmdY4KAFTkDViFznhMOnSzPDTAE_Mx83_V87K1W7migvyl2TDBSNfAo15p7H/s16000/4.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Streetline Leather Pants</h5>
+            <h4 class="p-price">$37.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<section id="watches" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3>Best Watches</h3>
+        <hr class="mx-auto">
+        <p>Here you can check out our new products with fair price on rymo.</p>
+    </div>
+    <div class="row mx-auto container-fluid">
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2jf2m2YwN0DlFNtul_emlYe7qPPeSoW5LIJuqvEn8dMA_1X7Qj6fwB0gDyG0LSycGPa1YE9s6_DdX_pIt2SfQcwvfErbpVTHJAFPaF_qhqUl-nEnQ-Lec1Fj8x9gK3_S1e5ry7gDs3Y5ujtvcu5h-qDW3CCfXZVcjFkrZrxlHaLSDqwItWxNvM2jbycrn/s16000/1.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Titan Black</h5>
+            <h4 class="p-price">$92.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjpwTsTkVmoqebE8LBIfG5YHS-6kh9357ygC0ywoZa___VKrGAFo_eaJN8PU4gZfa6Y7WkJnegO29AyzzqGt0_TUWYi6GpDL2f2LpGqfUE2HZwxnrS3YnX5KDYLR0j69CqSACGW0SKqWMRYxTKp_I5v-rSOLXOBZGB04Ibz8R5wffccuRHtN9KtWE3gjLt/s16000/2.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Silver Croco</h5>
+            <h4 class="p-price">$85.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiItTw2hPY33SANWJGMyUD5dIusAgMQFczl_NTCkVUNwVlwbWrskUT-SDP9UGe3xS1huvNfTKLvXLmQKnk77GHDJN5OQ0NHBQ-uXCiI60PSj16mUcuZWzWoLriH80xGcYmn0HZsqLABaO3mehy2bgrthGQF2CWIR0NwjgqPGISJOoJ6rsSmXdVqrUnYOS5r/s16000/3.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Mesh Chrono</h5>
+            <h4 class="p-price">$133.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhl1KpwOVxhQzmBeUk56txX7I1v7RZOH_rMeEyWqWpe2syw0gotIzwSUKT2cbkBh0Y-pBDF1Z8pHXScthBBjmZ3ymg1jXVj6VIxok2DbROghu3jjC-XmtDP14dJdIt9GgdbCzWfcv6x1LC3LcIL0lT5Ao5Obn46diF-g4AJNosRXj8Q9ZGMIO-S5dR1f4Z9/s16000/4.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Gold Racer</h5>
+            <h4 class="p-price">$112.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<section id="shoes" class="my-5 pb-5">
+    <div class="container text-center mt-5 py-5">
+        <h3>Classic Shoes</h3>
+        <hr class="mx-auto">
+        <p>Here you can check out our new products with fair price on rymo.</p>
+    </div>
+    <div class="row mx-auto container-fluid">
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhOyqPyTa3nBkTD_KpsDD2KKcObhjKXR9oNsbhu6-UUotbwFim-MVye2kssYvv8uXI9uiJGmjK6iKtLTSTLyc1eWfJW6ByS8jKbpKWacM1P-ZP6EOcq6n1HVt8FpOJmF-fhEe6Ex-2RRDSZ5ELMMQMWoQGbRccufUXAqiANuJmmY2GhjurvvNQpBzAOaVg/s16000/8.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Urban High</h5>
+            <h4 class="p-price">$65.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiEP727-xWCVoF-a1g5hLQ8PZBwWjRw0TD4kJcDTOgL3UMWWXOpPZndeDMT-qXi_4NwTwPD_V06HzBjW_iRRgVBhS1BeFezVyfHu1jGiqW4CTuY8vFhE3yLoJZXcX915xo1GmPCQ876DgSPK5xFyhvdC100CtgqWlh8vffvhMRU0Mwnj68mYylaU_adFKy/s16000/7.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Sand Trek</h5>
+            <h4 class="p-price">$42.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwKSqnOoTPhebf6a3mKwEBNZ1RR3EFhwpMMGnTTPVAtX7YvIlLeEgcPxmR04cQUdjn6Ikal2cCBNaD_Rs0JjgyDmO2w2E-DFG8KCYt3DwaBkZzCr4W8nltmsSf1MRlWlsyx-HWyFLShkoKKmsDolE1st_icJrGGIjdPdcDFEpih5vzAfCGiQbc78kOGmYG/s16000/6.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Coffee Lace</h5>
+            <h4 class="p-price">$81.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNvnxWSK18If1GMB9Z59L-roDiXFtS6tgPXED8XCnbwOkuanXqbAyQGDj03Ki7_A2MnnD4oNmW32CJQAYWnwBApJPoKGtM-4k8ks3Ju0rMMmXeYLyF4At7sS4SWlBOLKcQjB5PBQCvKNJdzX04G_V9eZVE5b-jPZte8gvVKU9J1H8WvEiy3RuqRmn9Zu_y/s16000/5.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Mocha Edge</h5>
+            <h4 class="p-price">$102.00</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<footer class="mt-5 py-5">
+    <div class="row container mx-auto pt-5">
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeeioRuqxazbOb1IJQriiopcM0g2AXTfVNJa5gQK_zBvYtVz1D2DwjgDkNdO8lrxmDk1SIomuAooc4w7iGsKbaQogK478qaFX4ZVpvtFyZJQmeq6N5fTLsi_ce2_o_HCmLmAWSgBRk3GspomwejAwYnZuXZ1S-4r7PhW_LPcR7DJ4HIfaDM4QTO_RgOeoR/s1600/logo2.png" alt="">
+            <p class="pt-3">Discover the latest trends in fashion, footwear, and accessories — premium style, unbeatable prices, and fast delivery all in one place.</p>
+        </div>
+        <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
+            <h5 class="pb-2">Featured</h5>
+            <ul class="text-uppercase list-unstyled">
+                <li><a href="#">men</a></li>
+                <li><a href="#">women</a></li>
+                <li><a href="#">boys</a></li>
+                <li><a href="#">girls</a></li>
+                <li><a href="#">new arrivals</a></li>
+                <li><a href="#">shoes</a></li>
+                <li><a href="#">cloths</a></li>
+            </ul>
+        </div>
+        <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
+            <h5 class="pb-2">Contact Us</h5>
+            <div>
+                <h6 class="text-uppercase">Address</h6>
+                <p>123 STREET NAME, CITY, US</p>
+            </div>
+            <div>
+                <h6 class="text-uppercase">Phone</h6>
+                <p>(123) 456-7890</p>
+            </div>
+            <div>
+                <h6 class="text-uppercase">Email</h6>
+                <p class="text-uppercase">mail@example.com</p>
+            </div>
+        </div>
+
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+            <h5 class="pb-2">Instagram</h5>
+            <div class="row">
+                <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF3u89HVaXmyTPvRjUzrPFPAA-5bTBPPxVltsHigtv9CAxhON2c_P-i5thKxGcQd7DxV7iNhF8meKys9R3YbPjXgFAstmI67CGyKjkJMFAeYeGTWrvk2C6xDTuaRLfIc4oMGin3cYKLh1EFnJeTKD5-S4pDhY0vdFScv2DQ5wYyi7u5XN_tyRPW2gPLn9q/s1600/1.jpg" alt="">
+                <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdleIs1gJ0_-jzbbl-WHd6REWiOSBp7NzwLkAJd2mG1r59U_guJZx00NRKEmdWvDMg-H7MubpvZg0olcf1zaoqroK7Isw2ShZHeDLZLz2ixy01M3H5L0GN3ZmoyynbKehIvZxFDT5Pzd3aBIpzDcGi3TosJGB3J2utoVqOEb1cSwElnNicOYteGvaOdoAX/s1600/2.jpg" alt="">
+                <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7471t6JOxZ9V2XloUWzhH5GS-KKxXfB7Loh-W1b2bzrkvA-rzOs6yDNmYjxeZ2_PBrmd9T9NRnI-QbF7TJnDhtd4vQ0PsOjtFxYgcREnPm-DOINhIIY-zoNquQgalajbRF0TjWoVmIDEbVVApEF7LMIZBkM05XPl3WkNj8N0xqWry4zC-VXl2AxYlo-Lg/s1600/3.jpg" alt="">
+                <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVgYZ7_a0Y7VkvDLeZn_AKyrshQexp1KHi43PGXfX0OCxI_zv_F40BJUjbtESwaIUrQhshD7zwA6ODfyrE8A1n4nKeiaHzWji6ZkTyqR9SWt_sVQeN605J1gdsCI_KCxRosVjlgRSQEzpjqq_GIEDUypTBgun9pzZG2qlDShOEJb0Jz3YszAqx6c8te2n8/s1600/4.jpg" alt="">
+                <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8bxtyCPx1NgwoIIk-JEhGQszncGMzZhdg9c4gOPvxqf68svgJWSsMWvsoZRml-ldgcsneCcsEbN4-d6Mcxpptoc6AypOZ3RFS86Pw4G6gomQj5o0rVbGlj7Q6TFTxoxGQ6xtbzKgVmknKeGyVtFGdERRDKdZACBceuPdDO-Jrv1mvJd-vyo-dlwXix7vj/s1600/5.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright mt-5">
+        <div class="row container mx-auto">
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+                <img src="img/payment.png" alt="">
+            </div>
+            <div class="col-lg-3 col-md-6 col-12 text-nowrap mb-2">
+                <p>Ecom eCommerce © 2025</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12 footer-social">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="cart.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>

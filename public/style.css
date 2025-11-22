@@ -1,0 +1,1108 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1d1d1d;
+}
+
+h6 {
+  color: #d8d8d8;
+}
+
+button {
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: #1d1d1d;
+    color: aliceblue;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+    color: #000;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+hr {
+  width: 30px;
+  height: 2px;
+  background-color: #fb774b;
+} 
+
+.star {
+    padding: 10px 0;
+}
+
+.star i {
+    font-size: 0.8rem;
+    color: goldenrod;
+}
+
+button:hover {
+    background-color: #3a3833;
+}
+.navbar {
+    font-size: 16px;
+    top: 0;
+    left: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    padding: 0 20px;
+    color: black;
+    transition: 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active
+.navbar i.active {
+    color: coral;
+}
+
+.navbar i {
+    font-size: 1.2rem;
+    padding: 0 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3 ease;
+}
+
+.container a {
+    text-decoration: none;
+    color: #d8d8d8;
+    transition: 0.3s ease;
+}
+
+.container a:hover,
+.container a:first-child:hover {
+    color: coral;
+}
+
+.container a:first-child {
+    color: #000;
+    transition: 0.3s ease;
+}
+
+#bar {
+    font-size: 1.5rem;
+    padding: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+    color: black;
+}
+
+#bar:hover,
+#bar.active {
+    color: #fff;
+}
+
+@media only screen and (max-width: 991px) {
+    body > nav > div > button:hover,
+    body > nav > div > button:focus {
+        background-color: #fb774b;
+    }
+
+    body > nav > div > button:hover #bar,
+    body > nav > div > button:focus #bar {
+        color: #fff;
+    }
+
+    #navbarSupportedContent > ul {
+        margin: 1rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    #navbarSupportedContent > ul > li:nth-child(n) > a {
+        padding: 10px 0;
+    }
+}
+/* Mobile Nav */
+.navbar-light .navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+#home {
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWVMkqQFYlB9-9u9EQx9O69X-jPbohrA8pRaOUA8wm2ochZjNJ7rgMNjPOqnro3NLU6pzcWHq4k2ua2vXzT2X0qvASYyAFbWmhRxkK8Ex5PEWRaDOPmpdj_HTMgOMIUSFEvgne1d48PFyQLYKrwamFQtTEG0wemOi8cYbrpOLFYyHa88UXzL3O4ldwFhx2/s16000/26610%20(1).jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: top 10px center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#home span {
+    color: coral;
+}
+
+#new .one img {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#new .one .details {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+#new .one:hover .details {
+    cursor: pointer;
+    background-color: rgba(245, 178, 178, 0.7);
+}
+
+#new .one .details button {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2a2a2a;
+    background: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 2.5px;
+    transform: translateY(70px);
+    transition: 0.3s ease;
+}
+
+#new .one .details button:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+#new .one:nth-child(1) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+}
+
+#new .one:nth-child(2) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#new .one:nth-child(3) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: end;
+}
+
+/* Products */
+
+.product {
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.product img {
+    transition: 0.3s all;
+}
+
+.product:hover img {
+    opacity: 0.7;
+}
+
+.product .buy-btn {
+    background: #fb774b;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.product:hover .buy-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#banner {
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnOFc1szcH6t7tOdOPxvs8PqNQR4EFTVPmRes2fJ3fmjzyfZg2ySo8jV0qkQICHkCyzIGUK9y6WB92nYw5_jK6CdqmBgn0SRi5-NrhMQ2P6iHvZyKAx4tFkyxJnVsL6Fdb8KiA_Bk-SZa41DBG1uJvG5pE3zzAiuLKGjRWvw_-kqHsoUNRQniTy-oU8Gne/s16000/parallax.jpg");
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: top 70px center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* #banner h4 {
+    color: #d8d8d8;
+}
+
+#banner h1 {
+    color: #fff;
+} */
+
+#banner button {
+    background-color: #fb774b;
+}
+
+footer {
+    background-color: #222222;
+}
+
+footer h5 {
+    color: #d8d8d8;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+footer li {
+    padding-bottom: 4px;
+}
+
+footer li a {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+footer li a:hover {
+    color: #d8d8d8;
+}
+
+footer p {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+footer .copyright a {
+    color: black;
+    width: 38px;
+    height: 38px;
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    margin: 0 5px;
+}
+
+
+footer .copyright a:hover {
+    color: #fff;
+    background-color: #fb774b;
+}
+
+/* blog */
+
+#blog-container .post .post-img {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#blog-container .post img {
+    transition: 0.3s ease;
+}
+
+#blog-container .post:hover img {
+    transform: scale(1.3) rotate(-10deg);
+    opacity: 0.8;
+}
+
+#blog-container .post h3 {
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#blog-container .post:hover h3 {
+    color: #fb774b;
+}
+
+/* Cart */
+
+#cart-container {
+    overflow-x: auto;
+}
+
+#cart-container table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cart-container table thead {
+    font-weight: 700;
+}
+
+#cart-container table thead td {
+    background-color: #fd8c66;
+    color: #fff;
+    border: none;
+    padding: 6px 0;
+}
+
+#cart-container table td {
+    border: 1px solid #b6b3b3;
+    text-align: center;
+}
+
+#cart-container table td:nth-child(1) {
+    width: 100px;
+}
+
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3) {
+    width: 200px;
+}
+
+#cart-container table td:nth-child(4),
+#cart-container table td:nth-child(5),
+#cart-container table td:nth-child(6) {
+    width: 170px;
+}
+
+#cart-container table tbody img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+}
+
+#cart-container table tbody i {
+    color: #8d8c89;
+}
+
+#cart-bottom .coupon>div,
+#cart-bottom .total>div {
+    border: 1px solid #b6b3b3;
+}
+
+#cart-bottom .coupon h5,
+#cart-bottom .total h5 {
+    background-color: #fd8c66;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-weight: 700;
+}
+
+#cart-bottom .coupon p,
+#cart-bottom .coupon input {
+    padding: 0 12px;
+}
+
+#cart-bottom .coupon input {
+    height: 44px;
+}
+
+#cart-bottom .coupon input,
+#cart-bottom .coupon button {
+    margin: 0 0 20px 12px;
+}
+
+#cart-bottom .total div>div {
+    padding: 0 12px;
+}
+
+#cart-bottom .total h6 {
+    color: #2a2a2a;
+}
+
+.second-hr {
+    background: #b8b7b3;
+    width: 100%;
+    height: 1px;
+}
+
+#cart-bottom .total div>button {
+    margin: 0 12px 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* TEST FEATURE */
+
+.main-img-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.main-img-wrapper img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* базовий стиль стрілок */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.arrow:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.arrow:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.arrow i {
+    pointer-events: none; /* щоб натискання точно ловилося на кнопці */
+    font-size: 20px;
+    color: #000;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+
+/* ---------- DARK MODE OVERRIDES ---------- */
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: #1e1e1e;
+  --nav-bg: #181818;
+  --border-color: #333333;
+}
+
+/* посилання в темному режимі */
+body.dark-mode a {
+  color: #f5f5f5;
+}
+
+/* інпути/селекти */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode .form-select {
+  background-color: #222;
+  color: #f5f5f5;
+  border-color: #444;
+}
+
+/* breadcrumb */
+body.dark-mode .product-breadcrumb {
+  color: #cccccc;
+}
+
+/* стрілки на фото в dark mode */
+body.dark-mode .arrow {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .arrow i {
+  color: #ffffff;
+}
+
+.theme-toggle-icon {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;     /* трохи повітря справа/зліва */
+  color: #000;
+  transition: 0.2s;
+}
+
+/* без круглої підкладки, тільки легка зміна прозорості */
+.theme-toggle-icon:hover {
+  background: none;
+  opacity: 0.7;
+}
+
+body.dark-mode .theme-toggle-icon {
+    color: #000;
+}
+
+body.dark-mode .theme-toggle-icon:hover {
+  background: none;
+  opacity: 0.8;
+}
+
+.nav-item i {
+    font-size: 20px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Усі назви товарів у dark mode */
+body.dark-mode .product-title,
+body.dark-mode .product h5,
+body.dark-mode .product h4,
+body.dark-mode .product .price,
+body.dark-mode .card-title,
+body.dark-mode .card-text {
+    color: #fff !important;
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .featured-text,
+body.dark-mode .featured-subtitle,
+body.dark-mode .featured-wrapper p,
+body.dark-mode p,
+body.dark-mode .section-title,
+body.dark-mode .featured-title,
+body.dark-mode .featured-subtitle {
+    color: #fff !important;
+}
+
+body.dark-mode .cart-title,
+body.dark-mode .cart h2,
+body.dark-mode .cart h3,
+body.dark-mode .cart h4,
+body.dark-mode .cart-total-title {
+    color: #fff !important;
+}
+
+body.dark-mode .btn-buy:hover {
+    background-color: #ffa98b !important; /* світліший кораловий */
+}
+
+/* Total $0 у кошику в dark mode */
+body.dark-mode .total,
+body.dark-mode .total-title,
+body.dark-mode .total-price,
+body.dark-mode .cart-total,
+body.dark-mode .cart-total span,
+body.dark-mode .cart-total strong {
+  color: #fff !important;
+}
+
+/* --- CART ITEM TEXT IN DARK MODE --- */
+body.dark-mode .cart-product-title,
+body.dark-mode .cart-price,
+body.dark-mode .cart-box .detail-box div,
+body.dark-mode .cart-box .detail-box,
+body.dark-mode .cart-box,
+body.dark-mode .cart-content,
+body.dark-mode .cart {
+    color: #fff !important;
+}
+
+/* -------------------- PRODUCT PAGE DARK MODE -------------------- */
+
+/* Breadcrumb */
+body.dark-mode .product-breadcrumb {
+    color: #ffffff !important;
+}
+
+/* Title (product name) */
+body.dark-mode .product-title {
+    color: #ffffff !important;
+}
+
+/* Price */
+body.dark-mode .price {
+    color: #ffffff !important;
+}
+
+/* Product Details heading */
+body.dark-mode h4,
+body.dark-mode h4.mt-5,
+body.dark-mode h4.mb-3 {
+    color: #ffffff !important;
+}
+
+/* Description text */
+body.dark-mode .description {
+    color: #ffffff !important;
+}
+
+/* Long description paragraph */
+body.dark-mode .sproduct p,
+body.dark-mode .sproduct span,
+body.dark-mode .sproduct .detail-text {
+    color: #ffffff !important;
+}
+
+/* Select + inputs */
+body.dark-mode select,
+body.dark-mode input[type="number"] {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #555 !important;
+}
+
+/* Thumbnails frame */
+body.dark-mode .small-img-col img {
+    border-color: #666 !important;
+}
+
+/* Arrows on product image (we already styled color) */
+body.dark-mode .arrow {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Глобальний текст для всіх сторінок у dark mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+/* body.dark-mode span, */
+body.dark-mode .lead,
+body.dark-mode .text,
+body.dark-mode .section-title,
+body.dark-mode .section-subtitle {
+    color: #ffffff !important;
+}
+
+/* Назви товарів + ціна на будь-якій сторінці */
+body.dark-mode .product-title,
+body.dark-mode .product h5,
+body.dark-mode .product h4,
+body.dark-mode .product .price,
+body.dark-mode .price {
+    color: #ffffff !important;
+}
+
+/* Темний фон для всіх секцій у dark mode */
+body.dark-mode section,
+body.dark-mode .section,
+body.dark-mode .featured,
+body.dark-mode .feature,
+body.dark-mode .products,
+body.dark-mode .product-section {
+    background-color: #111 !important;
+}
+
+/* Темні картки товарів у dark mode */
+body.dark-mode .product,
+body.dark-mode .product-card,
+body.dark-mode .card,
+body.dark-mode .single-product {
+    background-color: #111 !important;
+    border-color: #111 !important;
+}
+
+body,
+section,
+.product,
+.card {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #111 !important;
+}
+
+/* SHOP NOW button в dark mode */
+body.dark-mode #home button {
+    background-color: #ff7f50 !important; /* кораловий */
+    color: #fff !important;
+    border: none !important;
+}
+
+/* Hover – світліший кораловий */
+body.dark-mode #home button:hover {
+    background-color: #ff9970 !important;
+    color: #fff !important;
+}
+
+.blog-img,
+.blog-card,
+.blog-card img,
+.card,
+.card img {
+    border-radius: 0 !important;
+}
+
+img.rounded {
+    border-radius: 0 !important;
+}
+
+/* ------- FEATURE CARDS ------- */
+
+.feature-card {
+  border-radius: 16px;
+  border: 1px solid #eeeeee;
+  padding: 24px 22px;
+  height: 100%;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  border-color: #ff7f50;
+}
+
+.feature-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ffe1d4;
+  color: #ff7f50;
+  margin-bottom: 14px;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* DARK MODE для цих карток */
+
+body.dark-mode .feature-card {
+  background: #151515;
+  border-color: #333;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .feature-card:hover {
+  border-color: #ff7f50;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
+}
+
+body.dark-mode .feature-title,
+body.dark-mode .feature-text {
+  color: #ffffff;
+}
+
+body.dark-mode .feature-badge {
+  background: #3b271f;
+  color: #ff9a70;
+}
+
+/* Light mode */
+a.go-shop-btn {
+    background-color: #ff7f50 !important;
+    color: #000 !important;
+    padding: 10px 26px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+    border: none !important;
+    display: inline-block;
+}
+
+/* Hover */
+a.go-shop-btn:hover {
+    background-color: #ff9970 !important;
+    color: #000 !important;
+}
+
+/* Dark mode */
+body.dark-mode a.go-shop-btn {
+    background-color: #ff7f50 !important;
+    color: #fff !important;
+}
+
+/* Dark hover */
+body.dark-mode a.go-shop-btn:hover {
+    background-color: #ff9970 !important;
+    color: #fff !important;
+}
+
+.feature-card {
+    cursor: pointer;
+}
+
+/* Базовий стиль соціальних кнопок */
+.footer-social .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;        /* білий круг */
+    color: #000 !important;  /* чорна іконка */
+    margin-right: 12px;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.footer-social .social-btn i {
+    font-size: 16px;
+}
+
+/* Hover */
+.footer-social .social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* DARK MODE — типово темний фон, але соц-іконки НЕ міняються */
+body.dark-mode .footer-social .social-btn {
+    background: #fff;        /* лишається білий круг */
+    color: #000 !important;  /* іконки чорні */
+}
+
+body.dark-mode .footer-social .social-btn i {
+    color: #000 !important;
+}
+
+
+/* ------- CONTACT SECTION ------- */
+
+.contact-section h2 {
+    font-weight: 700;
+}
+
+.contact-subtitle {
+    color: #555;
+}
+
+.contact-card {
+    border: 1px solid #eee;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    transition: 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff7f50;
+}
+
+.contact-detail i {
+    color: #ff7f50;
+    margin-right: 8px;
+}
+
+.contact-form .form-control {
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.contact-btn {
+    background: #ff7f50;
+    border: none;
+    color: #000;
+    padding: 10px 26px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.contact-btn:hover {
+    background: #ff9970;
+}
+
+/* ------- DARK MODE ------- */
+
+body.dark-mode .contact-card {
+    background: #151515;
+    border-color: #333;
+}
+
+body.dark-mode .contact-section h2,
+body.dark-mode .contact-subtitle,
+body.dark-mode .contact-card p,
+body.dark-mode .contact-detail {
+    color: #fff;
+}
+
+body.dark-mode .contact-form .form-control {
+    background: #222;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .contact-btn {
+    background: #ff7f50;
+    color: #fff;
+}
+
+body.dark-mode .contact-btn:hover {
+    background: #ff9970;
+}
+
+
+.contact-hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.contact-hero-title {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.contact-hero-text {
+    font-size: 17px;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Dark mode */
+body.dark-mode .contact-hero-title {
+    color: #fff;
+}
+
+body.dark-mode .contact-hero-text {
+    color: #ccc;
+}
+
+
+/* Відступи між елементами форми */
+.contact-form .form-control {
+    padding: 12px 16px;
+    height: 48px;
+    margin-bottom: 12px; /* новий відступ */
+    border-radius: 6px;
+}
+
+/* Текстове поле — більша висота */
+.contact-form textarea.form-control {
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/* Відступ над кнопкою */
+.contact-btn {
+    margin-top: 10px; /* кнопка від'їде вниз */
+    padding: 12px 28px;
+    background: #ff8252;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+/* Ховер */
+.contact-btn:hover {
+    background: #ff956f;
+}
+
+/* DARK MODE */
+body.dark-mode .contact-btn {
+    color: #ffffff;
+}
+
+body.dark-mode .contact-form .form-control {
+    background: #1f1f1f;
+    color: #fff;
+    border-color: #333;
+}
+
+/* -------- DARK MODE contact form fix -------- */
+body.dark-mode input.form-control,
+body.dark-mode textarea.form-control,
+body.dark-mode select.form-control {
+    background-color: #1e1e1e !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode input.form-control::placeholder,
+body.dark-mode textarea.form-control::placeholder {
+    color: #bbbbbb !important;
+}
+
+.contact-form .form-control {
+    margin-bottom: 18px !important;
+}
+
+/* кнопка не притиснута */
+.contact-btn {
+    margin-top: 8px !important;
+}
