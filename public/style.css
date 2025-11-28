@@ -1106,3 +1106,10 @@ body.dark-mode textarea.form-control::placeholder {
 .contact-btn {
     margin-top: 8px !important;
 }
+
+footer h5,
+footer h5.pb-2 {
+    color: #d8d8d8 !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
