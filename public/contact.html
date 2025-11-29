@@ -136,71 +136,122 @@
 </form>
 
 <script>
-document.getElementById("contact-form").addEventListener("submit", function (e) {
+  const form = document.getElementById("contact-form");
+
+  const fields = {
+    name: form.elements["name"],
+    email: form.elements["email"],
+    subject: form.elements["subject"],
+    message: form.elements["message"],
+  };
+
+  function clearError(input) {
+    input.classList.remove("is-invalid");
+    const err = input.parentElement.querySelector(".error-text");
+    if (err) err.remove();
+  }
+
+  function setError(input, message) {
+    clearError(input);
+    input.classList.add("is-invalid");
+
+    const error = document.createElement("div");
+    error.className = "error-text";
+    error.textContent = message;
+    input.parentElement.appendChild(error);
+  }
+
+  function validateName() {
+    const input = fields.name;
+    const value = input.value.trim();
+    const pattern = /^[A-Za-zÀ-ÖØ-öø-ÿҐЄІЇЃґєії’'\- ]+$/;
+
+    if (!value || value.length < 2) {
+      setError(input, "Name must be at least 2 characters.");
+      return false;
+    } else if (!pattern.test(value)) {
+      setError(input, "Name can contain only letters.");
+      return false;
+    }
+
+    clearError(input);
+    return true;
+  }
+
+  function validateEmail() {
+    const input = fields.email;
+    const value = input.value.trim();
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!value || !pattern.test(value)) {
+      setError(input, "Please enter a valid email.");
+      return false;
+    }
+
+    clearError(input);
+    return true;
+  }
+
+  function validateSubject() {
+    const input = fields.subject;
+    const value = input.value.trim();
+
+    if (!value) {
+      setError(input, "Please enter a subject.");
+      return false;
+    }
+
+    clearError(input);
+    return true;
+  }
+
+  function validateMessage() {
+    const input = fields.message;
+    const value = input.value.trim();
+
+    if (!value || value.length < 10) {
+      setError(input, "Message must be at least 10 characters.");
+      return false;
+    }
+
+    clearError(input);
+    return true;
+  }
+
+  function validateForm() {
+    const n = validateName();
+    const e = validateEmail();
+    const s = validateSubject();
+    const m = validateMessage();
+    return n && e && s && m;
+  }
+
+  // LIVE-валідація при вводі / втраті фокусу
+  fields.name.addEventListener("input", validateName);
+  fields.email.addEventListener("input", validateEmail);
+  fields.subject.addEventListener("input", validateSubject);
+  fields.message.addEventListener("input", validateMessage);
+
+  // Перевірка + відправка форми
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const form = this;
+    // спочатку перевіряємо
+    if (!validateForm()) return;
 
-    form.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
-    form.querySelectorAll(".error-text").forEach(el => el.remove());
-
-    const nameInput    = form.elements["name"];
-    const emailInput   = form.elements["email"];
-    const subjectInput = form.elements["subject"];
-    const messageInput = form.elements["message"];
-
-    let isValid = true;
-
-    function setError(input, message) {
-        isValid = false;
-        input.classList.add("is-invalid");
-
-        const error = document.createElement("div");
-        error.className = "error-text";
-        error.textContent = message;
-        input.parentElement.appendChild(error);
-    }
-
-    // NAME (letters only)
-    const nameVal = nameInput.value.trim();
-    const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿҐЄІЇЃґєії’'\- ]+$/;
-
-    if (!nameVal || nameVal.length < 2) {
-        setError(nameInput, "Name must be at least 2 characters.");
-    } else if (!namePattern.test(nameVal)) {
-        setError(nameInput, "Name can contain only letters.");
-    }
-
-    // EMAIL
-    const emailVal = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailVal || !emailPattern.test(emailVal)) {
-        setError(emailInput, "Please enter a valid email.");
-    }
-
-    // SUBJECT
-    if (!subjectInput.value.trim()) {
-        setError(subjectInput, "Please enter a subject.");
-    }
-
-    // MESSAGE
-    const msg = messageInput.value.trim();
-    if (!msg || msg.length < 10) {
-        setError(messageInput, "Message must be at least 10 characters.");
-    }
-
-    if (!isValid) return;
-
-    emailjs.sendForm("service_eayjbcu", "template_p0gp7xu", form)
-        .then(() => {
-            alert("Message sent successfully!");
-            form.reset();
-        })
-        .catch((error) => {
-            alert("Failed to send message. Error: " + JSON.stringify(error));
-        });
-});
+    // якщо все ок — шлемо через EmailJS
+    emailjs
+      .sendForm("service_eayjbcu", "template_p0gp7xu", form)
+      .then(() => {
+        alert("Message sent successfully!");
+        form.reset();
+      })
+      .catch((error) => {
+        alert("Failed to send message. Error: " + JSON.stringify(error));
+      });
+  });
 </script>
+
 
 
 
