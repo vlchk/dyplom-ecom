@@ -16,72 +16,62 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="test.css">
+    <!-- <link rel="stylesheet" href="test.css"> -->
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
     
-    <!-- NAVBAR як в інших сторінках -->
+    <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-        <div class="container">
-            <a class="ecom-logo" href="index.html">Ecom.</a>
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span><i id="bar" class="fas fa-bars"></i></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Shop активний на цій сторінці -->
-                        <a class="nav-link active" href="test.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- ВАЖЛИВО: ця іконка з id="cart-icon" – для JS -->
-                        <i class="bx bx-shopping-bag" id="cart-icon" data-quantity="0"></i>
-                    </li>
-                    <li class="nav-item">
-                        <i id="theme-toggle" class="fas fa-moon theme-toggle-icon"></i>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Сайдбар кошика – логіка з main.js / cart.js збережена -->
-    <div class="cart">
-        <h2 class="cart-title">Your Cart</h2>
-
-        <div class="cart-content">
-            <!-- JS сам додасть товари всередину -->
-        </div>
-
-        <div class="total">
-            <div class="total-title">Total</div>
-            <div class="total-price">$0</div>
-        </div>
-
-        <button type="button" class="btn-buy">Pay Now</button>
-        <i class="bx bx-x" id="close-cart"></i>
+    <div class="container">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKVAnDF8iXSIj2o0qEhrciuo37kir_wBzOzQ6PdbisXCoM2yph6nGkFo0v-QbcYT5OrL4kKtdN3VPDVxKMRCpwOr0WU4dT8lhqNyTsgyJB89bfR9hNiA-vIBHg23Gd1Hr00fEYA-a-Qfr8ZHAJ4aPLXrZuQcfzyU8fnwalx4GhztnIOtD2asMwNuy4c5L-/s1600/logo1.png" alt="">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i id="bar" class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="test.html">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item nav-icons">
+            <i class="fal fa-shopping-bag" id="cart-icon"></i>
+            <i id="theme-toggle" class="fas fa-moon theme-toggle-icon"></i>
+        </li>
+       </ul>
     </div>
+  </div>
+    </nav>
+    <!-- CART SIDEBAR (такий самий, як на about/product/test) -->
+<div class="cart">
+    <h2 class="cart-title">Your Cart</h2>
+
+    <div class="cart-content">
+        <!-- JS сам підставить товари з localStorage -->
+    </div>
+
+    <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">$0</div>
+    </div>
+
+    <button class="btn-buy">PAY NOW</button>
+    <i class="bx bx-x" id="close-cart"></i>
+</div>
 
 
     <!-- Products -->

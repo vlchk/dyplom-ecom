@@ -161,6 +161,22 @@ button:hover {
         padding: 10px 0;
     }
 }
+
+/* Іконки кошика + теми в мобільному меню */
+@media only screen and (max-width: 991px) {
+    #navbarSupportedContent > ul > li.nav-icons {
+        display: flex;
+        gap: 14px;               /* відстань між іконками */
+        margin-top: 12px;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    #navbarSupportedContent > ul > li.nav-icons i {
+        font-size: 22px;
+    }
+}
+
 /* Mobile Nav */
 .navbar-light .navbar-toggler {
     border: none;
@@ -250,10 +266,15 @@ button:hover {
 
 /* Products */
 
+/* Products */
+
 .product {
     cursor: pointer;
     margin-bottom: 2rem;
+    position: relative;      /* щоб іконка позиціонувалась від картки */
+    padding-bottom: 2.5rem;  /* місце під круглу іконку знизу */
 }
+
 
 .product img {
     transition: 0.3s all;
@@ -274,6 +295,30 @@ button:hover {
     transform: translateY(0);
     opacity: 1;
 }
+
+/* Кругла іконка кошика в правому низу картки */
+.product i.add-cart {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1rem;
+    background: #fb774b;          /* той самий помаранчевий */
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;           /* робимо круг */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.product i.add-cart:hover {
+    background: rgb(240, 138, 102);
+    /* transform: translateY(-2px); */
+}
+
 
 #banner {
     background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnOFc1szcH6t7tOdOPxvs8PqNQR4EFTVPmRes2fJ3fmjzyfZg2ySo8jV0qkQICHkCyzIGUK9y6WB92nYw5_jK6CdqmBgn0SRi5-NrhMQ2P6iHvZyKAx4tFkyxJnVsL6Fdb8KiA_Bk-SZa41DBG1uJvG5pE3zzAiuLKGjRWvw_-kqHsoUNRQniTy-oU8Gne/s16000/parallax.jpg");
@@ -533,6 +578,159 @@ footer .copyright a:hover {
 .arrow:hover {
     background: rgba(255, 255, 255, 1);
 }
+
+
+/* ================== CART SIDEBAR – як на test.html ================== */
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 380px;
+    min-height: 100vh;
+    padding: 20px;
+    background: #1e1e2a; /* var(--container-color) */
+    box-shadow: -2px 0 4px hsl(0, 4%, 15% / 10%);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 1100;
+}
+
+.cart.active {
+    right: 0;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.cart-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    color: #fff;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    border-top: 1px solid coral;
+}
+
+.total-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.total-price {
+    font-size: 1.075rem;
+    margin: 1rem 0 0 0.7rem;
+    color: #fff;
+}
+
+.btn-buy {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto 0 auto;
+    padding: 12px 20px;
+    width: 50%;
+    text-align: center;
+    border: none;
+    border-radius: 2rem;
+    background: coral;
+    color: #fff;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#close-cart {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    font-size: 2rem;
+    color: coral;
+    cursor: pointer;
+}
+
+.cart-box {
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cart-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
+}
+
+.detail-box {
+    display: grid;
+    row-gap: 0.5rem;
+}
+
+.cart-product-title {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.cart-price {
+    font-weight: 500;
+    color: #fff;
+}
+
+.cart-quantity {
+    border: 2px solid coral !important;
+    outline: none !important;
+    width: 2.8rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+}
+
+.cart-quantity:focus {
+    border-color: coral !important;
+    outline: none !important;
+}
+
+
+.cart-remove {
+    font-size: 24px;
+    color: #fd4646;               /* var(--main-color) */
+    cursor: pointer;
+}
+
+
+/* #cart-icon[data-quantity="0"]::after {
+    content: "";
+}
+
+#cart-icon[data-quantity]::after {
+    content: attr(data-quantity);
+    position: absolute;
+    top: -6px;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
 
 
 
@@ -1107,9 +1305,33 @@ body.dark-mode textarea.form-control::placeholder {
     margin-top: 8px !important;
 }
 
-footer h5,
-footer h5.pb-2 {
-    color: #d8d8d8 !important;
-    font-weight: 700;
-    font-size: 1.2rem;
+/* Footer list links fix */
+footer .footer-one ul li a {
+    color: #ffe1d4 !important;
+}
+
+footer .footer-one ul li a:hover {
+    color: #fb774b !important;
+}
+
+
+/* -------- CONTACT FORM VALIDATION -------- */
+
+.form-control.is-invalid {
+    border-color: #fb774b;
+    box-shadow: 0 0 0 0.15rem rgba(251, 119, 75, 0.25);
+}
+
+.error-text {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #fb774b;
+}
+
+.home-products .product img {
+    width: 100%;
+    height: 450px;            /* або 330 / 360 — підлаштуй під свій дизайн */
+    object-fit: cover;        /* обрізає фото, але тримає пропорції */
+    object-position: center;  /* центрує фото */
+    border-radius: 4px;
 }

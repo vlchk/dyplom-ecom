@@ -99,6 +99,62 @@ const PRODUCTS = [
     "description": "Midnight Urban Pack is a sleek, modern backpack designed for everyday city life. With its clean lines, deep midnight tone, and practical layout, it offers the perfect balance of style and functionality. Spacious compartments, a front quick-access pocket, and comfortable padded straps make it ideal for work, travel, or daily commutes."
   },
   {
+    "id": "titan",
+    "name": "Bold Chrono",
+    "price": 92.0,
+    "priceText": "$92.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1dItrQkrsbgG0wiI5dwbtMfLHDXxysyDujBZHmka8MtW-MGLHlu9wS1IYw_6Z_JNXNgzDedl3zEvkCWsp8-TXdvaFhOCqWl-QpMBJ8Bk8vadAi7_Io2xKH_e7ZIlRRm1wttHpjPxR0pGRXNA30gmCQQn0Jr5c77-Gxp9KLC3PhGBYGbFdAGKWAsp6W87A/s16000/1.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1dItrQkrsbgG0wiI5dwbtMfLHDXxysyDujBZHmka8MtW-MGLHlu9wS1IYw_6Z_JNXNgzDedl3zEvkCWsp8-TXdvaFhOCqWl-QpMBJ8Bk8vadAi7_Io2xKH_e7ZIlRRm1wttHpjPxR0pGRXNA30gmCQQn0Jr5c77-Gxp9KLC3PhGBYGbFdAGKWAsp6W87A/s16000/1.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6OCBa5PX9w4fdjuBdVBJMbY5vS6R-Ge45Ph6Sjrpl4WGkEpoE6R7KXMI9n8jLAnmFpyiLvZokVIP2-k1dZDV4C3KK8AjDj72fcE1lYEOdw_oe6jPZu-pOayk3QEe-YUldsaVhMLbzxlecvKILx85NdMVuanM1-N_DEXedI45UT-ds0PIm6sXXofqIAfIn/s16000/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2009_38_38.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOIsh7ZjJTvGctj9AY78gm6-PRnnP9Z0ENbfNwapnV9lHu6ubqpn5kT2nzZQbGp8s1tidfrG-DtBmhVEyyS7Je10CyCF7UvtMUFBIoMw2lEME5aVrWxyhZ8wmoSmeAAOw8UxiYcPgYCj_nEOnTk2-6BAWdSZshyphenhyphenZC8vZZqXF-ot_DgKBdYVW4U5nVOfccZ/s16000/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2009_47_10.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4G6LkGjtBZasmbmXGuxBl2jrL6Bk5TiL66SEbEjoSEnEL6iXhAFLyUq4SyYM9phe3oCAg-9aKTA2HERFKSLJb63P16EZcfN24cmu2K0Xn3XcRjeAZYZwMystlyV6fZrVvmjTpfhdYZuimEtJDke8la32WGhxBK1KAha1XFTJYEuWLjVsICAbfMVBsYehV/s16000/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2009_47_51.png"
+    ],
+    "description": "Its oversized case, textured strap, and precision chronograph details create a statement accessory built for confidence and character. A perfect choice for everyday wear, dynamic looks, or anyone who values bold style with a technical edge."
+  },
+  {
+    "id": "croco",
+    "name": "Minimal Croco",
+    "price": 85.0,
+    "priceText": "$85.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbY8l__pxIFIVyznLPj7OLZpnIsjncu8FwaPPQTR6NwGoglglWiRFs0gFLzJoR24H8lCX4Uw1QkuyaGH0IWs9hc30tLu3pj7AolkAXzDAh2Zw6G5tdaaYYSXI4B2XJsn07AD8jqb-qT3x4dQIJiqF-ClyzLtIGq5iKONL4GiNYj8kcKDqoZLWi1XV40w67/s320/2.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbY8l__pxIFIVyznLPj7OLZpnIsjncu8FwaPPQTR6NwGoglglWiRFs0gFLzJoR24H8lCX4Uw1QkuyaGH0IWs9hc30tLu3pj7AolkAXzDAh2Zw6G5tdaaYYSXI4B2XJsn07AD8jqb-qT3x4dQIJiqF-ClyzLtIGq5iKONL4GiNYj8kcKDqoZLWi1XV40w67/s320/2.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcgijD3QRcGC5NuXOP1EG4bv49sS32q3cyy5xTP0B-wG0sVQxmyaVbXkEFueCuyWpVgF1c60LhtQGAsjn-ehv6nTk4f3lBGXIcTBdJM3Rv5m-QFDZNHPa9AYFeW-WCfZTNq-8cDcOyIPQ1uyVhrm1_3HldU8_NVO7ZxiM5tsN2Bja8P6qvrZZxV-oT9tso/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_00_37.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbql2ou9ZqeLXq4jIvtGLLWxofrPkXYp4NemrNFV5BiSfYjQhfZBDHtnIt2gbuyXvZtomYd5Ncb1KtPAXYXycXs8ZZKHe_E1cVZ8mgjYmwQQArqLI2SJnS7msImW_NpEXUZaOhEqv-VL3CMIMpCT4-PYE9KCbSjI1FDcDLHiRljLRn7EhFLdJnib9xPhzK/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_02_08.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiO-J-ocKk3Zzx3MVRWFfn0ti6GDDKj93lwl2NwzuVZj4b3OL1oKVvzcYPcoLpNIQl3s2sqmqYd-8mPHF18HqjCbOYD2h5YpqRkobZy7PgBP1XqFwHAqMrJOa-TqRECVyqXkBJx4QFCVfNgvm2FW1w8Fuq3cQmc-TzeWvycyKdBYhfcwGbU0bfIX6gbYbuy/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_02_59.png"
+    ],
+    "description": "Featuring a clean dial, slim markers, and a refined leather or mesh strap, it delivers a timeless look with contemporary sophistication. Perfect for daily wear, formal outfits, or anyone who appreciates a sleek, minimalist timepiece with character."
+  },
+  {
+    "id": "mesh",
+    "name": "Mesh Chrono",
+    "price": 133.0,
+    "priceText": "$133.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHhm1UBwmpTT5YN_GVJqFNgydhWqpYGItAsb2AD-KfNDBhgfNmjgSNKIO5PhZs24_zoUdJVHc1W2fuRcZ50FNo4RBIaZD0v5-O0KB-El0t1KK3ZEIzGkyRzcyJgPVAZSYQDhNiubhBe0x3Zi-XzeiqVnQn-B6n8aXDZbRfspx4dZU3VQNYZWTxlBuezY74/s320/3.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHhm1UBwmpTT5YN_GVJqFNgydhWqpYGItAsb2AD-KfNDBhgfNmjgSNKIO5PhZs24_zoUdJVHc1W2fuRcZ50FNo4RBIaZD0v5-O0KB-El0t1KK3ZEIzGkyRzcyJgPVAZSYQDhNiubhBe0x3Zi-XzeiqVnQn-B6n8aXDZbRfspx4dZU3VQNYZWTxlBuezY74/s320/3.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiQqRILffoRvKLSJlyQ-L7212BpewVe2YmJ_K6Zerty6dvREoW-8otmJMiFtHFHhHg0Y1ZSK7ObcKjAgJEAZjODo7PkvYx-UGtn5ongv0He4RuL59n5mByu9uF9R-qmxz-NfIMPwsb35lahNCfdz8-9TAtMaGggCog1oRtiWBoMvecz1rpNHX1I6fZGtjv/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_08_24.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDQmnDgZvILqhuFL_9vpZbl7X3DzT3uTOT3mQgwodvyApnDnPv_ZMTVXD-_VjMo3AtOcC9lKio9UwzMuxjUmPjyBoG-Vc3XQekCxmxuLuzuKr9i89S8jYVnkHIyC5Ohc7h_ICVwlIrjRmknFBE70Yi6ekl3KJM7yN8nqCoIMNVnShuVcnhbcBfegH1LN_m/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_08_44.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtiSrpOUu9CuRpELvblsLzHnABPAU8398TMPeqawKeYgn80CQX5KhNPaIRyYoRYWSnvr3auLypLrh5uTa_OuNnrwOi-SKgAjfyBv_7lqVdNgnTKsts_BR6j_F9AOo3SOpHRDkRAgrqyZPyaGmyle5VgIOUn1d3AyWrMIpvA0DYHTHnaQizxq7-JX0XozbR/s320/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%B8%D0%B9%20%D1%85%D1%80%D0%BE%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D1%84%20%D1%96%D0%B7%20%D1%81%D1%96%D1%82%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%BC%20%D0%B1%D1%80%D0%B0%D1%81%D0%BB%D0%B5%D1%82%D0%BE%D0%BC.png"
+    ],
+    "description": "Its clean dial, sharp detailing, and woven stainless-steel strap create a timeless look that elevates any outfit. Perfect for everyday wear, business style, or anyone who values elegance with a technical edge."
+  },
+  {
+    "id": "racer",
+    "name": "AeroSport Racer",
+    "price": 112.0,
+    "priceText": "$112.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4U1wR0VqggjWy7jlBD3iLsAgie2C_aaP1hJRkayevaGM1hYjTt1T1uIVLfSboeWvMeyxkuxgJIX2XkoQjm9joK5psJOAufKspV__L9eEFc8uR6-2F0nU_EFDKhA1AyB4ufcGTt5V5qeZI28AgwH0irobsI7Wf6OZWOx0DyFChsthoHs2x-rZxw5e8jN_0/s320/4.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4U1wR0VqggjWy7jlBD3iLsAgie2C_aaP1hJRkayevaGM1hYjTt1T1uIVLfSboeWvMeyxkuxgJIX2XkoQjm9joK5psJOAufKspV__L9eEFc8uR6-2F0nU_EFDKhA1AyB4ufcGTt5V5qeZI28AgwH0irobsI7Wf6OZWOx0DyFChsthoHs2x-rZxw5e8jN_0/s320/4.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrffRgCvVlVOlWdaNSq69fXQ5YfWZwE15BLfTZ6nUDmBbfkW7O-_4J-CaIw9EsahALorYk7Iooo4TBe21R-qY5JIx-67sz7ot3BIje_zaYX2xXArgw8jv2psClvj0J5f4oiMzAs5RdRofVKSU0Cb7kKuiDWdMM-APVOCF7IRCi0mqYkAG-a1b9AK1pTVRD/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_19_21.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiBWp83wtn_cJEYx8faS2RC_1rxqn2I662itw76C4iC9CEFQbOv5gfRV91OHAt1_mdfnLAIdJa6PsnB7Lf4uzG_kgSTZO_oB_nFVm-Ql0AVj4wO-HvLksrp44eL8iUtqeqH4jCCeTKFIVakGogGUKQ7vFwpcZvjciR09v0HoCl2dHPxTGIPIZ4DFbwfon7/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_20_28.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDvJTTkls-igyT0uQZhpkA3N4fbwRixDDf3cGHfr1TeSlNU6q0CV0sOfcz_TPDglXLwFFWr-YpuJCZwB4k_H_d999962pMXLIfeoQIEU8KexkE_DEJW-n4qubaJgyqU9uqwTzrOOaeCVizuTe_s7oSsiPBEemZnxG24R-V5diy-KwU6gEq0f3tk7AOxo4d/s320/ChatGPT%20Image%2029%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2010_21_52.png"
+    ],
+    "description": "Built for those who lead with confidence, this watch features a robust case, sharp indicators, and three performance-driven sub-dials. Available in striking color variations, it delivers both personality and reliability. A perfect choice for anyone who wants a dynamic, modern timepiece that stands out."
+  },
+  {
     "id": "eye",
     "name": "Eye Graphic Tee",
     "price": 39.0,

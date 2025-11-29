@@ -7,15 +7,18 @@
     <!-- Стандартна іконка -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png">
 
-    <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png" type="image/png">
 
     <!-- Apple пристрої -->
-    <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png">
+    <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    
 
     <link rel="stylesheet" href="style.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <!-- NAVIGATION -->
@@ -43,17 +46,31 @@
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact Us</a>
         </li>
-        <li class="nav-item">
-          <!-- <i class="fal fa-search"></i> -->
-          <i class="fal fa-shopping-bag"></i>
+        <li class="nav-item nav-icons">
+            <i class="fal fa-shopping-bag" id="cart-icon"></i>
+            <i id="theme-toggle" class="fas fa-moon theme-toggle-icon"></i>
         </li>
-        <li class="nav-item">
-          <i id="theme-toggle" class="fas fa-moon theme-toggle-icon"></i>
-        </li>
+
        </ul>
     </div>
   </div>
     </nav>
+    <!-- CART SIDEBAR (такий самий, як на about/product/test) -->
+<div class="cart">
+    <h2 class="cart-title">Your Cart</h2>
+
+    <div class="cart-content">
+        <!-- JS сам підставить товари з localStorage -->
+    </div>
+
+    <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">$0</div>
+    </div>
+
+    <button class="btn-buy">PAY NOW</button>
+    <i class="bx bx-x" id="close-cart"></i>
+</div>
 
 <section id="home" data-light="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWVMkqQFYlB9-9u9EQx9O69X-jPbohrA8pRaOUA8wm2ochZjNJ7rgMNjPOqnro3NLU6pzcWHq4k2ua2vXzT2X0qvASYyAFbWmhRxkK8Ex5PEWRaDOPmpdj_HTMgOMIUSFEvgne1d48PFyQLYKrwamFQtTEG0wemOi8cYbrpOLFYyHa88UXzL3O4ldwFhx2/s16000/26610%20(1).jpg" data-dark="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGSGI6nVAHJQm85iwrxs7UZ50dbv0XE73N48NZo6f0jFuU5OMKkA8N8DN7GaM7EddzUxMDmXKo7KXGOi4q1nBKulZWe98qo4lBrLdQ_MHLb3cLQvAwIiU2KUwjL3EKqsLSEOAgUbzEYgtTXesYviXOxKSSUNZ5Zg8q23zWQHstV4qil5-tpVfzdVj6iMJz/s16000/ChatGPT%20Image%2022%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2011_59_41.png">
     <div class="container">
@@ -108,7 +125,7 @@
     <div class="container text-center mt-5 py-5">
         <h3>Our Featured</h3>
         <hr class="mx-auto">
-        <p>Here you can check out our new products with fair price on rymo.</p>
+        <p>Here you can check out our new products with fair price on Ecom.</p>
     </div>
     <div class="row mx-auto container-fluid">
         <div class="product text-center col-lg-3 col-md-4 col-12">
@@ -125,7 +142,9 @@
             <button class="buy-btn">Buy Now</button>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=boots">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjS5Rd8hZJS1HJ0_DOvgOuEvVi12f-I-S5NWANdFjHUemOlm-aFx1Q0LkLEcXnlP-s5tUtY4zYPTN7sIhTiPaLBs0O157bMY6U9pZRRPX5S5l2vdEy8FFOQI3ILOYMPvLnXrEjFlv8funIiKcYlfzE6Rui0QAyP96cLbRMtRQjjFmCVv9AKzwuV_X4d7AKP/s16000/2.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -135,10 +154,14 @@
             </div>
             <h5 class="p-name">Crimson Grip Boots</h5>
             <h4 class="p-price">$80.00</h4>
+            <a href="product.html?id=boots">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=pack">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHg7L2q3fgNoSkGUql6pPA53YyY4608l9zseTuVai1XF3x9Rv39qdNaL7qB35lxjybLOGd05WGlpBy0bH6e-pOvdSminyvrlK1zSzXOUmbmaN44LYp5EyKgo0mZwbqopT2px2JuTVe6-BPgCnjs6RH-JhjCWAi11LDlaGtADBF_PjV8szLr88cT33cyYHh/s16000/3.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -148,10 +171,14 @@
             </div>
             <h5 class="p-name">Midnight Urban Pack</h5>
             <h4 class="p-price">$22.00</h4>
+            <a href="product.html?id=pack">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=beanie">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0Qy738fpPgaSXIANFUN7qaizxY06N5G4HdK_PPRy_qFAmQX_qjay6-bv6kFwHYtQd3e63qfmzd-JsOkT6_SL5Ku5SRZ2HPlmklBWpp-CEg4F06c6aCPh6X4FDKl49ncx_tKs-cTucb9yD0kkty2g_FB7QaZfT5CuKI9CfCfjm0q30fdSYJbPBw4aMV-5q/s16000/4.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -161,7 +188,9 @@
             </div>
             <h5 class="p-name">Soft Knit Beanie</h5>
             <h4 class="p-price">$30.00</h4>
+            <a href="product.html?id=beanie">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
     </div>
 </section>
@@ -174,15 +203,17 @@
     </div>
 </section>
 
-<section id="clothes" class="my-5">
+<section id="clothes" class="my-5 home-products">
     <div class="container text-center mt-5 py-5">
-        <h3>Dresses & Jumpsuits</h3>
+        <h3>Everyday Wardrobe</h3>
         <hr class="mx-auto">
-        <p>Here you can check out our new products with fair price on rymo.</p>
+        <p>Here you can check out our new products with fair price on Ecom.</p>
     </div>
     <div class="row mx-auto container-fluid">
         <div class="product text-center col-lg-3 col-md-4 col-12">
-            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgj9P3dY0APXq4ZgzDhgC-Xix7GZFmOlitGqyxbpu214qNjb6rn5zOTx8pqU1UOdOxSwhh40UZjUA9sib-wtpx5m2aAjM4tb0iORbGnnMcnlVmSE_6jG77MchQmXLT6bMtXBW43M9E2_saBzUxXw9CMhPGHNwQYiyiAABAv6UcdiY0y3tZye1qtuUPsNDZy/s16000/1.jpg" alt="">
+            <a href="product.html?id=hoodie">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_BVUpNvAp8Aqn5l1hPFjDdrr1VeZu6osWw0T_4_E2sKeiCi2NrwBweFzwe3ABLh0Y21339p5FaxA3R-nsHmc9N0iZJ2eNRupMa-6W1Y95mToh6WPWe5-A0EKOPlyr_Y7wPSklfMvv1nzWFK0-vc2w7jrOz0vE9Z-IEbvqtNsbjTHBdVEQJyFAAh36ndnG/s16000/img_0208.png" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -190,12 +221,16 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name">Striped Crest Blazer</h5>
-            <h4 class="p-price">$42.00</h4>
+            <h5 class="p-name">Hygge Hoodie</h5>
+            <h4 class="p-price">$110.00</h4>
+            <a href="product.html?id=hoodie">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
-            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr8idV3E6Lxf5g-L-jfouP59pVDvXlsNIBaHA_I4RQ1Q3Tv-PFqQ_2i_vrM7IAgJ7ysmXXfGvfN0_qIhu-XqczvGYq00-ofEUImfArs1HJdMKrJGpGm9Trv2S5Xxm1nBFFRXgVqqhnAx_acAL3t9N2JepvGzRZBJ_pOuoPZsuEtsG6zGe-mVI8ouDplaQM/s16000/2.jpg" alt="">
+            <a href="product.html?id=sleeve">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfD8z_CgnglDzyMJAiCnMuVn3NK5u42u7wRk0q0UBpaiJcMuJDrCgg89zZobW_ywdWBoAqL5ewEUKNDgCAO3Oj-_CwXdQQq_jTQ8kuX4LJ_ghkrcN5ofnQIQdSCyTc60QMR7NRqshb3RDZmPtQtv-b5IcKzwoCUzx4H6uKPaoRZP9VrEohkSi7_0476FRN/s16000/1-18%20(1).png" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -203,12 +238,16 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name">Waves Knit Dress</h5>
-            <h4 class="p-price">$54.00</h4>
+            <h5 class="p-name">Long-Sleeved Shirt</h5>
+            <h4 class="p-price">$89.00</h4>
+            <a href="product.html?id=sleeve">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=eye">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1l6hiC8UNwiJls6Awe1kOwUXkgJLwM9HpbGBAFQQ0fs6H8vgql8N0EUQKiw1h4jOWa-q4yl8FOyKLhDrYB22HWtiPb4I9Iz81kkqxDwK5RDV4ku2V9buGtOZ7IHVy86XSwcnxMEQjcakUj6hyzAq5o1vDlw26uSxyBRIUAbCfkb1bYpN8cCIxFhNqvtpu/s16000/3.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -217,11 +256,15 @@
                 <i class="fas fa-star"></i>
             </div>
             <h5 class="p-name">Eye Graphic Tee</h5>
-            <h4 class="p-price">$12.00</h4>
+            <h4 class="p-price">$39.00</h4>
+            <a href="product.html?id=eye">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
-            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm6UJkFuhvtVXxfyjT74GgxKlhSZURrjhrY_rfziP4Xj7cmO6-YU3HGu2ZMGC0JaD2ZdB48NVi6wuLifG_qwzh1YyQFkjB7ka0H4ZXVxA3gBjWfvTufu188R9HV67qq1NnvmdY4KAFTkDViFznhMOnSzPDTAE_Mx83_V87K1W7migvyl2TDBSNfAo15p7H/s16000/4.jpg" alt="">
+            <a href="product.html?id=socks">
+            <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2SAWZoFuxxcpooZI_GQlLvkL8kztwNW5nZYT8hwGl8t558PG3u_YMb-WfpMTO4rvUiGzyoNi4GUWzV3YhpiQK0L6DaA1IgwVW2y6Cd9OEZ4Zn1JIR865cYYNmcE7W096zMz3C9wx32e8tyYnfD9OFSKAU_O8KoRxhx5LrDZGqsXEuiMLqlx47xhRlidBo/s16000/ChatGPT%20Image%2021%20%D0%BB%D0%B8%D1%81%D1%82.%202025%20%D1%80.,%2011_27_02.png" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -229,9 +272,11 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name">Streetline Leather Pants</h5>
-            <h4 class="p-price">$37.00</h4>
+            <h5 class="p-name">Cotton Socks</h5>
+            <h4 class="p-price">$5.00</h4>
+            <a href="product.html?id=socks">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
     </div>
 </section>
@@ -244,7 +289,9 @@
     </div>
     <div class="row mx-auto container-fluid">
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=titan">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2jf2m2YwN0DlFNtul_emlYe7qPPeSoW5LIJuqvEn8dMA_1X7Qj6fwB0gDyG0LSycGPa1YE9s6_DdX_pIt2SfQcwvfErbpVTHJAFPaF_qhqUl-nEnQ-Lec1Fj8x9gK3_S1e5ry7gDs3Y5ujtvcu5h-qDW3CCfXZVcjFkrZrxlHaLSDqwItWxNvM2jbycrn/s16000/1.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -252,12 +299,16 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name">Titan Black</h5>
+            <h5 class="p-name">Bold Chrono</h5>
             <h4 class="p-price">$92.00</h4>
+            <a href="product.html?id=titan">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=croco">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjpwTsTkVmoqebE8LBIfG5YHS-6kh9357ygC0ywoZa___VKrGAFo_eaJN8PU4gZfa6Y7WkJnegO29AyzzqGt0_TUWYi6GpDL2f2LpGqfUE2HZwxnrS3YnX5KDYLR0j69CqSACGW0SKqWMRYxTKp_I5v-rSOLXOBZGB04Ibz8R5wffccuRHtN9KtWE3gjLt/s16000/2.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -265,12 +316,16 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name">Silver Croco</h5>
+            <h5 class="p-name">Minimal Croco</h5>
             <h4 class="p-price">$85.00</h4>
+            <a href="product.html?id=croco">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=mesh">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiItTw2hPY33SANWJGMyUD5dIusAgMQFczl_NTCkVUNwVlwbWrskUT-SDP9UGe3xS1huvNfTKLvXLmQKnk77GHDJN5OQ0NHBQ-uXCiI60PSj16mUcuZWzWoLriH80xGcYmn0HZsqLABaO3mehy2bgrthGQF2CWIR0NwjgqPGISJOoJ6rsSmXdVqrUnYOS5r/s16000/3.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -280,10 +335,14 @@
             </div>
             <h5 class="p-name">Mesh Chrono</h5>
             <h4 class="p-price">$133.00</h4>
+            <a href="product.html?id=mesh">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-12">
+            <a href="product.html?id=racer">
             <img class="img-fluid mb-3" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhl1KpwOVxhQzmBeUk56txX7I1v7RZOH_rMeEyWqWpe2syw0gotIzwSUKT2cbkBh0Y-pBDF1Z8pHXScthBBjmZ3ymg1jXVj6VIxok2DbROghu3jjC-XmtDP14dJdIt9GgdbCzWfcv6x1LC3LcIL0lT5Ao5Obn46diF-g4AJNosRXj8Q9ZGMIO-S5dR1f4Z9/s16000/4.jpg" alt="">
+            </a>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -291,9 +350,11 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name">Gold Racer</h5>
+            <h5 class="p-name">AeroSport Racer</h5>
             <h4 class="p-price">$112.00</h4>
+            <a href="product.html?id=racer">
             <button class="buy-btn">Buy Now</button>
+            </a>
         </div>
     </div>
 </section>
@@ -422,8 +483,9 @@
         </div>
     </div>
 </footer>
-<script src="cart.js"></script>
+<script src="data.js"></script>   
 <script src="main.js"></script>
+<script src="cart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 </body>
