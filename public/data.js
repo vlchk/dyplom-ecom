@@ -141,6 +141,62 @@ const PRODUCTS = [
     "description": "Its clean dial, sharp detailing, and woven stainless-steel strap create a timeless look that elevates any outfit. Perfect for everyday wear, business style, or anyone who values elegance with a technical edge."
   },
   {
+    "id": "urban",
+    "name": "Urban High",
+    "price": 65.0,
+    "priceText": "$65.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-so_YfviKR5SsU0cvAQ1tWBIjQHnq_b3w-9Z-dnGuL8FXDfettwtirLleJuzda_K-s2nS9ZicPuln9Kfnv5IVaBBuS25jjzZa75Afd9sddDOgtUhPRpZ0xL7PsXbeiwDaUtHqINu1GvGls6Kb5UQKtFKrPPA_8yBZadPWA0-rvjKKdsNsYCxnp3LtrgDS/s320/8.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-so_YfviKR5SsU0cvAQ1tWBIjQHnq_b3w-9Z-dnGuL8FXDfettwtirLleJuzda_K-s2nS9ZicPuln9Kfnv5IVaBBuS25jjzZa75Afd9sddDOgtUhPRpZ0xL7PsXbeiwDaUtHqINu1GvGls6Kb5UQKtFKrPPA_8yBZadPWA0-rvjKKdsNsYCxnp3LtrgDS/s320/8.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5s3tcYL2riEhd2S3EYP2ElJ56eO9H-nHJkOOjdl2FyRN3OwM1-wZonhyd4X1ECWrYa2MmoCOKQiKzOzpZzkkYXK8HFBcDwLNYj8tq3hanGmdpy46htKkp3-oQv1lbmLqy7K0pMDAb0Jv01p4Ki5fTduusnLjp6uZG9u3eYuorptiykQWqMVr9o8cVNrXS/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2015_49_46.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFv4IL0Q55WgcBQ5u3C2vrg8QinVQFxxNbcwUWtGg38ogoq-lFkmIbp49qB1Yo0bSqHDy-usGkVB9iWCnUnO4x16brpqFHy0QrxVg9kJga8II-iektdBbKrCi_gCpqlLTEb-5GU-UP7JJyrYuE3R-h25VXktMrmQEAaJ7fVDWIb2YNpWKEqz7ugCprjfz2/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2015_52_17.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4lLwOtf2PBQ1TdGCoQqwfn8Lkqh_n6n3I0vwm7QM02LRlopuxzw6JE0muxSGkdCvG3EMztylpdqQSlJbrvscWxH1JnycTY9qU-PcBcCjAMHFE4UtCLmj6aCfVfNaCpybJBnS3D3k_WK_Zc81U1pVIvZ6ujXiuQvSbgmwTtLElEf5yKcOktaXAtdErfwMp/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2016_31_36.png"
+    ],
+    "description": "Featuring a sleek layered design, cushioned ankle support, and durable outsoles, they deliver the perfect balance of functionality and attitude. Ideal for casual outfits, active days, or anyone who wants a bold and versatile sneaker choice."
+  },
+  {
+    "id": "sand",
+    "name": "Sand Trek",
+    "price": 42.0,
+    "priceText": "$42.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkitXl1WBSpWUT1TggtdYMgxbcguaMq6661O1uzT4V74gq7Ug9du9Vb8l_s3DlMZq1BXmgQ211m9c7LCBS68gxmdSga4h9vA1ZNcZ2PwAakNVONmPFWxPcm-51ClO1BVHVk4YymSz5SAX51TWHxO6V7wQx6jbIV-TUpvUbZeRGmgLRkjhqixNMOHmJea_k/s320/7.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkitXl1WBSpWUT1TggtdYMgxbcguaMq6661O1uzT4V74gq7Ug9du9Vb8l_s3DlMZq1BXmgQ211m9c7LCBS68gxmdSga4h9vA1ZNcZ2PwAakNVONmPFWxPcm-51ClO1BVHVk4YymSz5SAX51TWHxO6V7wQx6jbIV-TUpvUbZeRGmgLRkjhqixNMOHmJea_k/s320/7.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlZQkMyToJVqsfQ3LAmvYN2RHJ0rLvL8YBhZtLBcOuuU39gc9uGkmOfOlKsrFNQ62OkWsNVOXaEfynGZ2-Q8YB-qKxeRkuEtEOvN7oPH6HARKyv7KoIXxbptZCUJsHQffXLKMkQnFjIvvNfM4Zitft-1TrFO2huVRx3rMD527bvl3Vh9FpJ0HMvt3DDRKf/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2016_39_22.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJVVnrDqflLYbreRXRuJOIszGVHUnU2U5XDe0cg-WHHZcRXrrQcOkAU5u9iMuXXOV2ahd5dDBBZuwNkaxkVkRQNWCXtvhMEsnNkI5Ghz3LHfKIYMPSdV_ZAV3vlOxZSJrMZjnde7ZlDjUCrM9bYatBKxPeTWZx6pBBiyQ4LUkYpFnnZf_8WD7R5bgnECpS/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2016_52_28.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYm8YiLOaAPPRQ9XOOzUPSOMGLb8zwrfzcQPnDLcP2T0tJYny2LJ3mxZo8dfA5v0poiCNe6FmQ8SQMSooI7dH9mav4jsCv4-dZkVx6Pe9U2_knwJ_Syksx8LE_70lxDj1FqGlAs0LeaiuRtIVtV-KkjzbsOGe2hlDmuXVyuZWamHJSXAS1ZYrz-N7D49E_/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2016_55_36.png"
+    ],
+    "description": "Featuring premium suede, detailed moc-toe stitching, and a lightweight sole, they deliver a perfect balance of style and practicality. Ideal for casual outfits, smart-casual looks, or anyone who appreciates understated elegance."
+  },
+  {
+    "id": "lace",
+    "name": "Coffee Lace",
+    "price": 81.0,
+    "priceText": "$81.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhizFHYNZL8fM6mbk5wApDyAwiOXi5MOWkfppTgaQS1UFMe7UY1AmM5ZExn-6qlreLuRrWxCDqxWK2N6u7WKrvlHmQ_1_1umxDwKypemMsavacqqJ3xY4QbXA9V1vhEICo7p6E-sx4C6wsY1u5malvmwHKhB1r691xtWbIxf6qD-6u9ZnronI5nowTesbQP/s320/6.jpg",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhizFHYNZL8fM6mbk5wApDyAwiOXi5MOWkfppTgaQS1UFMe7UY1AmM5ZExn-6qlreLuRrWxCDqxWK2N6u7WKrvlHmQ_1_1umxDwKypemMsavacqqJ3xY4QbXA9V1vhEICo7p6E-sx4C6wsY1u5malvmwHKhB1r691xtWbIxf6qD-6u9ZnronI5nowTesbQP/s320/6.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaT443UozNz5rbv8OQ5YE9f0f2FjO3s75xsEJzVCfSzteY8S4A3S2nkNq2ujVo17B3_pr_dkCpBeGCe7bLEATx5MeTJjgjt8NfxqDJtH0px8c1eniJVF1IZkHttoJxLRQlhxf8ov3XUF-X8u2PwmFdJgesJgSHc3r8xJNTrND4kRjaOqSaiAGtpxUmD_BD/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_02_39.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_2DI6JFcWVrY-dOBS5M-iSiYzIY1nA1FvDSGsFMMde2s4cK3d3GmG9D7DUTpTIG1MWU0SHOl7CppJJZ2siixFZKoB8zmoVIsLUs-eH21JAArJq25GQGPIJaCJx4HdfJhyaLKyOpdwGfg5DiHEEAHWEbixmFfPKSzVFzuTsOyU46P1zPt1t7sEfrTBQzbY/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_04_11.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaQQaOgMLacZ2raJrg24QbFJdDYs58Gu1o2dGibmF7QbxhyXEXkUhV1NC5RZARImeM3ODwHlnWkE-0l0pvj6rTMW5tj3wT-2ooTR2X0odqKD0N5BmZ3eaYuKrCuYc9g76EShFmYzeY7N90-XIyBJI_CnFrM2S-KtrrFOK5YD9FqftzTvqM_BhaqhmaFb9a/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_06_04.png"
+    ],
+    "description": "Crafted from soft suede with clean stitching and a lightweight sole, they deliver a refined yet relaxed look perfect for everyday wear. An ideal choice for anyone who values versatile style and subtle elegance."
+  },
+  {
+    "id": "mocha",
+    "name": "Mocha Edge",
+    "price": 102.0,
+    "priceText": "$102.00",
+    "mainImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLGXSk4J8_UAsBAzNkEJLjTodHHwSrlMOFVe99F1FlqIEa8o08H9gmAfGtP5kDWtU1Kx8IJHwMb3eeQnp4VqdzLJzc1oWhfCQMY34q3ScGTtIZ2RjzRw_m-X1GxIg-aeBAxMNqWRbsEfw25DXiiqbTEzxrxDJkz_1WCecgrlfuDL9NdT7pVtfdq2WdcosM/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_13_36.png",
+    "images": [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLGXSk4J8_UAsBAzNkEJLjTodHHwSrlMOFVe99F1FlqIEa8o08H9gmAfGtP5kDWtU1Kx8IJHwMb3eeQnp4VqdzLJzc1oWhfCQMY34q3ScGTtIZ2RjzRw_m-X1GxIg-aeBAxMNqWRbsEfw25DXiiqbTEzxrxDJkz_1WCecgrlfuDL9NdT7pVtfdq2WdcosM/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_13_36.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ82tPm7SqB8vTiHpwXDYIAGHplfYSRtClCdeA9m7it3HoM6fvV0xZ5lgPoYQBYI8vNzCQL9jqshq8kGzeCO04CorkqeVg6WPbVa1l-5v7QrkmXLpeb49PvKRai6CRwvApb5kCRU2RzC1bCR-Rs-Km5U1JangwwqFi1tA0pmMLG2l3_stJIMAStSKXW8kf/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_15_39.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqUIzmnPaGPfzS94dXmTHP0N8osjUuTrIo28LiaMjl2TMskHu8Xk5UHyn_lk_iTCRWW207zfq2HUM2Poapm9pYKDILN2PLX4KoIgFVruFSC7eO_awpExG3EqQvlsSrPrJ54Iv_aDcrJQ6noypmTbRwmmV_9ORs4dj5xRbtqKmqO8We3UyqBOFNRyduNegG/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_15_42.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMneW8vzO4oItVvmMQ74htoKMz0uYB6CPLnQb1JRNiMRWaSbnzqU7oAXfNvJa2ptaWsoUOmaCLmT4HXjKv3sKPEj3hvnPDjSaIYMPBqimj8G5np6Yx9_mipe7VcrTF9nQ3daFNCcHsVUnr8q8aP9KCqppF_vprh7l4vX31pn4y070ISpc0V2LZUbg0rm_O/s320/ChatGPT%20Image%204%20%D0%B3%D1%80%D1%83%D0%B4.%202025%20%D1%80.,%2017_18_36.png"
+    ],
+    "description": "Crafted with a smooth matte finish, matching laces, and classic metal eyelets, they offer a perfect balance of style and everyday comfort. Ideal for casual outfits, urban looks, or anyone who wants footwear that stands out with confidence."
+  },
+  {
     "id": "racer",
     "name": "AeroSport Racer",
     "price": 112.0,
