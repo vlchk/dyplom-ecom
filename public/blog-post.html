@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post | Ecom</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png">
+
+    <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png" type="image/png">
+
+    <!-- Apple пристрої -->
+    <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+      <div class="container">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKVAnDF8iXSIj2o0qEhrciuo37kir_wBzOzQ6PdbisXCoM2yph6nGkFo0v-QbcYT5OrL4kKtdN3VPDVxKMRCpwOr0WU4dT8lhqNyTsgyJB89bfR9hNiA-vIBHg23Gd1Hr00fEYA-a-Qfr8ZHAJ4aPLXrZuQcfzyU8fnwalx4GhztnIOtD2asMwNuy4c5L-/s1600/logo1.png" alt="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i id="bar" class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="test.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            <li class="nav-item nav-icons">
+              <i class="fal fa-shopping-bag" id="cart-icon"></i>
+              <i id="theme-toggle" class="fas fa-moon theme-toggle-icon"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content"></div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">$0</div>
+        </div>
+        <button class="btn-buy">PAY NOW</button>
+        <i class="bx bx-x" id="close-cart"></i>
+    </div>
+
+    <!-- BLOG ARTICLE -->
+    <section id="blog-article" class="section-p1 blog-article">
+      <div class="container">
+        <p class="blog-breadcrumb">
+          <a href="blog.html">Blog</a> /
+          <span class="blog-title-small"></span>
+        </p>
+
+        <h1 class="blog-title"></h1>
+
+        <div class="blog-meta">
+          <span class="blog-category"></span>
+          <span class="blog-dot">•</span>
+          <span class="blog-date"></span>
+          <span class="blog-dot">•</span>
+          <span class="blog-reading-time"></span>
+        </div>
+
+        <div class="blog-hero-wrapper">
+          <img src="" alt="" class="blog-hero-img" />
+        </div>
+
+        <p class="blog-intro"></p>
+
+        <div class="blog-content"></div>
+
+        <blockquote class="blog-quote"></blockquote>
+            <div class="blog-back-row">
+                <a href="blog.html" class="blog-back-link">← Back to all stories</a>
+            </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="row container mx-auto pt-5">
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeeioRuqxazbOb1IJQriiopcM0g2AXTfVNJa5gQK_zBvYtVz1D2DwjgDkNdO8lrxmDk1SIomuAooc4w7iGsKbaQogK478qaFX4ZVpvtFyZJQmeq6N5fTLsi_ce2_o_HCmLmAWSgBRk3GspomwejAwYnZuXZ1S-4r7PhW_LPcR7DJ4HIfaDM4QTO_RgOeoR/s1600/logo2.png" alt="">
+          <p class="pt-3">
+            Discover the latest trends in fashion, footwear, and accessories — premium style, unbeatable prices, and fast delivery all in one place.
+          </p>
+        </div>
+
+        <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
+          <h5 class="pb-2">Featured</h5>
+          <ul class="text-uppercase list-unstyled">
+            <li><a href="#">men</a></li>
+            <li><a href="#">women</a></li>
+            <li><a href="#">boys</a></li>
+            <li><a href="#">girls</a></li>
+            <li><a href="#">new arrivals</a></li>
+            <li><a href="#">shoes</a></li>
+            <li><a href="#">cloths</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
+          <h5 class="pb-2">Contact Us</h5>
+          <div>
+            <h6 class="text-uppercase">Address</h6>
+            <p>123 STREET NAME, CITY, US</p>
+          </div>
+          <div>
+            <h6 class="text-uppercase">Phone</h6>
+            <p>(123) 456-7890</p>
+          </div>
+          <div>
+            <h6 class="text-uppercase">Email</h6>
+            <p class="text-uppercase">mail@example.com</p>
+          </div>
+        </div>
+
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+          <h5 class="pb-2">Instagram</h5>
+          <div class="row">
+            <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF3u89HVaXmyTPvRjUzrPFPAA-5bTBPPxVltsHigtv9CAxhON2c_P-i5thKxGcQd7DxV7iNhF8meKys9R3YbPjXgFAstmI67CGyKjkJMFAeYeGTWrvk2C6xDTuaRLfIc4oMGin3cYKLh1EFnJeTKD5-S4pDhY0vdFScv2DQ5wYyi7u5XN_tyRPW2gPLn9q/s1600/1.jpg" alt="">
+            <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdleIs1gJ0_-jzbbl-WHd6REWiOSBp7NzwLkAJd2mG1r59U_guJZx00NRKEmdWvDMg-H7MubpvZg0olcf1zaoqroK7Isw2ShZHeDLZLz2ixy01M3H5L0GN3ZmoyynbKehIvZxFDT5Pzd3aBIpzDcGi3TosJGB3J2utoVqOEb1cSwElnNicOYteGvaOdoAX/s1600/2.jpg" alt="">
+            <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7471t6JOxZ9V2XloUWzhH5GS-KKxXfB7Loh-W1b2bzrkvA-rzOs6yDNmYjxeZ2_PBrmd9T9NRnI-QbF7TJnDhtd4vQ0PsOjtFxYgcREnPm-DOINhIIY-zoNquQgalajbRF0TjWoVmIDEbVVApEF7LMIZBkM05XPl3WkNj8N0xqWry4zC-VXl2AxYlo-Lg/s1600/3.jpg" alt="">
+            <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVgYZ7_a0Y7VkvDLeZn_AKyrshQexp1KHi43PGXfX0OCxI_zv_F40BJUjbtESwaIUrQhshD7zwA6ODfyrE8A1n4nKeiaHzWji6ZkTyqR9SWt_sVQeN605J1gdsCI_KCxRosVjlgRSQEzpjqq_GIEDUypTBgun9pzZG2qlDShOEJb0Jz3YszAqx6c8te2n8/s1600/4.jpg" alt="">
+            <img class="img-fluid w-25 h-100 m-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8bxtyCPx1NgwoIIk-JEhGQszncGMzZhdg9c4gOPvxqf68svgJWSsMWvsoZRml-ldgcsneCcsEbN4-d6Mcxpptoc6AypOZ3RFS86Pw4G6gomQj5o0rVbGlj7Q6TFTxoxGQ6xtbzKgVmknKeGyVtFGdERRDKdZACBceuPdDO-Jrv1mvJd-vyo-dlwXix7vj/s1600/5.jpg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright mt-5">
+        <div class="row container mx-auto">
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <img src="img/payment.png" alt="">
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 text-nowrap mb-2">
+            <p>Ecom eCommerce © 2025</p>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 footer-social">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS (ВАЖЛИВИЙ ПОРЯДОК!) -->
+    <script src="data.js"></script>     <!-- тут BLOG_POSTS та findPostById -->
+    <script src="blog.js"></script>     <!-- будує контент статті -->
+    <script src="main.js"></script>     <!-- кошик + тема -->
+    <script src="cart.js"></script>     <!-- Stripe checkout -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
