@@ -135,6 +135,9 @@
 
 </form>
 
+<div id="toast-container"></div>
+
+
 <script>
   const form = document.getElementById("contact-form");
 
@@ -237,20 +240,35 @@
     e.preventDefault();
 
     // спочатку перевіряємо
-    if (!validateForm()) return;
+    if (!validateForm()) {
+      showToast("Please fix the highlighted fields.", {
+        type: "error",
+        title: "Form not complete"
+      });
+      return;
+    }
 
     // якщо все ок — шлемо через EmailJS
     emailjs
       .sendForm("service_eayjbcu", "template_p0gp7xu", form)
       .then(() => {
-        alert("Message sent successfully!");
+        showToast("Message sent successfully.", {
+          type: "success",
+          title: "Done!"
+        });
         form.reset();
       })
       .catch((error) => {
-        alert("Failed to send message. Error: " + JSON.stringify(error));
+        // 🔥 кастомний алерт замість alert()
+        showToast("Failed to send message. Please try again later.", {
+          type: "error",
+          title: "Error"
+        });
+        console.error("EmailJS error:", error);
       });
   });
 </script>
+
 
 
 

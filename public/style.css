@@ -162,6 +162,30 @@ button:hover {
     }
 }
 
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 50%;
+    background: #ff4d4f;   /* червоний кружок */
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    display: none;          /* ховаємо, якщо 0 */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+
 /* Іконки кошика + теми в мобільному меню */
 @media only screen and (max-width: 991px) {
     #navbarSupportedContent > ul > li.nav-icons {
@@ -174,6 +198,10 @@ button:hover {
 
     #navbarSupportedContent > ul > li.nav-icons i {
         font-size: 22px;
+    }
+
+    .product-breadcrumb {
+        margin-top: 20px;
     }
 }
 
@@ -710,8 +738,12 @@ footer .copyright a:hover {
     cursor: pointer;
 }
 
+#cart-icon {
+    position: relative;
+    margin-right: 10px;
+}
 
-/* #cart-icon[data-quantity="0"]::after {
+#cart-icon[data-quantity="0"]::after {
     content: "";
 }
 
@@ -722,7 +754,7 @@ footer .copyright a:hover {
     right: -12px;
     width: 20px;
     height: 20px;
-    background: #000;
+    background: coral;
     border-radius: 50%;
     color: #fff;
     font-size: 12px;
@@ -730,7 +762,7 @@ footer .copyright a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
 
 
 
@@ -1426,7 +1458,525 @@ body.sc-page * {
         width: 100%;
         max-width: 260px;
     }
+
+    .product-breadcrumb {
+        margin-top: 20px;
+    }
+}
+
+body.dark-mode .cart-quantity {
+    border: 2px solid coral !important;
+    outline: none !important;
+    width: 2.8rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+}
+
+body.dark-mode .cart-quantity:focus {
+    border-color:  coral !important;
+    outline: none !important;
+}
+
+.cart-size {
+    /* font-size: 0.85rem; */
+    font-weight: 500;
+    color: #fff;
+    margin-top: 2px;
 }
 
 
+/* === Toast container === */
+#toast-container {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none; /* щоб не заважало клікам по сайту */
+}
 
+/* === Базовий тост === */
+.toast {
+    min-width: 260px;
+    max-width: 320px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: coral;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: auto;
+    animation: toast-in 0.25s forwards;
+}
+
+/* Іконка / смужка зліва */
+.toast::before {
+    content: "";
+    display: block;
+    width: 4px;
+    border-radius: 999px;
+    background: #fff;
+}
+
+/* Види тостів */
+.toast-success::before {
+    background: #22c55e; /* зелений */
+}
+.toast-error::before {
+    background: #ef4444; /* червоний */
+}
+.toast-info::before {
+    background: #3b82f6; /* синій */
+}
+
+/* Заголовок + текст (якщо захочеш) */
+.toast-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.toast-message {
+    line-height: 1.3;
+}
+
+/* кнопка закриття */
+.toast-close {
+    margin-left: auto;
+    cursor: pointer;
+    opacity: 0.7;
+    font-size: 16px;
+}
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* Анімації */
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toast-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+
+/* Літаюча копія картинки товару */
+.flying-img {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    border-radius: 8px;
+    object-fit: contain;
+    transition:
+        transform 0.7s ease-in-out,
+        opacity 0.7s ease-in-out,
+        width 0.7s ease-in-out,
+        height 0.7s ease-in-out;
+}
+
+
+/* ============ BLOG ARTICLE ============ */
+
+#blog-article {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 55%, #000 100%);
+}
+
+.blog-article .container {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 40px 48px;
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.45);
+}
+
+/* крихітний хлібний шлях */
+.blog-breadcrumb {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+}
+
+.blog-breadcrumb a {
+  color: #6b7280;
+}
+
+.blog-breadcrumb a:hover {
+  color: #111827;
+}
+
+/* заголовок + мета */
+.blog-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+  margin-bottom: 0.4rem;
+}
+
+.blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6b7280;
+}
+
+.blog-category {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.72rem;
+}
+
+/* hero image */
+.blog-hero-wrapper {
+  position: relative;
+  margin: 28px 0 32px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.blog-hero-img {
+  width: 100%;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.blog-hero-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.35)
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.blog-hero-wrapper:hover .blog-hero-img {
+  transform: scale(1.07);
+  filter: saturate(1.1);
+}
+
+/* текст статті */
+.blog-intro,
+.blog-content p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+/* гарний drop-cap для першого абзацу */
+.blog-intro {
+  font-weight: 500;
+  position: relative;
+}
+
+.blog-intro::first-letter {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 1;
+  font-weight: 700;
+  padding-right: 0.25rem;
+  margin-top: 0.18rem;
+  color: #ea580c;
+}
+
+/* цитата */
+.blog-quote {
+  margin: 2.4rem 0 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid #f97316;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: #4b5563;
+}
+
+/* посилання "назад" */
+.blog-back-row {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog-back-link {
+    font-weight: 500;
+  /* font-size: 0.9rem; */
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.blog-back-link:hover {
+  color: #111827;
+  transform: translateX(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .blog-article .container {
+    border-radius: 20px;
+    padding: 32px 24px 40px;
+  }
+
+  .blog-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #blog-article {
+    padding-top: 6rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .blog-article .container {
+    padding: 24px 18px 32px;
+  }
+
+  .blog-title {
+    font-size: 1.7rem;
+  }
+
+  .blog-intro,
+  .blog-content p {
+    font-size: 0.98rem;
+  }
+
+  .blog-hero-wrapper {
+    margin: 20px 0 24px;
+  }
+}
+
+/* FIX: прибрати білу плашку під статтею
+.blog-article .container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#blog-article {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+} */
+
+
+
+
+
+/* ====================================
+   BLOG ARTICLE — DARK MODE
+   ==================================== */
+
+body.dark-theme #blog-article {
+  background: radial-gradient(circle at top left, #0f172a 0, #000 60%);
+}
+
+body.dark-theme .blog-article .container {
+  background: #111827;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+  color: #e5e7eb;
+}
+
+/* Breadcrumb */
+body.dark-theme .blog-breadcrumb {
+  color: #9ca3af;
+}
+body.dark-theme .blog-breadcrumb a {
+  color: #9ca3af;
+}
+body.dark-theme .blog-breadcrumb a:hover {
+  color: #f3f4f6;
+}
+
+/* Title */
+body.dark-theme .blog-title {
+  color: #f3f4f6;
+}
+
+/* Meta */
+body.dark-theme .blog-meta {
+  color: #9ca3af;
+}
+body.dark-theme .blog-category {
+  background: #f97316;
+  color: #1f2937;
+}
+
+/* Hero Image overlay darker */
+body.dark-theme .blog-hero-wrapper::after {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+
+/* Intro + paragraphs */
+body.dark-theme .blog-intro,
+body.dark-theme .blog-content p {
+  color: #e5e7eb;
+}
+
+/* Drop cap */
+body.dark-theme .blog-intro::first-letter {
+  color: #f59e0b;
+}
+
+/* Quote */
+body.dark-theme .blog-quote {
+  border-left-color: #f97316;
+  color: #d1d5db;
+}
+
+/* Back link */
+body.dark-theme .blog-back-link {
+  color: #9ca3af;
+}
+body.dark-theme .blog-back-link:hover {
+  color: #f3f4f6;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 768px) {
+  body.dark-theme .blog-article .container {
+    background: #111827;
+  }
+}
+
+
+/* =========================
+   BLOG ARTICLE – DARK MODE
+   ========================= */
+
+body.dark-mode {
+  /* трішки глибший градієнт фону для сторінок */
+  background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000000 100%);
+}
+
+/* Карточка поста */
+body.dark-mode #blog-article .container {
+  background: #020617;
+  color: #f9fafb;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.85);
+}
+
+/* Заголовок */
+body.dark-mode #blog-article .blog-title {
+  color: #f9fafb;
+}
+
+/* Breadcrumb / верхній підпис */
+body.dark-mode #blog-article .blog-breadcrumb,
+body.dark-mode #blog-article .blog-breadcrumb a,
+body.dark-mode #blog-article .blog-breadcrumb span {
+  color: #9ca3af;
+}
+
+/* Метаданні (категорія, дата, час читання) */
+body.dark-mode #blog-article .blog-meta span {
+  color: #9ca3af;
+}
+
+/* Плашка категорії */
+body.dark-mode #blog-article .blog-category-pill,
+body.dark-mode #blog-article .blog-category {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+/* Основний текст */
+body.dark-mode #blog-article p {
+  color: #e5e7eb;
+}
+
+/* Перша буква-акцент, якщо ти робив її через span / strong */
+body.dark-mode #blog-article .blog-intro-first-letter,
+body.dark-mode #blog-article p strong:first-child {
+  color: #fb923c;
+}
+
+/* Цитата */
+body.dark-mode #blog-article .blog-quote {
+  color: #e5e7eb;
+  border-left-color: #fb923c;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Лінки всередині контенту */
+body.dark-mode #blog-article a {
+  color: #60a5fa;
+}
+
+body.dark-mode #blog-article a:hover {
+  color: #93c5fd;
+}
+
+/* Картинка */
+body.dark-mode #blog-article .blog-hero-img {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
+}
+
+/* Невеликий глоу від картки */
+body.dark-mode #blog-article {
+  position: relative;
+}
+
+body.dark-mode #blog-article::before {
+  content: "";
+  position: absolute;
+  inset: -80px -40px;
+  background: radial-gradient(circle at top, rgba(248, 250, 252, 0.06), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blog-article-card {
+    box-shadow: 0px 20px 50px rgba(0,0,0,0.1); /* default */
+}
+
+body.light-mode .blog-article-card {
+    box-shadow:
+        0px -10px 30px rgba(0,0,0,0.06),
+        0px 0px 15px rgba(0,0,0,0.04);
+}

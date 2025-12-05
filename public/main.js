@@ -1,67 +1,71 @@
-// Cart Open Close
-let cartIcon = document.querySelector("#cart-icon");
-let cart = document.querySelector(".cart");
-let closeCart = document.querySelector("#close-cart");
+// =======================
+//  CART + THEME MAIN.JS
+// =======================
 
-// Open Cart
-if (cartIcon && cart) {
-    cartIcon.onclick = () => {
-        cart.classList.add("active");
-    };
-}
+// Ініціалізація після завантаження DOM
+document.addEventListener("DOMContentLoaded", function () {
+    initCart();
+    initThemeToggle();
+});
 
-// Close Cart
-if (closeCart && cart) {
-    closeCart.onclick = () => {
-        cart.classList.remove("active");
-    };
-}
+// ----------------------
+// CART
+// ----------------------
 
+function initCart() {
+    const cartIcon  = document.querySelector("#cart-icon");
+    const cart      = document.querySelector(".cart");
+    const closeCart = document.querySelector("#close-cart");
 
-// Making Add to cart
-// Cart Working JS
-
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready);
-} else {
-    ready();
-}
-
-// Making Function
-function ready() {
-    // Remove Item From Cart
-    var removeCartButtons = document.getElementsByClassName("cart-remove");
-    for (var i = 0; i < removeCartButtons.length; i++) {
-        var button = removeCartButtons[i];
-        button.addEventListener('click', removeCartItem);
+    // Відкрити / закрити корзину
+    if (cartIcon && cart) {
+        cartIcon.addEventListener("click", () => {
+            cart.classList.add("active");
+        });
     }
-    // Quantity Change
-    var quantityInputs = document.getElementsByClassName("cart-quantity");
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
-        input.addEventListener('change', quantityChanged);
+    if (closeCart && cart) {
+        closeCart.addEventListener("click", () => {
+            cart.classList.remove("active");
+        });
     }
-    // Add to cart
-    var addCart = document.getElementsByClassName("add-cart");
-    for (var i = 0; i < addCart.length; i++) {
-        var button = addCart[i];
-        button.addEventListener("click", addCartClicked);
+
+    // Кнопки видалення
+    const removeCartButtons = document.getElementsByClassName("cart-remove");
+    for (let i = 0; i < removeCartButtons.length; i++) {
+        removeCartButtons[i].addEventListener("click", removeCartItem);
     }
+
+    // Інпути кількості
+    const quantityInputs = document.getElementsByClassName("cart-quantity");
+    for (let i = 0; i < quantityInputs.length; i++) {
+        quantityInputs[i].addEventListener("change", quantityChanged);
+    }
+
+    // Кнопки додавання в корзину
+    const addCartButtons = document.getElementsByClassName("add-cart");
+    for (let i = 0; i < addCartButtons.length; i++) {
+        addCartButtons[i].addEventListener("click", addCartClicked);
+    }
+
+    // Завантажити з localStorage
     loadCartItems();
+    updateCartIcon();
 }
 
-// Remove Cart Item 
+// Видалити товар
 function removeCartItem(event) {
-    var buttonClicked = event.target;
-    buttonClicked.parentElement.remove();
+    const box = event.target.closest(".cart-box");
+    if (box) box.remove();
+
     updateTotal();
     saveCartItems();
+    updateCartIcon();
 }
 
-// Quantity Change 
+// Зміна кількості
 function quantityChanged(event) {
-    var input = event.target;
-    if(isNaN(input.value) || input.value <= 0) {
+    const input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
         input.value = 1;
     }
     updateTotal();
@@ -69,252 +73,405 @@ function quantityChanged(event) {
     updateCartIcon();
 }
 
-// Add Cart Function
+// Клік по "ADD TO CART"
+// Клік по "ADD TO CART"
+// Клік по "ADD TO CART"
 function addCartClicked(event) {
-    var button = event.target;
+    const button = event.target;
 
-    // Базовий контейнер як раніше (для test.html)
-    var container = button.parentElement;
+    // контейнер карточки товару або секція .sproduct
+    const section  = button.closest(".sproduct") || document;
+    const card     = button.closest(".product") || section;
 
-    var titleEl = container.getElementsByClassName("product-title")[0];
-    var priceEl = container.getElementsByClassName("price")[0];
-    var imgEl   = container.getElementsByClassName("product-img")[0];
+    const titleEl = card.querySelector(".product-title") || section.querySelector(".product-title");
+    const priceEl = card.querySelector(".price")         || section.querySelector(".price");
 
-    // Якщо не знайшли (product.html) - шукаємо в .sproduct
-    if (!titleEl || !priceEl) {
-        var section = button.closest(".sproduct") || document;
-
-        if (!titleEl) {
-            titleEl = section.getElementsByClassName("product-title")[0];
-        }
-        if (!priceEl) {
-            priceEl = section.getElementsByClassName("price")[0];
-        }
-    }
-
-    // 🔑 На product.html – завжди беремо картинку з #mainImg (обраний колір)
-    var mainImgEl = document.getElementById("mainImg");
-    if (mainImgEl) {
-        imgEl = mainImgEl;
-    } else if (!imgEl) {
-        // fallback для test.html
-        var section = button.closest(".product") || document;
-        imgEl = section.getElementsByClassName("product-img")[0];
-    }
+    let imgEl = card.querySelector(".product-img") || section.querySelector(".product-img");
+    const mainImgEl = document.getElementById("mainImg");
+    if (mainImgEl) imgEl = mainImgEl;
 
     if (!titleEl || !priceEl || !imgEl) {
         console.error("Cannot find product data for cart");
         return;
     }
 
-    var title = titleEl.innerText;
-    var price = priceEl.innerText;
-    var productImg = imgEl.src;
+    // читаємо розмір
+    let size = "";
+    const sizeSelect = section.querySelector("select");
+    if (sizeSelect) {
+    size = (sizeSelect.value || "").trim();
+    if (!size || size.toLowerCase() === "select size") {
+        showToast("Please select a size before adding to cart", {
+            type: "error",
+            title: "Size required"
+        });
+        return;
+    }
+}
 
-    addProductToCart(title, price, productImg);
+
+    const title          = titleEl.textContent.trim();
+    const price          = priceEl.textContent.trim();
+    const productImg     = imgEl.src;
+    const normalizedSize = (size || "").trim();
+
+    // 🔍 1) Перевірка дубля по localStorage: title + size + productImg (колір)
+    try {
+        const stored = localStorage.getItem("cartItems");
+        if (stored) {
+            const items = JSON.parse(stored);
+            const hasDuplicate = items.some(it =>
+                (it.title || "").trim() === title &&
+                (it.size  || "").trim() === normalizedSize &&
+                (it.productImg || "") === productImg
+            );
+            if (hasDuplicate) {
+                showToast("You have already added this item with the same size and color.", {
+                type: "info",
+                title: "Already in cart"
+                });
+                return;
+            }
+        }
+    } catch (e) {
+        console.warn("Cannot read cartItems from localStorage", e);
+    }
+
+    // 🔍 2) Перевірка по DOM (про всяк випадок): title + size + productImg
+    const cartContent = document.querySelector(".cart-content");
+    if (cartContent && normalizedSize) {
+        const boxes = cartContent.querySelectorAll(".cart-box");
+        for (const box of boxes) {
+            const existingTitle = box.querySelector(".cart-product-title")?.textContent.trim() || "";
+            const sizeText      = box.querySelector(".cart-size")?.textContent || "";
+            const existingSize  = sizeText.replace("Size:", "").trim();
+            const existingImg   = box.querySelector(".cart-img")?.src || "";
+
+            if (
+                existingTitle === title &&
+                existingSize  === normalizedSize &&
+                existingImg   === productImg
+            ) {
+                showToast("You have already added this item with the same size and color.", {
+                type: "info",
+                title: "Already in cart"
+                });
+                return;
+
+            }
+        }
+    }
+
+    // якщо дубля немає – додаємо
+    addProductToCart(title, price, productImg, normalizedSize);
+    // 🔥 запускаємо анімацію "fly to cart"
+    animateFlyToCart(imgEl);
+    showToast("Item added to your cart", {
+    type: "success",
+    title: "Added to cart"
+});
     updateTotal();
     saveCartItems();
     updateCartIcon();
 }
- 
-function addProductToCart(title, price, productImg) {
-    var cartContent = document.getElementsByClassName("cart-content")[0];
 
-    // 🔍 перевіряємо дубль по НАЗВІ + КАРТИНЦІ
-    var existingBoxes = cartContent.getElementsByClassName("cart-box");
-    for (var i = 0; i < existingBoxes.length; i++) {
-        var existingTitle = existingBoxes[i]
-            .getElementsByClassName("cart-product-title")[0].innerText;
-        var existingImg = existingBoxes[i]
-            .getElementsByClassName("cart-img")[0].src;
 
-        if (existingTitle === title && existingImg === productImg) {
-            alert("You have already added this item to cart");
-            return;
-        }
-    }
 
-    // якщо такого поєднання title+image ще немає – додаємо новий блок
-    var cartShopBox = document.createElement("div");
+// Створити елемент товару в корзині
+function addProductToCart(title, price, productImg, size) {
+    const cartContent = document.querySelector(".cart-content");
+    if (!cartContent) return;
+
+    const normalizedSize = (size || "").trim();
+
+    const cartShopBox = document.createElement("div");
     cartShopBox.classList.add("cart-box");
 
-    var cartBoxContent = `
+    const sizeHtml = normalizedSize
+        ? `<div class="cart-size">Size: ${normalizedSize}</div>`
+        : "";
+
+    cartShopBox.innerHTML = `
         <img src="${productImg}" alt="" class="cart-img">
         <div class="detail-box">
             <div class="cart-product-title">${title}</div>
             <div class="cart-price">${price}</div>
+            ${sizeHtml}
             <input type="number" value="1" class="cart-quantity">
         </div>
         <i class="bx bxs-trash-alt cart-remove"></i>
     `;
 
-    cartShopBox.innerHTML = cartBoxContent;
     cartContent.append(cartShopBox);
 
-    // вішаємо слухачі як раніше
-    cartShopBox
-        .getElementsByClassName("cart-remove")[0]
+    cartShopBox.querySelector(".cart-remove")
         .addEventListener("click", removeCartItem);
-    cartShopBox
-        .getElementsByClassName("cart-quantity")[0]
+    cartShopBox.querySelector(".cart-quantity")
         .addEventListener("change", quantityChanged);
 }
 
-
-// Update Total
+// Порахувати суму
 function updateTotal() {
-    var cartContent = document.getElementsByClassName("cart-content")[0];
-    var cartBoxes = cartContent.getElementsByClassName("cart-box");
-    var total = 0;
-    for (var i = 0; i < cartBoxes.length; i++) {
-        var cartBox = cartBoxes[i];
-        var priceElement = cartBox.getElementsByClassName("cart-price")[0];
-        var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-        var price = parseFloat(priceElement.innerText.replace("$", ""))
-        var quantity = quantityElement.value;
+    const cartContent = document.querySelector(".cart-content");
+    if (!cartContent) return;
+
+    const cartBoxes = cartContent.getElementsByClassName("cart-box");
+    let total = 0;
+
+    for (let i = 0; i < cartBoxes.length; i++) {
+        const cartBox        = cartBoxes[i];
+        const priceElement   = cartBox.getElementsByClassName("cart-price")[0];
+        const quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+
+        const price    = parseFloat(priceElement.innerText.replace("$", ""));
+        const quantity = parseInt(quantityElement.value, 10) || 0;
+
         total += price * quantity;
     }
-    // If price contains some cents
-        total = Math.round(total * 100) / 100;
-        document.getElementsByClassName("total-price")[0].innerText = "$" + total;
-    // Save Total to LocalStorage
-        localStorage.setItem("cartTotal", total);
+
+    total = Math.round(total * 100) / 100;
+    const totalEl = document.querySelector(".total-price");
+    if (totalEl) totalEl.innerText = "$" + total;
+
+    localStorage.setItem("cartTotal", total);
 }
 
-// Keep Item in cart when page refresh with localstorage
-function saveCartItems () {
-    var cartContent = document.getElementsByClassName("cart-content")[0];
-    var cartBoxes = cartContent.getElementsByClassName("cart-box");
-    var cartItems = [];
+// Зберегти корзину в localStorage
+function saveCartItems() {
+    const cartContent = document.querySelector(".cart-content");
+    if (!cartContent) return;
 
-    for (var i = 0; i < cartBoxes.length; i++) {
-        cartBox = cartBoxes[i];
-        var titleElement = cartBox.getElementsByClassName("cart-product-title")[0];
-        var priceElement = cartBox.getElementsByClassName("cart-price")[0];
-        var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-        var productImg = cartBox.getElementsByClassName("cart-img")[0].src;
+    const cartBoxes = cartContent.getElementsByClassName("cart-box");
+    const cartItems = [];
 
-        var item = {
-            title: titleElement.innerText,
-            price: priceElement.innerText,
-            quantity: quantityElement.value,
-            productImg: productImg,
+    for (let i = 0; i < cartBoxes.length; i++) {
+        const cartBox         = cartBoxes[i];
+        const titleElement    = cartBox.querySelector(".cart-product-title");
+        const priceElement    = cartBox.querySelector(".cart-price");
+        const quantityElement = cartBox.querySelector(".cart-quantity");
+        const imgElement      = cartBox.querySelector(".cart-img");
+        const sizeElement     = cartBox.querySelector(".cart-size");
+
+        const item = {
+            title:    titleElement?.innerText || "",
+            price:    priceElement?.innerText || "",
+            quantity: quantityElement?.value || "1",
+            productImg: imgElement?.src || "",
+            size: sizeElement
+                ? sizeElement.innerText.replace("Size:", "").trim()
+                : ""
         };
         cartItems.push(item);
     }
+
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
-//Loads in cart
-function loadCartItems () {
-    var cartItems = localStorage.getItem("cartItems");
-    if (cartItems) {
-        cartItems = JSON.parse(cartItems);
+// Завантажити корзину з localStorage
+function loadCartItems() {
+    const stored = localStorage.getItem("cartItems");
+    if (stored) {
+        const cartItems = JSON.parse(stored);
+        for (let i = 0; i < cartItems.length; i++) {
+            const item = cartItems[i];
+            addProductToCart(item.title, item.price, item.productImg, item.size);
 
-        for (var i = 0; i < cartItems.length; i++) {
-            var item = cartItems[i];
-            addProductToCart(item.title, item.price, item.productImg);
-
-            var cartBoxes = document.getElementsByClassName("cart-box");
-            var cartBox = cartBoxes[cartBoxes.length - 1];
-            var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+            const cartBoxes       = document.getElementsByClassName("cart-box");
+            const cartBox         = cartBoxes[cartBoxes.length - 1];
+            const quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
             quantityElement.value = item.quantity;
         }
     }
 
-    var cartTotal = localStorage.getItem("cartTotal");
-    if(cartTotal) {
-        document.getElementsByClassName("total-price")[0].innerHTML = "$" + cartTotal;
+    const cartTotal = localStorage.getItem("cartTotal");
+    if (cartTotal) {
+        const totalEl = document.querySelector(".total-price");
+        if (totalEl) totalEl.innerHTML = "$" + cartTotal;
     }
-    updateCartIcon();
 }
 
-// Quantity in cart icon 
-function updateCartIcon () {
-    var cartBoxes = document.getElementsByClassName("cart-box");
-    var quantity = 0;
+// Оновити цифру на іконці корзини
+function updateCartIcon() {
+    const cartBoxes = document.getElementsByClassName("cart-box");
+    let quantity = 0;
 
-    for (var i = 0; i < cartBoxes.length; i++) {
-        var cartBox = cartBoxes[i];
-        var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-        quantity += parseInt(quantityElement.value);
+    for (let i = 0; i < cartBoxes.length; i++) {
+        const q = parseInt(
+            cartBoxes[i].getElementsByClassName("cart-quantity")[0].value,
+            10
+        );
+        quantity += isNaN(q) ? 0 : q;
     }
-     var cartIcon = document.querySelector("#cart-icon");
+
+    const cartIcon = document.querySelector("#cart-icon");
     if (cartIcon) {
         cartIcon.setAttribute("data-quantity", quantity);
     }
 }
 
-// Clear cart item after seccessful payment
-function clearCart () {
-    var cartContent = document.getElementsByClassName("cart-content")[0];
-    cartContent.innerHTML = "";
-    updateTotal();
-    localStorage.removeItem("cartItems");
+// ===================
+// Toast notifications
+// ===================
+function showToast(message, options = {}) {
+    const {
+        type = "info",      // "success" | "error" | "info"
+        duration = 3000,    // час показу в мс
+        title = ""          // необов’язковий заголовок
+    } = options;
+
+    const container = document.getElementById("toast-container");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.classList.add("toast");
+
+    if (type === "success") toast.classList.add("toast-success");
+    if (type === "error")   toast.classList.add("toast-error");
+    if (type === "info")    toast.classList.add("toast-info");
+
+    toast.innerHTML = `
+        <div class="toast-body">
+            ${title ? `<div class="toast-title">${title}</div>` : ""}
+            <div class="toast-message">${message}</div>
+        </div>
+        <div class="toast-close">&times;</div>
+    `;
+
+    container.appendChild(toast);
+
+    const close = () => {
+        toast.style.animation = "toast-out 0.25s forwards";
+        setTimeout(() => toast.remove(), 250);
+    };
+
+    // кнопка закриття
+    toast.querySelector(".toast-close").addEventListener("click", close);
+
+    // авто-закриття
+    if (duration > 0) {
+        setTimeout(close, duration);
+    }
 }
 
-// ---------- THEME TOGGLE (Light / Dark) ----------
-(function () {
-  var body = document.body;
-  var icon = document.getElementById("theme-toggle");
-  if (!icon) return;
 
-  var THEME_KEY = "shop-theme";
+// Очистити корзину (якщо треба)
+function clearCart() {
+    const cartContent = document.querySelector(".cart-content");
+    if (cartContent) cartContent.innerHTML = "";
 
-  function applyTheme(theme) {
+    updateTotal();
+    updateCartIcon();
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("cartTotal");
+}
 
-    // ----- Системні стилі -----
-    if (theme === "dark") {
-        body.classList.add("dark-mode");
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    } else {
-        body.classList.remove("dark-mode");
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
+// ----------------------
+// THEME TOGGLE
+// ----------------------
+
+function initThemeToggle() {
+    const body = document.body;
+    const icon = document.getElementById("theme-toggle");
+    if (!icon) return;
+
+    const THEME_KEY = "shop-theme";
+
+    function applyTheme(theme) {
+        // базовий клас
+        if (theme === "dark") {
+            body.classList.add("dark-mode");
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+        } else {
+            body.classList.remove("dark-mode");
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+        }
+
+        // фон головного блоку
+        const homeSection = document.getElementById("home");
+        if (homeSection) {
+            const lightBg = homeSection.getAttribute("data-light");
+            const darkBg  = homeSection.getAttribute("data-dark");
+
+            if (theme === "dark" && darkBg) {
+                homeSection.style.backgroundImage = `url('${darkBg}')`;
+            } else if (lightBg) {
+                homeSection.style.backgroundImage = `url('${lightBg}')`;
+            }
+        }
+
+        // картинки блогу
+        const blogImages = document.querySelectorAll(".blog-img");
+        blogImages.forEach((img) => {
+            const lightSrc = img.getAttribute("data-light");
+            const darkSrc  = img.getAttribute("data-dark");
+
+            if (theme === "dark" && darkSrc) {
+                img.src = darkSrc;
+            } else if (lightSrc) {
+                img.src = lightSrc;
+            }
+        });
     }
 
-    // ----- Hero background -----
-    var homeSection = document.getElementById("home");
-    if (homeSection) {
-        var lightBg = homeSection.getAttribute("data-light");
-        var darkBg  = homeSection.getAttribute("data-dark");
+    let saved   = localStorage.getItem(THEME_KEY);
+    let current = saved === "dark" ? "dark" : "light";
 
-        if (theme === "dark" && darkBg) {
-            homeSection.style.backgroundImage = `url('${darkBg}')`;
-        } else if (lightBg) {
-            homeSection.style.backgroundImage = `url('${lightBg}')`;
-        }
-    }
+    applyTheme(current);
 
-    // ----- Блог / карточки з фотографіями -----
-    var blogImages = document.querySelectorAll(".blog-img");
-    blogImages.forEach(img => {
-        var lightSrc = img.getAttribute("data-light");
-        var darkSrc  = img.getAttribute("data-dark");
+    icon.addEventListener("click", function () {
+        current = current === "dark" ? "light" : "dark";
+        localStorage.setItem(THEME_KEY, current);
+        applyTheme(current);
+    });
+}
 
-        if (theme === "dark" && darkSrc) {
-            img.src = darkSrc;
-        } else if (lightSrc) {
-            img.src = lightSrc;
-        }
+
+// ===================
+// Fly-to-cart анімація
+// ===================
+function animateFlyToCart(imgEl) {
+    const cartIcon = document.querySelector("#cart-icon");
+    if (!imgEl || !cartIcon) return;
+
+    const imgRect  = imgEl.getBoundingClientRect();
+    const cartRect = cartIcon.getBoundingClientRect();
+
+    // створюємо клон картинки
+    const flyingImg = imgEl.cloneNode(true);
+    flyingImg.classList.add("flying-img");
+
+    // початкові позиція/розміри — такі ж, як у реальної картинки
+    flyingImg.style.left   = imgRect.left + "px";
+    flyingImg.style.top    = imgRect.top + "px";
+    flyingImg.style.width  = imgRect.width + "px";
+    flyingImg.style.height = imgRect.height + "px";
+    flyingImg.style.opacity = "1";
+    flyingImg.style.transform = "translate(0, 0) scale(1)";
+
+    document.body.appendChild(flyingImg);
+
+    // куди летіти — в центр іконки кошика
+    const targetX =
+        cartRect.left + cartRect.width / 2 - (imgRect.left + imgRect.width / 2);
+    const targetY =
+        cartRect.top + cartRect.height / 2 - (imgRect.top + imgRect.height / 2);
+
+    // запускаємо анімацію в наступному кадрі
+    requestAnimationFrame(() => {
+        flyingImg.style.transform = `translate(${targetX}px, ${targetY}px) scale(0.2)`;
+        flyingImg.style.opacity = "0";
+        flyingImg.style.width  = imgRect.width * 0.3 + "px";
+        flyingImg.style.height = imgRect.height * 0.3 + "px";
     });
 
+    // після завершення анімації прибираємо клон
+    flyingImg.addEventListener(
+        "transitionend",
+        () => {
+            flyingImg.remove();
+        },
+        { once: true }
+    );
 }
-
-
-
-  // читаємо збережену тему
-  var saved = localStorage.getItem(THEME_KEY);
-  var current = (saved === "dark") ? "dark" : "light";
-
-  // застосувати при завантаженні
-  applyTheme(current);
-
-  // клік по іконці
-  icon.addEventListener("click", function () {
-    current = (current === "dark") ? "light" : "dark";
-    localStorage.setItem(THEME_KEY, current);
-    applyTheme(current);
-  });
-})();

@@ -229,3 +229,135 @@ const PRODUCTS = [
 function findProductById(id) {
   return PRODUCTS.find(function(p) { return p.id === id; }) || null;
 }
+
+// =====================
+//  BLOG POSTS
+// =====================
+
+const BLOG_POSTS = [
+  {
+    id: "summer-freedom",
+    title: "Summer freedom styled your way.",
+    date: "Jan 11, 2025",
+    category: "Style stories",
+    readingTime: "4 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyVta7tFjuRX57lqdQK5vGA02EKd6iGQ-Ox7ZCZmD0MS0Jr-Auwumsr9Spv0BaHXNVzP3vSLfMPUzCoe5rJMRBASYDu2dnQrgOhg8lTTDIgUIpbBVi0huSv9NlwOVtHHTlYbXFof9i_wyFNN5XrNkdj7Jnp8mT_Q5PY5No1idO5fv-zVsbaS89gvQNO4A1/s16000/1.jpg",   
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyVta7tFjuRX57lqdQK5vGA02EKd6iGQ-Ox7ZCZmD0MS0Jr-Auwumsr9Spv0BaHXNVzP3vSLfMPUzCoe5rJMRBASYDu2dnQrgOhg8lTTDIgUIpbBVi0huSv9NlwOVtHHTlYbXFof9i_wyFNN5XrNkdj7Jnp8mT_Q5PY5No1idO5fv-zVsbaS89gvQNO4A1/s16000/1.jpg",
+    intro:
+      "Warm days, late sunsets and outfits that move with you. This story is all about easy summer looks that feel as good as they look.",
+    content: [
+      "Forget heavy layers and complicated outfits. Summer style is about pieces that you barely feel on the body, but that still look put-together.",
+      "Start with a breathable base: lightweight cotton tees, linen shirts and relaxed shorts. Then add one bold element – a bright lip, statement earrings or a patterned scarf.",
+      "Don’t be afraid of color. Greens, oranges and soft pastels instantly make any look feel more alive.",
+      "<strong>Pro tip:</strong> build a small summer capsule: 2–3 tops, 2 bottoms and 1 statement dress or jumpsuit. With them, you can create dozens of combinations without any extra thought."
+    ],
+    quote: "The best summer outfits are the ones you forget you’re wearing."
+  },
+  {
+    id: "leather-confidence",
+    title: "Leather made for confidence, not just for looks.",
+    date: "Sep 20, 2025",
+    category: "Editorial",
+    readingTime: "3 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQWopDN6UPAk0gAee38w90jCIvTYBqF_hpzFv1XPS9STJO1im8AH5syFaLQGPG9o_HJP3osLGdrVaNVCcom6phU5Wi58giPdlBaF_V-itSN5ppgwb93A2V31i-_U3eRluivELei8yunVXLq7nD2q7ml6aDy78N0KAJILkM3nUOVV6XHmi_FFP11Ktp8ylA/s16000/2.jpg",
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQWopDN6UPAk0gAee38w90jCIvTYBqF_hpzFv1XPS9STJO1im8AH5syFaLQGPG9o_HJP3osLGdrVaNVCcom6phU5Wi58giPdlBaF_V-itSN5ppgwb93A2V31i-_U3eRluivELei8yunVXLq7nD2q7ml6aDy78N0KAJILkM3nUOVV6XHmi_FFP11Ktp8ylA/s16000/2.jpg",
+    intro:
+      "A good leather jacket doesn’t just keep you warm – it changes the way you walk into a room.",
+    content: [
+      "Classic black leather will never go out of style, but you're not limited to it. Deep brown, petrol blue or even burgundy work just as well.",
+      "The key is the fit. The seams should follow your shoulders, sleeves end right at the wrist and the jacket must close without pulling.",
+      "Pair leather with something soft: a white tee, knitwear or even a flowy dress. The contrast of textures makes the image more expensive and thoughtful."
+    ],
+    quote: "Leather is less about rebellion and more about quiet confidence."
+  },
+  {
+    id: "calm-meets-style",
+    title: "Where calm meets style and inspiration grows.",
+    date: "Jan 11, 2021",
+    category: "Lifestyle",
+    readingTime: "5 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihiwm7l2GlzSd0XsIElG8nCDMysKYSErbrKkjyGjDckbCa9qtdnXtBLLKupQkGc6ewbN_Qf3J2rU9Asif3q5q-omPA4MwI0r3yJf_PG5IJlAHZ6G8FmspqwTaQF-819jPMi6iQ7OKnER66H4EHBmy0gefGigsRb2ZNeonkTUZFIfgA4ZyqArTfZE3jrx0C/s16000/3.jpg",
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihiwm7l2GlzSd0XsIElG8nCDMysKYSErbrKkjyGjDckbCa9qtdnXtBLLKupQkGc6ewbN_Qf3J2rU9Asif3q5q-omPA4MwI0r3yJf_PG5IJlAHZ6G8FmspqwTaQF-819jPMi6iQ7OKnER66H4EHBmy0gefGigsRb2ZNeonkTUZFIfgA4ZyqArTfZE3jrx0C/s16000/3.jpg",
+    intro:
+      "Some outfits are made for movement, others are made for breathing deeply and feeling present.",
+    content: [
+      "Good style doesn’t have to shout. Nude, warm, and earthy shades create a sense of calm even on the craziest day.",
+      "Choose clean silhouettes and focus on textures: soft knits, brushed cotton, suede details.",
+      "Create a small ritual before leaving home: choose your outfit the evening before, prepare your accessories, put on your favorite track. This calms you down and saves time in the morning."
+    ],
+    quote: "Style can be your quiet space, even when the day is loud."
+  },
+  {
+    id: "color-speaks",
+    title: "Color that speaks louder than words.",
+    date: "Nov 9, 2025",
+    category: "Color stories",
+    readingTime: "4 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieNge-ccV4gjhZr0nc4f4nnKvwSLBY9KbNKDJFU6byROZ_uVjFRC41FgQfP3A3q_rcEdE1muoAkKM6KcC8qY3msGZ3eVn3uP7IzV5lzcyHTuT6Is85xnlezpnRiHAm0DbNog2vy5rexlwfd0-XdcC11Hmsp6UE3tWCPIPSMr7qEk11e3Tngxhz-2dWkCA5/s16000/4.jpg",
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieNge-ccV4gjhZr0nc4f4nnKvwSLBY9KbNKDJFU6byROZ_uVjFRC41FgQfP3A3q_rcEdE1muoAkKM6KcC8qY3msGZ3eVn3uP7IzV5lzcyHTuT6Is85xnlezpnRiHAm0DbNog2vy5rexlwfd0-XdcC11Hmsp6UE3tWCPIPSMr7qEk11e3Tngxhz-2dWkCA5/s16000/4.jpg",
+    intro:
+      "There are days when you don’t want to explain yourself – you want your outfit to do it for you.",
+    content: [
+      "Bold color is the fastest way to change the mood of a look. One bright piece – a coat, lipstick, or even just a bag – shifts everything.",
+      "To keep color from feeling “too much”, pair it with simple shapes and neutral companions: black, white, denim.",
+      "If you're afraid to start, add color to your shoes or accessories. It's a small but noticeable step towards a new style."
+    ],
+    quote: "Wearing color is a decision to be seen."
+  },
+  {
+    id: "new-season-fresh-wardrobe",
+    title: "A new season. A fresh wardrobe.",
+    date: "Mar 8, 2025",
+    category: "Wardrobe reset",
+    readingTime: "3 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5tP_lL6UAvSsSnr66OEqLmpf3AAE-QleQKAsBmbrnCM73-_SOcOFYZi_v_Kt8BT9mNJvZj3wjlhWs0ECHsbl93mligwK5wbFoxnBofckpuZ6OqYJNeoo6LnekqUa1TdtjNL46Zj-zKn-KXffnGd_2J8QiCN3L-zoXX0GFCNPUOmM452MuW7DjUdLdiX1E/s16000/1.webp",
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5tP_lL6UAvSsSnr66OEqLmpf3AAE-QleQKAsBmbrnCM73-_SOcOFYZi_v_Kt8BT9mNJvZj3wjlhWs0ECHsbl93mligwK5wbFoxnBofckpuZ6OqYJNeoo6LnekqUa1TdtjNL46Zj-zKn-KXffnGd_2J8QiCN3L-zoXX0GFCNPUOmM452MuW7DjUdLdiX1E/s16000/1.webp",
+    intro:
+      "The easiest way to feel different is to change what you reach for every morning.",
+    content: [
+      "Choose 10–12 items and place them at the front of your closet. This is your mini-wardrobe for the next 2 weeks.",
+      "Mix basics with one or two “fun” pieces – an unexpected color, interesting shoes or an unusual bag.",
+      "After two weeks, analyze what you wore most often - they are what show your real style today."
+    ],
+    quote: "Your real style lives in the clothes you wear on repeat."
+  },
+  {
+    id: "light-reveals-you",
+    title: "Light that reveals the real you.",
+    date: "Apr 18, 2025",
+    category: "Editorial",
+    readingTime: "3 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9cI5r3PB449nekjS2axKsWFnBXlZ6SlRO9HvBCLZmAx3okOwocyREjZJv0aiilT-fgK7z-ifEdQWnresnQibT9lutNVEQgeSzNK6my23L5K5vFEqp8h4rTiG9yHPm1ZbSLDFgmwALDv1HsWSuDFcsvRbgEWFWVaaZ4sG4sGD0CBvw6g52YqG-YIOTGO_d/s16000/2.webp",
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9cI5r3PB449nekjS2axKsWFnBXlZ6SlRO9HvBCLZmAx3okOwocyREjZJv0aiilT-fgK7z-ifEdQWnresnQibT9lutNVEQgeSzNK6my23L5K5vFEqp8h4rTiG9yHPm1ZbSLDFgmwALDv1HsWSuDFcsvRbgEWFWVaaZ4sG4sGD0CBvw6g52YqG-YIOTGO_d/s16000/2.webp",
+    intro:
+      "Color and lighting can completely change how a simple look feels on you.",
+    content: [
+      "Try wearing your usual outfit in three different lighting situations: daylight, warm light, and cool neon.",
+      "You’ll notice how your skin, eyes, and fabrics react to the shade of light. This is a good way to understand which colors suit you best.",
+      "Photo sessions aren't just for models. Even a few phone shots can help you see yourself from the outside and put together a new wardrobe."
+    ],
+    quote: "The right light doesn’t change you – it reveals you."
+  },
+  {
+    id: "fresh-kicks-energy",
+    title: "Fresh kicks with a twist of energy.",
+    date: "Jan 11, 2021",
+    category: "Sneaker culture",
+    readingTime: "2 min read",
+    cover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjh-_wdme_n41iw1SLyNIsiiJkmTRXyl4xpAw4k38m7KXr_gRpTffJSmpNvc6ZmlVyyZOswCUIUhyphenhyphenxfBDII9mnOBH4g95wIl7K7vFQkwF4L9V3UQJRTNzFHvQyY9xxIPdpH-OtZbCjhFlmwAZ3sfpq-fyf-VmZ0XJdtSXFhDcHL44QtZRoXpc7Bjz1MPfY/s16000/3.webp",
+    hero: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjh-_wdme_n41iw1SLyNIsiiJkmTRXyl4xpAw4k38m7KXr_gRpTffJSmpNvc6ZmlVyyZOswCUIUhyphenhyphenxfBDII9mnOBH4g95wIl7K7vFQkwF4L9V3UQJRTNzFHvQyY9xxIPdpH-OtZbCjhFlmwAZ3sfpq-fyf-VmZ0XJdtSXFhDcHL44QtZRoXpc7Bjz1MPfY/s16000/3.webp",
+    intro:
+      "Sneakers are no longer just for the gym – they’re the heart of many outfits.",
+    content: [
+      "Bright sneakers can become the main accent even in a basic look: jeans + white T-shirt + colored shoes.",
+      "If you’re building a small rotation, start with one neutral pair and one “fun” colorway.",
+      "Don’t forget about care: regular cleaning and proper storage prolong the life of your favorite pairs."
+    ],
+    quote: "Sometimes the outfit starts from the shoes up."
+  }
+];
+
+// Допоміжний пошук поста
+function findPostById(id) {
+  return BLOG_POSTS.find((post) => post.id === id);
+}
