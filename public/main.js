@@ -73,9 +73,9 @@ function quantityChanged(event) {
     updateCartIcon();
 }
 
+// ----------------------
 // Клік по "ADD TO CART"
-// Клік по "ADD TO CART"
-// Клік по "ADD TO CART"
+// ----------------------
 function addCartClicked(event) {
     const button = event.target;
 
@@ -99,23 +99,22 @@ function addCartClicked(event) {
     let size = "";
     const sizeSelect = section.querySelector("select");
     if (sizeSelect) {
-    size = (sizeSelect.value || "").trim();
-    if (!size || size.toLowerCase() === "select size") {
-        showToast("Please select a size before adding to cart", {
-            type: "error",
-            title: "Size required"
-        });
-        return;
+        size = (sizeSelect.value || "").trim();
+        if (!size || size.toLowerCase() === "select size") {
+            showToast("Please select a size before adding to cart", {
+                type: "error",
+                title: "Size required"
+            });
+            return;
+        }
     }
-}
-
 
     const title          = titleEl.textContent.trim();
     const price          = priceEl.textContent.trim();
     const productImg     = imgEl.src;
     const normalizedSize = (size || "").trim();
 
-    // 🔍 1) Перевірка дубля по localStorage: title + size + productImg (колір)
+    // 1) Перевірка дубля по localStorage: title + size + productImg (колір)
     try {
         const stored = localStorage.getItem("cartItems");
         if (stored) {
@@ -127,8 +126,8 @@ function addCartClicked(event) {
             );
             if (hasDuplicate) {
                 showToast("You have already added this item with the same size and color.", {
-                type: "info",
-                title: "Already in cart"
+                    type: "info",
+                    title: "Already in cart"
                 });
                 return;
             }
@@ -137,7 +136,7 @@ function addCartClicked(event) {
         console.warn("Cannot read cartItems from localStorage", e);
     }
 
-    // 🔍 2) Перевірка по DOM (про всяк випадок): title + size + productImg
+    // 2) Перевірка по DOM (на випадок невідповідності з localStorage)
     const cartContent = document.querySelector(".cart-content");
     if (cartContent && normalizedSize) {
         const boxes = cartContent.querySelectorAll(".cart-box");
@@ -153,29 +152,27 @@ function addCartClicked(event) {
                 existingImg   === productImg
             ) {
                 showToast("You have already added this item with the same size and color.", {
-                type: "info",
-                title: "Already in cart"
+                    type: "info",
+                    title: "Already in cart"
                 });
                 return;
-
             }
         }
     }
 
     // якщо дубля немає – додаємо
     addProductToCart(title, price, productImg, normalizedSize);
-    // 🔥 запускаємо анімацію "fly to cart"
-    animateFlyToCart(imgEl);
+
+
     showToast("Item added to your cart", {
-    type: "success",
-    title: "Added to cart"
-});
+        type: "success",
+        title: "Added to cart"
+    });
+
     updateTotal();
     saveCartItems();
     updateCartIcon();
 }
-
-
 
 // Створити елемент товару в корзині
 function addProductToCart(title, price, productImg, size) {
@@ -219,8 +216,8 @@ function updateTotal() {
     let total = 0;
 
     for (let i = 0; i < cartBoxes.length; i++) {
-        const cartBox        = cartBoxes[i];
-        const priceElement   = cartBox.getElementsByClassName("cart-price")[0];
+        const cartBox         = cartBoxes[i];
+        const priceElement    = cartBox.getElementsByClassName("cart-price")[0];
         const quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
 
         const price    = parseFloat(priceElement.innerText.replace("$", ""));
@@ -309,6 +306,17 @@ function updateCartIcon() {
     }
 }
 
+// Очистити корзину (якщо треба)
+function clearCart() {
+    const cartContent = document.querySelector(".cart-content");
+    if (cartContent) cartContent.innerHTML = "";
+
+    updateTotal();
+    updateCartIcon();
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("cartTotal");
+}
+
 // ===================
 // Toast notifications
 // ===================
@@ -351,18 +359,6 @@ function showToast(message, options = {}) {
     if (duration > 0) {
         setTimeout(close, duration);
     }
-}
-
-
-// Очистити корзину (якщо треба)
-function clearCart() {
-    const cartContent = document.querySelector(".cart-content");
-    if (cartContent) cartContent.innerHTML = "";
-
-    updateTotal();
-    updateCartIcon();
-    localStorage.removeItem("cartItems");
-    localStorage.removeItem("cartTotal");
 }
 
 // ----------------------
@@ -428,50 +424,4 @@ function initThemeToggle() {
 }
 
 
-// ===================
-// Fly-to-cart анімація
-// ===================
-function animateFlyToCart(imgEl) {
-    const cartIcon = document.querySelector("#cart-icon");
-    if (!imgEl || !cartIcon) return;
 
-    const imgRect  = imgEl.getBoundingClientRect();
-    const cartRect = cartIcon.getBoundingClientRect();
-
-    // створюємо клон картинки
-    const flyingImg = imgEl.cloneNode(true);
-    flyingImg.classList.add("flying-img");
-
-    // початкові позиція/розміри — такі ж, як у реальної картинки
-    flyingImg.style.left   = imgRect.left + "px";
-    flyingImg.style.top    = imgRect.top + "px";
-    flyingImg.style.width  = imgRect.width + "px";
-    flyingImg.style.height = imgRect.height + "px";
-    flyingImg.style.opacity = "1";
-    flyingImg.style.transform = "translate(0, 0) scale(1)";
-
-    document.body.appendChild(flyingImg);
-
-    // куди летіти — в центр іконки кошика
-    const targetX =
-        cartRect.left + cartRect.width / 2 - (imgRect.left + imgRect.width / 2);
-    const targetY =
-        cartRect.top + cartRect.height / 2 - (imgRect.top + imgRect.height / 2);
-
-    // запускаємо анімацію в наступному кадрі
-    requestAnimationFrame(() => {
-        flyingImg.style.transform = `translate(${targetX}px, ${targetY}px) scale(0.2)`;
-        flyingImg.style.opacity = "0";
-        flyingImg.style.width  = imgRect.width * 0.3 + "px";
-        flyingImg.style.height = imgRect.height * 0.3 + "px";
-    });
-
-    // після завершення анімації прибираємо клон
-    flyingImg.addEventListener(
-        "transitionend",
-        () => {
-            flyingImg.remove();
-        },
-        { once: true }
-    );
-}

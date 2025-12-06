@@ -1583,21 +1583,6 @@ body.dark-mode .cart-quantity:focus {
 }
 
 
-/* Літаюча копія картинки товару */
-.flying-img {
-    position: fixed;
-    z-index: 9999;
-    pointer-events: none;
-    border-radius: 8px;
-    object-fit: contain;
-    transition:
-        transform 0.7s ease-in-out,
-        opacity 0.7s ease-in-out,
-        width 0.7s ease-in-out,
-        height 0.7s ease-in-out;
-}
-
-
 /* ============ BLOG ARTICLE ============ */
 
 #blog-article {
@@ -1888,10 +1873,10 @@ body.dark-theme .blog-back-link:hover {
    BLOG ARTICLE – DARK MODE
    ========================= */
 
-body.dark-mode {
+/* body.dark-mode {
   /* трішки глибший градієнт фону для сторінок */
-  background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000000 100%);
-}
+  /* background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000000 100%); */
+/* } */ 
 
 /* Карточка поста */
 body.dark-mode #blog-article .container {
@@ -1980,3 +1965,161 @@ body.light-mode .blog-article-card {
         0px -10px 30px rgba(0,0,0,0.06),
         0px 0px 15px rgba(0,0,0,0.04);
 }
+
+/* ===== NAVBAR — DARK MODE GRADIENT ===== */
+
+body.dark-mode .navbar,
+body.dark-mode .navbar-collapse {
+  background: radial-gradient(
+    circle at top left,
+    #1f2937 0,
+    #020617 55%,
+    #000 100%
+  ) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Текст лінків у навігації в dark mode */
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+  color: #f9fafb !important;
+}
+
+/* Ховер/active — помаранчевий */
+body.dark-mode .navbar-light .navbar-nav .nav-link:hover,
+body.dark-mode .navbar-light .navbar-nav .nav-link.active {
+  color: #fb774b !important;
+}
+
+/* Іконки в хедері (кошик, шестерня тощо) */
+body.dark-mode .navbar i,
+body.dark-mode #cart-icon i {
+  color: #f9fafb !important;
+}
+
+/* Бургер-іконка */
+body.dark-mode #bar {
+  color: #f9fafb !important;
+}
+
+/* Іконка перемикача теми */
+body.dark-mode .theme-toggle-icon {
+  color: #f9fafb !important;
+}
+
+/* за замовчуванням — видимий світлий логотип */
+.logo-light {
+    display: inline-block;
+}
+.logo-dark {
+    display: none;
+}
+
+/* у темній темі — навпаки */
+body.dark-mode .logo-light {
+    display: none;
+}
+body.dark-mode .logo-dark {
+    display: inline-block;
+}
+
+body.dark-mode .navbar,
+body.dark-mode nav.navbar {
+    background: transparent !important;
+}
+
+body.dark-mode .navbar * {
+    background: transparent !important;
+}
+
+
+/* ===== NAVBAR — PURE BLACK IN DARK MODE ===== */
+
+/* Сам navbar — завжди чорний у dark mode */
+body.dark-mode .navbar,
+body.dark-mode nav.navbar,
+body.dark-mode .navbar.bg-white {
+    background-color: #000 !important;
+    box-shadow: none !important;
+}
+
+/* Усі внутрішні елементи навбару без власного фону */
+body.dark-mode .navbar .container,
+body.dark-mode .navbar .container-fluid,
+body.dark-mode .navbar .navbar-collapse,
+body.dark-mode .navbar .navbar-nav,
+body.dark-mode .navbar .nav-item,
+body.dark-mode .navbar .nav-link {
+    background: transparent !important;
+}
+
+.product i.add-cart {
+    display: none !important;
+}
+
+/* Бокова панель кошика */
+.cart {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 380px;
+    height: 100vh;          /* замінили min-height на height */
+    padding: 20px;
+    background: #1e1e2a;
+    box-shadow: -2px 0 4px hsl(0 0% 0% / 0.4);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 1100;
+
+    display: flex;          /* додаємо флекс-колонку */
+    flex-direction: column;
+}
+
+/* контейнер з товарами в кошику */
+.cart-content {
+    flex: 1 1 auto;         /* забирає весь доступний простір між заголовком і total */
+    overflow-y: auto;       /* дозволяє скролити товари */
+    margin-top: 1.5rem;
+    padding-right: 4px;
+}
+
+/* total + кнопка не тягнуться вгору при скролі */
+.total,
+.btn-buy {
+    flex-shrink: 0;
+}
+
+.cart-content {
+    overflow-y: auto;
+    overflow-x: hidden;  /* ← прибирає горизонтальний скрол */
+}
+
+.cart-box {
+    width: 100%;
+    overflow: hidden; /* гарантія, що ніщо не вилазить */
+}
+
+.cart-box {
+    grid-template-columns: 32% 1fr 18%;
+}
+
+.cart-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cart-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cart-content::-webkit-scrollbar-thumb {
+    background: coral;
+    border-radius: 4px;
+}
+
+.cart-content::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.cart-content {
+    scrollbar-gutter: stable; /* Chrome, Edge, Firefox */
+}
+
+
