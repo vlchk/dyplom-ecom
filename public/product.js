@@ -129,3 +129,44 @@
   }
 
 })();
+
+
+// ---- РОЗМІРИ ПО КАТЕГОРІЯМ ----
+const sizePresets = {
+    clothes: ["XS", "S", "M", "L", "XL"],
+    shoes: ["38", "39", "40", "41", "42", "43", "44"],
+    hats: ["One size"],
+    bags: [],          // сумкам розміри не потрібні
+    accessories: [],   // інше без розмірів
+};
+
+
+const sizeSelect = document.getElementById("product-size");
+
+// визначаємо розміри:
+let sizes = [];
+
+if (product.sizes && product.sizes.length > 0) {
+    // якщо товар має власний список
+    sizes = product.sizes;
+} else if (product.category && sizePresets[product.category]) {
+    // якщо є категорія з пресетом
+    sizes = sizePresets[product.category];
+}
+
+// очищаємо селект, залишаємо placeholder
+sizeSelect.innerHTML = `<option value="">Select size</option>`;
+
+if (sizes.length > 0) {
+    sizes.forEach(size => {
+        const opt = document.createElement("option");
+        opt.value = size;
+        opt.textContent = size;
+        sizeSelect.appendChild(opt);
+    });
+
+    sizeSelect.parentElement.style.display = "block";
+} else {
+    // якщо розмірів немає — ховаємо селект
+    sizeSelect.parentElement.style.display = "none";
+}

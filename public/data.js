@@ -357,6 +357,37 @@ const BLOG_POSTS = [
   }
 ];
 
+const productsData = [
+  {
+    id: "tshirt",
+    name: "Men's Fashion T Shirt",
+    price: 92,
+    category: "clothes",
+    // sizes: []  ← можеш не вказувати, підтягнеться автоматично
+  },
+  {
+    id: "hoodie",
+    name: "Men's Fashion T Shirt",
+    price: 92,
+    category: "clothes",
+  },
+  {
+    id: "boots",
+    name: "Crimson Grip Boots",
+    price: 80,
+    category: "shoes",
+  },
+  {
+    id: "pack",
+    name: "Midnight Urban Pack",
+    price: 75,
+    category: "bags",
+    
+  },
+  
+];
+
+
 // Допоміжний пошук поста
 function findPostById(id) {
   return BLOG_POSTS.find((post) => post.id === id);

@@ -425,3 +425,48 @@ function initThemeToggle() {
 
 
 
+// Grocery hero slider
+
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroDots = document.querySelectorAll(".hero-dot");
+
+let currentHeroSlide = 0;
+let heroSliderInterval;
+
+function showHeroSlide(index) {
+  if (!heroSlides.length || !heroDots.length) return;
+
+  heroSlides.forEach((slide) => slide.classList.remove("active"));
+  heroDots.forEach((dot) => dot.classList.remove("active"));
+
+  heroSlides[index].classList.add("active");
+  heroDots[index].classList.add("active");
+
+  currentHeroSlide = index;
+}
+
+function nextHeroSlide() {
+  const nextIndex = (currentHeroSlide + 1) % heroSlides.length;
+  showHeroSlide(nextIndex);
+}
+
+function startHeroSlider() {
+  heroSliderInterval = setInterval(nextHeroSlide, 4000);
+}
+
+function resetHeroSlider() {
+  clearInterval(heroSliderInterval);
+  startHeroSlider();
+}
+
+heroDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const slideIndex = Number(dot.dataset.slide);
+    showHeroSlide(slideIndex);
+    resetHeroSlider();
+  });
+});
+
+if (heroSlides.length && heroDots.length) {
+  startHeroSlider();
+}
