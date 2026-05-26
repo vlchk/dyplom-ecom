@@ -33,27 +33,34 @@ app.post("/stripe-checkout", async (req, res) => {
     console.log("=== STRIPE CHECKOUT ITEMS ===");
     console.dir(items, { depth: null });
 
-    const lineItems = items.map((item) => {
-      const rawPrice = String(item.price || "");
-      const priceNumber = parseFloat(rawPrice.replace(/[^0-9.]/g, "")) || 0;
-      const unitAmount = Math.round(priceNumber * 100);
+   const lineItems = items.map((item) => {
+  const rawPrice = String(item.price || "");
 
-      const size = (item.size || "").trim();
-      const sizeLabel = size ? ` (Size: ${size})` : "";
+  const priceNumber =
+    parseFloat(
+      rawPrice
+        .replace("грн", "")
+        .replace(",", ".")
+        .replace(/[^0-9.]/g, "")
+        .trim()
+    ) || 0;
 
-      return {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            // ✅ Чиста назва + розмір — без TEST
-            name: `${item.title}${sizeLabel}`,
-            images: item.productImg ? [item.productImg] : [],
-          },
-          unit_amount: unitAmount,
-        },
-        quantity: parseInt(item.quantity, 10) || 1,
-      };
-    });
+  const unitAmount = Math.round(priceNumber * 100);
+
+  return {
+  price_data: {
+    currency: "uah",
+    product_data: {
+      name: item.title,
+      ...(item.productImg && item.productImg.startsWith("http")
+        ? { images: [item.productImg] }
+        : {}),
+    },
+    unit_amount: unitAmount,
+  },
+  quantity: parseInt(item.quantity, 10) || 1,
+};
+});
 
     const session = await stripeGateway.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -64,17 +71,11 @@ app.post("/stripe-checkout", async (req, res) => {
       billing_address_collection: "required",
 
       metadata: {
-        items: JSON.stringify(
-          items.map((i) => ({
-            title: i.title,
-            size: (i.size || "").trim(),
-            quantity: i.quantity,
-          }))
-        ),
+      order_items_count: String(items.length),
       },
     });
 
-    res.json(session.url);
+    res.json({ url: session.url });
   } catch (err) {
     console.error("Stripe checkout error:", err);
     res.status(500).json({ error: "Stripe checkout failed" });

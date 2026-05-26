@@ -27,7 +27,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body class="drinks-page">
+<body class="meat-page">
     <!-- NAVIGATION -->
     <nav class="market-header fixed-top">
         <div class="market-header-top container">
@@ -44,7 +44,7 @@
 
             <form class="market-search" id="productSearchForm">
 
-                <input type="text" id="productSearchInput" placeholder="Введіть назву товару">
+                <input type="text" id="productSearchInput" placeholder="Введіть назву товару" autocomplete="off">
 
                 <button type="submit">
                     <i class="fas fa-search"></i>
@@ -104,115 +104,68 @@
         <i class="bx bx-x" id="close-cart"></i>
     </div>
 
-    <main class="category-page">
+    <main class="info-page">
+    <div class="container">
 
-        <div class="container">
+        <div class="category-breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i></a>
+            <span>></span>
+            <span>Як це працює</span>
+        </div>
 
-            <div class="category-breadcrumb">
-                <a href="index.html"><i class="fas fa-home"></i></a>
-                <span>></span>
-                <span>Напої</span>
-            </div>
+        <section class="info-content">
+            <h1>Як це працює</h1>
 
-            <div class="category-head">
-                <h1>Напої</h1>
+            <ol class="work-steps">
+                <li>Оберіть своє місто.</li>
+                <li>Зареєструйтесь на сайті або увійдіть в існуючий профіль.</li>
+                <li>Оберіть товар з асортименту магазину в рубриці “Каталог” або скористайтесь пошуком.</li>
+            </ol>
 
-                <div class="category-sort">
-                    <label for="sortProducts">Сортувати</label>
-                    <select id="sortProducts">
-                        <option value="popular">за популярністю</option>
-                        <option value="price-asc">спочатку дешевші</option>
-                        <option value="price-desc">спочатку дорожчі</option>
-                    </select>
+            <p>
+                Якщо бажаєте додати коментар до обраного товару, натисніть на фото товару
+                і в новому вікні напишіть свої побажання. Коментар можна залишати і
+                безпосередньо при оформленні замовлення.
+            </p>
+
+            <p>
+                Якщо у Вас є улюблений набір продуктів, Ви можете зберегти замовлення
+                та користуватися готовою формою надалі.
+            </p>
+
+            <ol class="work-steps" start="4">
+                <li>Оформіть замовлення, вказавши зручний для Вас час самовивозу або адресу доставки.</li>
+                <li>Підтвердіть замовлення за телефоном оператору.</li>
+                <li>Наш персонал сформує замовлення та відбере найсвіжіші товари.</li>
+                <li>У відповідний час Ви отримаєте замовлення у магазині або за вказаною адресою.</li>
+            </ol>
+
+            <h2>Графік роботи</h2>
+
+            <div class="work-schedule">
+                <div>
+                    <span>Прийом замовлень</span>
+                    <strong>щодобово</strong>
+                </div>
+
+                <div>
+                    <span>Доставка</span>
+                    <strong>з 10:00 до 20:00</strong>
                 </div>
             </div>
 
-            <div class="category-layout">
+            <h2>З нами Ви:</h2>
 
-                <aside class="category-filter">
+            <ul class="info-list">
+                <li>здійснюєте вибір товару в зручному місці та у зручний спосіб;</li>
+                <li>економите час на покупки та зберігаєте товар без черг та зволікань;</li>
+                <li>заощаджуєте кошти, отримуючи бонуси за онлайн-покупки;</li>
+                <li>отримуєте можливість користатися особистим кабінетом і додатковими функціями.</li>
+            </ul>
+        </section>
 
-                    <div class="filter-box">
-                        <div class="filter-title">
-                            <span>Категорія</span>
-                            <i class="fas fa-caret-up"></i>
-                        </div>
-
-                        <div class="filter-list">
-
-                            <label>
-                                <input type="checkbox" value="Вода солодка" class="subcategory-filter">
-                                Вода солодка
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Вода мінеральна" class="subcategory-filter">
-                                Вода мінеральна
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Сокові напої" class="subcategory-filter">
-                                Сокові напої
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Вода питна" class="subcategory-filter">
-                                Вода питна
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Чай холодний" class="subcategory-filter">
-                                Чай холодний
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Енергетики" class="subcategory-filter">
-                                Енергетики
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Квас" class="subcategory-filter">
-                                Квас
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Шампанське дитяче" class="subcategory-filter">
-                                Шампанське дитяче
-                            </label>
-
-                        </div>
-                    </div>
-
-                    <div class="filter-box">
-                        <div class="filter-title">
-                            <span>Ціна</span>
-                            <i class="fas fa-caret-up"></i>
-                        </div>
-
-                        <div class="price-filter">
-                            <p>До: <span id="priceValue">250</span> грн</p>
-                            <input type="range" id="priceRange" min="0" max="250" value="250">
-                        </div>
-                    </div>
-
-                    <button class="apply-filter-btn" id="applyFilterBtn">
-                        Застосувати фільтр
-                    </button>
-
-                    <button class="reset-filter-btn" id="resetFilterBtn">
-                        Скинути
-                    </button>
-
-                </aside>
-
-                <section class="category-products" id="categoryProducts">
-                    <!-- товари підтягнуться з JS -->
-                </section>
-
-            </div>
-
-        </div>
-
-    </main>
+    </div>
+</main>
 
     <footer class="market-footer">
 

@@ -432,7 +432,7 @@ const PROMO_PRODUCTS = [
     id: "more-products",
     type: "more",
     title: "Більше товарів",
-    link: "test.html"
+    link: "promotions.html"
   }
 ];
 

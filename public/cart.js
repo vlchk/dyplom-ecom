@@ -10,10 +10,19 @@ if (payBtn) {
             }),
         })
         .then((res) => res.json())
-        .then((url) => {
-            location.href = url;
-            clearCart();
-        })
+.then((data) => {
+    console.log("Stripe response:", data);
+
+    const checkoutUrl = typeof data === "string" ? data : data.url;
+
+    if (!checkoutUrl) {
+        console.error("Stripe URL не прийшов:", data);
+        return;
+    }
+
+    location.href = checkoutUrl;
+    clearCart();
+})
         .catch((err) => console.log(err));
     });
 }

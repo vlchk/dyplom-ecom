@@ -27,7 +27,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body class="drinks-page">
+<body class="meat-page">
     <!-- NAVIGATION -->
     <nav class="market-header fixed-top">
         <div class="market-header-top container">
@@ -44,7 +44,7 @@
 
             <form class="market-search" id="productSearchForm">
 
-                <input type="text" id="productSearchInput" placeholder="Введіть назву товару">
+                <input type="text" id="productSearchInput" placeholder="Введіть назву товару" autocomplete="off">
 
                 <button type="submit">
                     <i class="fas fa-search"></i>
@@ -104,114 +104,24 @@
         <i class="bx bx-x" id="close-cart"></i>
     </div>
 
-    <main class="category-page">
-
+    <main class="reviews-page">
         <div class="container">
 
             <div class="category-breadcrumb">
                 <a href="index.html"><i class="fas fa-home"></i></a>
                 <span>></span>
-                <span>Напої</span>
+                <span>Відгуки</span>
             </div>
 
-            <div class="category-head">
-                <h1>Напої</h1>
+            <section class="reviews-content">
+                <h1>Відгуки користувачів</h1>
 
-                <div class="category-sort">
-                    <label for="sortProducts">Сортувати</label>
-                    <select id="sortProducts">
-                        <option value="popular">за популярністю</option>
-                        <option value="price-asc">спочатку дешевші</option>
-                        <option value="price-desc">спочатку дорожчі</option>
-                    </select>
-                </div>
-            </div>
+                <div class="reviews-list" id="reviewsList"></div>
 
-            <div class="category-layout">
-
-                <aside class="category-filter">
-
-                    <div class="filter-box">
-                        <div class="filter-title">
-                            <span>Категорія</span>
-                            <i class="fas fa-caret-up"></i>
-                        </div>
-
-                        <div class="filter-list">
-
-                            <label>
-                                <input type="checkbox" value="Вода солодка" class="subcategory-filter">
-                                Вода солодка
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Вода мінеральна" class="subcategory-filter">
-                                Вода мінеральна
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Сокові напої" class="subcategory-filter">
-                                Сокові напої
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Вода питна" class="subcategory-filter">
-                                Вода питна
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Чай холодний" class="subcategory-filter">
-                                Чай холодний
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Енергетики" class="subcategory-filter">
-                                Енергетики
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Квас" class="subcategory-filter">
-                                Квас
-                            </label>
-
-                            <label>
-                                <input type="checkbox" value="Шампанське дитяче" class="subcategory-filter">
-                                Шампанське дитяче
-                            </label>
-
-                        </div>
-                    </div>
-
-                    <div class="filter-box">
-                        <div class="filter-title">
-                            <span>Ціна</span>
-                            <i class="fas fa-caret-up"></i>
-                        </div>
-
-                        <div class="price-filter">
-                            <p>До: <span id="priceValue">250</span> грн</p>
-                            <input type="range" id="priceRange" min="0" max="250" value="250">
-                        </div>
-                    </div>
-
-                    <button class="apply-filter-btn" id="applyFilterBtn">
-                        Застосувати фільтр
-                    </button>
-
-                    <button class="reset-filter-btn" id="resetFilterBtn">
-                        Скинути
-                    </button>
-
-                </aside>
-
-                <section class="category-products" id="categoryProducts">
-                    <!-- товари підтягнуться з JS -->
-                </section>
-
-            </div>
+                <div class="reviews-pagination" id="reviewsPagination"></div>
+            </section>
 
         </div>
-
     </main>
 
     <footer class="market-footer">

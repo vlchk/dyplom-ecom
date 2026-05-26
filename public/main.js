@@ -748,11 +748,25 @@ renderCategoryProducts();
 const marketCatalog = document.querySelector(".market-catalog");
 
 if (marketCatalog) {
+    const catalogDropdown = marketCatalog.querySelector(".catalog-dropdown");
+
     marketCatalog.addEventListener("click", function (e) {
-        if (window.innerWidth <= 576) {
+        if (window.innerWidth <= 991) {
             e.preventDefault();
+            e.stopPropagation();
+
             marketCatalog.classList.toggle("open");
         }
+    });
+
+    if (catalogDropdown) {
+        catalogDropdown.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    }
+
+    document.addEventListener("click", function () {
+        marketCatalog.classList.remove("open");
     });
 }
 
@@ -1224,3 +1238,138 @@ function renderSearchPage() {
 }
 
 renderSearchPage();
+
+const reviewsList = document.getElementById("reviewsList");
+const reviewsPagination = document.getElementById("reviewsPagination");
+
+const reviewsData = [
+    {
+        name: "Олена Кравчук",
+        date: "14.05.2026",
+        text: "Замовляла продукти вперше. Все привезли вчасно, овочі свіжі, кур’єр ввічливий. Дуже зручно, коли немає часу йти в магазин."
+    },
+    {
+        name: "Ігор Мельник",
+        date: "09.05.2026",
+        text: "Хороший сервіс. Замовлення зібрали швидко, по телефону уточнили заміну одного товару. Все прийшло акуратно запаковане."
+    },
+    {
+        name: "Марія Бондар",
+        date: "02.05.2026",
+        text: "Сподобалось, що можна швидко знайти товари через пошук. Молочні продукти були з нормальними строками придатності, доставка без затримок."
+    },
+    {
+        name: "Андрій Савчук",
+        date: "27.04.2026",
+        text: "Замовляв м’ясо, напої та солодощі. Якість хороша, ціни відповідають сайту. Було б добре додати більше товарів у майбутньому."
+    },
+    {
+        name: "Наталія Романюк",
+        date: "21.04.2026",
+        text: "Дуже виручає доставка після роботи. Кур’єр попередньо подзвонив, замовлення привезли у вибраний проміжок часу."
+    },
+    {
+        name: "Вікторія Павлюк",
+        date: "18.04.2026",
+        text: "Зручно, що є категорії товарів і акції окремо. Додала кілька позицій у кошик, оплата пройшла без проблем."
+    },
+    {
+        name: "Тарас Гнатюк",
+        date: "10.04.2026",
+        text: "Сайт простий і зрозумілий. Замовляв воду, фрукти і печиво. Все було в наявності, нічого не замінювали."
+    },
+    {
+        name: "Софія Литвин",
+        date: "04.04.2026",
+        text: "Окремо дякую за акуратне пакування. Полуниця та яблука приїхали цілими, без пошкоджень."
+    },
+    {
+        name: "Олександр Мороз",
+        date: "28.03.2026",
+        text: "Нормальний онлайн-магазин для щоденних покупок. Особливо зручно, що є сторінка з акційними товарами."
+    },
+    {
+        name: "Катерина Шевчук",
+        date: "20.03.2026",
+        text: "Замовлення оформила швидко. Після підтвердження одразу було зрозуміло, коли чекати доставку."
+    },
+    {
+        name: "Роман Петренко",
+        date: "13.03.2026",
+        text: "Брав товари з різних категорій. Кошик працює нормально, кількість можна змінити вже перед оплатою."
+    },
+    {
+        name: "Юлія Коваль",
+        date: "05.03.2026",
+        text: "Гарний сервіс. Сподобалась сторінка товару з описом, бо можна швидко зрозуміти, що саме купуєш."
+    },
+    {
+        name: "Дмитро Левченко",
+        date: "26.02.2026",
+        text: "Доставка приїхала без запізнення. Один товар був акційний, ціна в кошику підтягнулась правильно."
+    },
+    {
+        name: "Ірина Поліщук",
+        date: "18.02.2026",
+        text: "Зручно користуватись з телефону. Каталог відкривається нормально, товари легко додавати в кошик."
+    },
+    {
+        name: "Богдан Климчук",
+        date: "09.02.2026",
+        text: "Все добре. Замовляв продукти для дому, отримав повне замовлення без зайвих дзвінків і уточнень."
+    }
+];
+
+let currentReviewsPage = 1;
+const reviewsPerPage = 5;
+
+function renderReviewsPage(page = 1) {
+    if (!reviewsList || !reviewsPagination) return;
+
+    currentReviewsPage = page;
+
+    const start = (page - 1) * reviewsPerPage;
+    const end = start + reviewsPerPage;
+    const pageReviews = reviewsData.slice(start, end);
+
+    reviewsList.innerHTML = pageReviews.map((review) => `
+        <div class="review-row">
+            <div class="review-meta">
+                <strong>${review.name}</strong>
+                <span>${review.date}</span>
+            </div>
+
+            <div class="review-text">
+                ${review.text}
+            </div>
+        </div>
+    `).join("");
+
+    const totalPages = Math.ceil(reviewsData.length / reviewsPerPage);
+
+    reviewsPagination.innerHTML = `
+        <button ${page === 1 ? "disabled" : ""} data-page="${page - 1}">«</button>
+
+        ${Array.from({ length: totalPages }, (_, index) => `
+            <button
+                class="${page === index + 1 ? "active" : ""}"
+                data-page="${index + 1}"
+            >
+                ${index + 1}
+            </button>
+        `).join("")}
+
+        <button ${page === totalPages ? "disabled" : ""} data-page="${page + 1}">»</button>
+    `;
+}
+
+if (reviewsPagination) {
+    reviewsPagination.addEventListener("click", function (e) {
+        const btn = e.target.closest("button");
+        if (!btn || btn.disabled) return;
+
+        renderReviewsPage(Number(btn.dataset.page));
+    });
+}
+
+renderReviewsPage();
