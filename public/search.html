@@ -27,7 +27,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body class="search-page">
     <!-- NAVIGATION -->
     <nav class="market-header fixed-top">
         <div class="market-header-top container">
@@ -43,11 +43,13 @@
             </div>
 
             <form class="market-search" id="productSearchForm">
+
                 <input type="text" id="productSearchInput" placeholder="Введіть назву товару" autocomplete="off">
 
                 <button type="submit">
                     <i class="fas fa-search"></i>
                 </button>
+
             </form>
 
             <div class="market-info-box">
@@ -76,8 +78,8 @@
                         </div>
                     </div>
 
-                    <a href="test.html">Акції</a>
-                    <a href="#">Оплата і доставка</a>
+                    <a href="promotions.html">Акції</a>
+                    <a href="payment-delivery.html">Оплата і доставка</a>
                 </div>
 
                 <a href="#" class="help-army">Допомога ЗСУ</a>
@@ -102,19 +104,21 @@
         <i class="bx bx-x" id="close-cart"></i>
     </div>
 
-    <main class="product-page">
+    <main class="category-page search-page">
         <div class="container">
-            <div class="product-breadcrumb-market" id="productBreadcrumb"></div>
 
-            <div class="product-details" id="productDetails">
-                <!-- товар підтягнеться з JS -->
+            <div class="category-breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i></a>
+                <span>></span>
+                <span>Пошук</span>
             </div>
 
-            <section class="related-products-section">
-                <h2>Схожі товари</h2>
-                <div class="related-products" id="relatedProducts">
-                    <!-- схожі товари підтягнуться з JS -->
-                </div>
+            <div class="category-head">
+                <h1 id="searchTitle">Результати пошуку</h1>
+            </div>
+
+            <section class="category-products search-products" id="searchProducts">
+                <!-- результати пошуку -->
             </section>
 
         </div>

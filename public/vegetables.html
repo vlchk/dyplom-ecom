@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce website Ecom.</title>
+  <!-- Стандартна іконка -->
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png">
+
+  <link rel="shortcut icon"
+    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIEeT169jKUnUiZ6u2lfNShSvcKDgLTQ2Eu8nAXW9yv9OecM8ezB1rxPP7ALFQShriHvodjBJMViuzA1d-xrEu6OmkzdIpY1Mchp9bBq4qGAsIokjL_TQdfhiPmsFUfRW9QS506hCOt7aSmBwB3CAWEkb57YG-XHAd6fGtB5rgzL-vxnqkbbL92NFSM4hL/s320/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%20%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D1%87%D0%BD%D0%B8%D0%BC%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%BC.png"
+    type="image/png">
+
+  <!-- Apple пристрої -->
+  <link rel="apple-touch-icon"
+    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7spANoiu62cSj3fK_aSTMrP7abXpIrjRNfHRnj92BBrsyoee7SfuEAWeySc2wxJBaV1Oq-tM-5QEG9M6wxGCRwM2bWLztq2e44_h7yYUfWeSwOqkRWtklBifrNlBA2qWiZvWI0P1ite9iB6zVohfuppZKrNZtEfyBlQ3jng1BAQaCgEYfv_Ty9SRSlgrF/s320/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav class="market-header fixed-top">
+    <div class="market-header-top container">
+      <a href="index.html" class="market-logo">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihzHKltZtH_IsVhjsdjb77TKsskfBSPUuhncOKHx3F-tXSPTbmqINZs16I0LgTn19sZ6ddmLz9JoL033nYHqvVpjLnpvUKiC86LC-oSG2l-dWY8F9yItOwXnnsn6nADfu-JXK7REgQLos-79322K3wDX0XQAktF1QnyN2vioJA_AVIr72jQTnvsOPgJTWC/s16000/spar-logo.png"
+          alt="">
+        <span class="market-logo-sub">MARKET</span>
+      </a>
+
+      <div class="market-location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Луцьк</span>
+      </div>
+
+      <form class="market-search" id="productSearchForm">
+
+        <input type="text" id="productSearchInput" placeholder="Введіть назву товару" autocomplete="off">
+
+        <button type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+
+      </form>
+
+      <div class="market-info-box">
+        <p>Прийом замовлень 24h</p>
+        <p>Доставка 10:00 —20:00</p>
+      </div>
+
+      <div class="market-actions">
+        <i class="fal fa-shopping-bag" id="cart-icon"></i>
+      </div>
+    </div>
+
+    <div class="market-nav">
+      <div class="container market-nav-inner">
+
+        <div class="market-nav-left">
+          <div class="market-catalog">
+            <i class="fas fa-bars"></i>
+            <span>Каталог</span>
+            <div class="catalog-dropdown">
+              <a href="vegetables.html">Овочі та фрукти</a>
+              <a href="milk-products.html">Молочні продукти</a>
+              <a href="meat.html">М’ясо та ковбаси</a>
+              <a href="drinks.html">Напої</a>
+              <a href="sweets.html">Солодощі</a>
+            </div>
+          </div>
+
+          <a href="promotions.html">Акції</a>
+          <a href="payment-delivery.html">Оплата і доставка</a>
+        </div>
+
+        <a href="#" class="help-army">Допомога ЗСУ</a>
+
+      </div>
+    </div>
+  </nav>
+  <!-- CART SIDEBAR (такий самий, як на about/product/test) -->
+  <div class="cart">
+    <h2 class="cart-title">Кошик</h2>
+
+    <div class="cart-content">
+      <!-- JS сам підставить товари з localStorage -->
+    </div>
+
+    <div class="total">
+      <div class="total-title">Разом</div>
+      <div class="total-price">грн 0</div>
+    </div>
+
+    <button class="btn-buy">Сплатити</button>
+    <i class="bx bx-x" id="close-cart"></i>
+  </div>
+
+  <main class="category-page">
+
+    <div class="container">
+
+      <div class="category-breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <span>></span>
+        <span>Овочі, фрукти, гриби</span>
+      </div>
+
+      <div class="category-head">
+        <h1>Овочі, фрукти, гриби</h1>
+
+        <div class="category-sort">
+          <label for="sortProducts">Сортувати</label>
+          <select id="sortProducts">
+            <option value="popular">за популярністю</option>
+            <option value="price-asc">спочатку дешевші</option>
+            <option value="price-desc">спочатку дорожчі</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="category-layout">
+
+        <aside class="category-filter">
+
+          <div class="filter-box">
+            <div class="filter-title">
+              <span>Категорія</span>
+              <i class="fas fa-caret-up"></i>
+            </div>
+
+            <div class="filter-list">
+              <label>
+                <input type="checkbox" value="Овочі" class="subcategory-filter">
+                Овочі
+              </label>
+
+              <label>
+                <input type="checkbox" value="Фрукти" class="subcategory-filter">
+                Фрукти
+              </label>
+
+              <label>
+                <input type="checkbox" value="Ягоди" class="subcategory-filter">
+                Ягоди
+              </label>
+
+              <label>
+                <input type="checkbox" value="Зелень" class="subcategory-filter">
+                Зелень
+              </label>
+
+              <label>
+                <input type="checkbox" value="Сухофрукти" class="subcategory-filter">
+                Сухофрукти
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-box">
+            <div class="filter-title">
+              <span>Ціна</span>
+              <i class="fas fa-caret-up"></i>
+            </div>
+
+            <div class="price-filter">
+              <p>До: <span id="priceValue">250</span> грн</p>
+              <input type="range" id="priceRange" min="0" max="250" value="250">
+            </div>
+          </div>
+
+          <button class="apply-filter-btn" id="applyFilterBtn">
+            Застосувати фільтр
+          </button>
+
+          <button class="reset-filter-btn" id="resetFilterBtn">
+            Скинути
+          </button>
+
+        </aside>
+
+        <section class="category-products" id="categoryProducts">
+          <!-- товари підтягнуться з JS -->
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="market-footer">
+
+    <div class="market-footer-top">
+      <div class="container market-footer-inner">
+
+        <div class="market-footer-links">
+          <a href="#">Як це працює</a>
+          <a href="#">Оплата та доставка</a>
+          <a href="#">Відгуки</a>
+          <a href="#">Оферта</a>
+        </div>
+
+        <div class="market-footer-info">
+          <p>Прийом замовлень 24h</p>
+          <p>Доставка 10:00 —20:00</p>
+        </div>
+
+        <a href="#" class="market-footer-social">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="market-footer-bottom">
+      <div class="container">
+        2026 shop.spar.ua
+      </div>
+    </div>
+
+  </footer>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script src="cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+  <div id="toast-container"></div>
+</body>
+
+</html>

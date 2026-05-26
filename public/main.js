@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // ----------------------
 
 function initCart() {
-    const cartIcon  = document.querySelector("#cart-icon");
-    const cart      = document.querySelector(".cart");
+    const cartIcon = document.querySelector("#cart-icon");
+    const cart = document.querySelector(".cart");
     const closeCart = document.querySelector("#close-cart");
 
     // Відкрити / закрити корзину
@@ -80,11 +80,11 @@ function addCartClicked(event) {
     const button = event.target;
 
     // контейнер карточки товару або секція .sproduct
-    const section  = button.closest(".sproduct") || document;
-    const card     = button.closest(".product") || section;
+    const section = button.closest(".sproduct") || document;
+    const card = button.closest(".product") || section;
 
     const titleEl = card.querySelector(".product-title") || section.querySelector(".product-title");
-    const priceEl = card.querySelector(".price")         || section.querySelector(".price");
+    const priceEl = card.querySelector(".price") || section.querySelector(".price");
 
     let imgEl = card.querySelector(".product-img") || section.querySelector(".product-img");
     const mainImgEl = document.getElementById("mainImg");
@@ -109,9 +109,9 @@ function addCartClicked(event) {
         }
     }
 
-    const title          = titleEl.textContent.trim();
-    const price          = priceEl.textContent.trim();
-    const productImg     = imgEl.src;
+    const title = titleEl.textContent.trim();
+    const price = priceEl.textContent.trim();
+    const productImg = imgEl.src;
     const normalizedSize = (size || "").trim();
 
     // 1) Перевірка дубля по localStorage: title + size + productImg (колір)
@@ -121,7 +121,7 @@ function addCartClicked(event) {
             const items = JSON.parse(stored);
             const hasDuplicate = items.some(it =>
                 (it.title || "").trim() === title &&
-                (it.size  || "").trim() === normalizedSize &&
+                (it.size || "").trim() === normalizedSize &&
                 (it.productImg || "") === productImg
             );
             if (hasDuplicate) {
@@ -142,14 +142,14 @@ function addCartClicked(event) {
         const boxes = cartContent.querySelectorAll(".cart-box");
         for (const box of boxes) {
             const existingTitle = box.querySelector(".cart-product-title")?.textContent.trim() || "";
-            const sizeText      = box.querySelector(".cart-size")?.textContent || "";
-            const existingSize  = sizeText.replace("Size:", "").trim();
-            const existingImg   = box.querySelector(".cart-img")?.src || "";
+            const sizeText = box.querySelector(".cart-size")?.textContent || "";
+            const existingSize = sizeText.replace("Size:", "").trim();
+            const existingImg = box.querySelector(".cart-img")?.src || "";
 
             if (
                 existingTitle === title &&
-                existingSize  === normalizedSize &&
-                existingImg   === productImg
+                existingSize === normalizedSize &&
+                existingImg === productImg
             ) {
                 showToast("You have already added this item with the same size and color.", {
                     type: "info",
@@ -216,11 +216,11 @@ function updateTotal() {
     let total = 0;
 
     for (let i = 0; i < cartBoxes.length; i++) {
-        const cartBox         = cartBoxes[i];
-        const priceElement    = cartBox.getElementsByClassName("cart-price")[0];
+        const cartBox = cartBoxes[i];
+        const priceElement = cartBox.getElementsByClassName("cart-price")[0];
         const quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
 
-        const price    = parseFloat(priceElement.innerText.replace("$", ""));
+        const price = parseFloat(priceElement.innerText.replace("грн", "").trim());
         const quantity = parseInt(quantityElement.value, 10) || 0;
 
         total += price * quantity;
@@ -228,7 +228,7 @@ function updateTotal() {
 
     total = Math.round(total * 100) / 100;
     const totalEl = document.querySelector(".total-price");
-    if (totalEl) totalEl.innerText = "$" + total;
+    if (totalEl) totalEl.innerText = total + " грн";
 
     localStorage.setItem("cartTotal", total);
 }
@@ -242,16 +242,16 @@ function saveCartItems() {
     const cartItems = [];
 
     for (let i = 0; i < cartBoxes.length; i++) {
-        const cartBox         = cartBoxes[i];
-        const titleElement    = cartBox.querySelector(".cart-product-title");
-        const priceElement    = cartBox.querySelector(".cart-price");
+        const cartBox = cartBoxes[i];
+        const titleElement = cartBox.querySelector(".cart-product-title");
+        const priceElement = cartBox.querySelector(".cart-price");
         const quantityElement = cartBox.querySelector(".cart-quantity");
-        const imgElement      = cartBox.querySelector(".cart-img");
-        const sizeElement     = cartBox.querySelector(".cart-size");
+        const imgElement = cartBox.querySelector(".cart-img");
+        const sizeElement = cartBox.querySelector(".cart-size");
 
         const item = {
-            title:    titleElement?.innerText || "",
-            price:    priceElement?.innerText || "",
+            title: titleElement?.innerText || "",
+            price: priceElement?.innerText || "",
             quantity: quantityElement?.value || "1",
             productImg: imgElement?.src || "",
             size: sizeElement
@@ -273,8 +273,8 @@ function loadCartItems() {
             const item = cartItems[i];
             addProductToCart(item.title, item.price, item.productImg, item.size);
 
-            const cartBoxes       = document.getElementsByClassName("cart-box");
-            const cartBox         = cartBoxes[cartBoxes.length - 1];
+            const cartBoxes = document.getElementsByClassName("cart-box");
+            const cartBox = cartBoxes[cartBoxes.length - 1];
             const quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
             quantityElement.value = item.quantity;
         }
@@ -283,7 +283,7 @@ function loadCartItems() {
     const cartTotal = localStorage.getItem("cartTotal");
     if (cartTotal) {
         const totalEl = document.querySelector(".total-price");
-        if (totalEl) totalEl.innerHTML = "$" + cartTotal;
+        if (totalEl) totalEl.innerHTML = cartTotal + " грн";
     }
 }
 
@@ -334,8 +334,8 @@ function showToast(message, options = {}) {
     toast.classList.add("toast");
 
     if (type === "success") toast.classList.add("toast-success");
-    if (type === "error")   toast.classList.add("toast-error");
-    if (type === "info")    toast.classList.add("toast-info");
+    if (type === "error") toast.classList.add("toast-error");
+    if (type === "info") toast.classList.add("toast-info");
 
     toast.innerHTML = `
         <div class="toast-body">
@@ -388,7 +388,7 @@ function initThemeToggle() {
         const homeSection = document.getElementById("home");
         if (homeSection) {
             const lightBg = homeSection.getAttribute("data-light");
-            const darkBg  = homeSection.getAttribute("data-dark");
+            const darkBg = homeSection.getAttribute("data-dark");
 
             if (theme === "dark" && darkBg) {
                 homeSection.style.backgroundImage = `url('${darkBg}')`;
@@ -401,7 +401,7 @@ function initThemeToggle() {
         const blogImages = document.querySelectorAll(".blog-img");
         blogImages.forEach((img) => {
             const lightSrc = img.getAttribute("data-light");
-            const darkSrc  = img.getAttribute("data-dark");
+            const darkSrc = img.getAttribute("data-dark");
 
             if (theme === "dark" && darkSrc) {
                 img.src = darkSrc;
@@ -411,7 +411,7 @@ function initThemeToggle() {
         });
     }
 
-    let saved   = localStorage.getItem(THEME_KEY);
+    let saved = localStorage.getItem(THEME_KEY);
     let current = saved === "dark" ? "dark" : "light";
 
     applyTheme(current);
@@ -434,39 +434,793 @@ let currentHeroSlide = 0;
 let heroSliderInterval;
 
 function showHeroSlide(index) {
-  if (!heroSlides.length || !heroDots.length) return;
+    if (!heroSlides.length || !heroDots.length) return;
 
-  heroSlides.forEach((slide) => slide.classList.remove("active"));
-  heroDots.forEach((dot) => dot.classList.remove("active"));
+    heroSlides.forEach((slide) => slide.classList.remove("active"));
+    heroDots.forEach((dot) => dot.classList.remove("active"));
 
-  heroSlides[index].classList.add("active");
-  heroDots[index].classList.add("active");
+    heroSlides[index].classList.add("active");
+    heroDots[index].classList.add("active");
 
-  currentHeroSlide = index;
+    currentHeroSlide = index;
 }
 
 function nextHeroSlide() {
-  const nextIndex = (currentHeroSlide + 1) % heroSlides.length;
-  showHeroSlide(nextIndex);
+    const nextIndex = (currentHeroSlide + 1) % heroSlides.length;
+    showHeroSlide(nextIndex);
 }
 
 function startHeroSlider() {
-  heroSliderInterval = setInterval(nextHeroSlide, 4000);
+    heroSliderInterval = setInterval(nextHeroSlide, 4000);
 }
 
 function resetHeroSlider() {
-  clearInterval(heroSliderInterval);
-  startHeroSlider();
+    clearInterval(heroSliderInterval);
+    startHeroSlider();
 }
 
 heroDots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const slideIndex = Number(dot.dataset.slide);
-    showHeroSlide(slideIndex);
-    resetHeroSlider();
-  });
+    dot.addEventListener("click", () => {
+        const slideIndex = Number(dot.dataset.slide);
+        showHeroSlide(slideIndex);
+        resetHeroSlider();
+    });
 });
 
 if (heroSlides.length && heroDots.length) {
-  startHeroSlider();
+    startHeroSlider();
 }
+
+const promoProductsSlider = document.getElementById("promoProductsSlider");
+
+function renderPromoProducts() {
+    if (!promoProductsSlider || typeof PROMO_PRODUCTS === "undefined") return;
+
+    promoProductsSlider.innerHTML = PROMO_PRODUCTS.map((product) => {
+        if (product.type === "more") {
+            return `
+        <a href="${product.link}" class="promo-more-card">
+          <span>Більше товарів</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      `;
+        }
+
+        return `
+      <div class="promo-product-card">
+        <div class="promo-product-img-wrap">
+          <img src="${product.image}" alt="${product.name}">
+          <span class="promo-label">${product.label}</span>
+        </div>
+
+        <h3>${product.name}</h3>
+
+        <div class="promo-product-price">
+          <span class="new-price">${product.price.toFixed(2)} грн</span>
+          <span class="old-price">${product.oldPrice.toFixed(2)} грн</span>
+        </div>
+
+        <button class="promo-add-to-cart" data-id="${product.id}">
+          У кошик
+        </button>
+      </div>
+    `;
+    }).join("");
+}
+
+renderPromoProducts();
+
+document.addEventListener("click", function (e) {
+    const button = e.target.closest(".promo-add-to-cart");
+    if (!button) return;
+
+    const productId = button.dataset.id;
+    const product = PROMO_PRODUCTS.find((item) => item.id === productId);
+    if (!product) return;
+
+    const title = product.name;
+    const price = product.price.toFixed(2) + " грн";
+    const productImg = product.image;
+    const size = "";
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const alreadyInCart = cartItems.some((item) => {
+        return item.title === title;
+    });
+
+    if (alreadyInCart) {
+        showToast("Цей товар вже додано. Змініть кількість у кошику.", {
+            type: "info",
+            title: "Товар вже додано"
+        });
+        return;
+    }
+
+    addProductToCart(title, price, productImg, size);
+
+    updateTotal();
+    saveCartItems();
+    updateCartIcon();
+
+    showToast("Товар додано у кошик", {
+        type: "success",
+        title: "Додано"
+    });
+});
+const promoArrowLeft = document.querySelector(".promo-arrow-left");
+const promoArrowRight = document.querySelector(".promo-arrow-right");
+
+if (promoProductsSlider && promoArrowLeft && promoArrowRight) {
+    promoArrowLeft.addEventListener("click", () => {
+        promoProductsSlider.scrollBy({
+            left: -320,
+            behavior: "smooth"
+        });
+    });
+
+    promoArrowRight.addEventListener("click", () => {
+        promoProductsSlider.scrollBy({
+            left: 320,
+            behavior: "smooth"
+        });
+    });
+}
+
+const categoryProductsContainer = document.getElementById("categoryProducts");
+const sortProductsSelect = document.getElementById("sortProducts");
+const priceRange = document.getElementById("priceRange");
+const priceValue = document.getElementById("priceValue");
+const applyFilterBtn = document.getElementById("applyFilterBtn");
+const resetFilterBtn = document.getElementById("resetFilterBtn");
+function getCurrentCategoryProducts() {
+    if (document.body.classList.contains("milk-page")) {
+        return typeof dairyProducts !== "undefined" ? dairyProducts : [];
+    }
+
+    if (document.body.classList.contains("meat-page")) {
+        return typeof meatProducts !== "undefined" ? meatProducts : [];
+    }
+
+    if (document.body.classList.contains("drinks-page")) {
+        return typeof drinksProducts !== "undefined" ? drinksProducts : [];
+    }
+
+    if (document.body.classList.contains("sweets-page")) {
+        return typeof sweetsProducts !== "undefined" ? sweetsProducts : [];
+    }
+
+    return typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : [];
+}
+
+function getFilteredCategoryProducts() {
+    const currentProducts = getCurrentCategoryProducts();
+
+if (!currentProducts.length) return [];
+
+let products = [...currentProducts];
+
+    const checkedSubcategories = Array.from(
+        document.querySelectorAll(".subcategory-filter:checked")
+    ).map((input) => input.value);
+
+    if (checkedSubcategories.length > 0) {
+        products = products.filter((product) =>
+            checkedSubcategories.includes(product.subcategory || product.category)
+        );
+    }
+
+    const maxPrice = priceRange ? Number(priceRange.value) : 250;
+    products = products.filter((product) => product.price <= maxPrice);
+
+    const sortValue = sortProductsSelect ? sortProductsSelect.value : "popular";
+
+    if (sortValue === "popular") {
+        products.sort((a, b) => b.popularity - a.popularity);
+    }
+
+    if (sortValue === "price-asc") {
+        products.sort((a, b) => a.price - b.price);
+    }
+
+    if (sortValue === "price-desc") {
+        products.sort((a, b) => b.price - a.price);
+    }
+
+    return products;
+}
+
+function renderCategoryProducts() {
+    if (!categoryProductsContainer) return;
+
+    const products = getFilteredCategoryProducts();
+
+    if (!products.length) {
+        categoryProductsContainer.innerHTML = `
+      <p class="category-empty">Товари не знайдено</p>
+    `;
+        return;
+    }
+
+    categoryProductsContainer.innerHTML = products.map((product) => `
+    <div class="category-product-card">
+      <a href="product.html?id=${product.id}" class="category-product-link">
+  <div class="category-product-img">
+    <img src="${product.image}" alt="${product.name}">
+  </div>
+
+  <h3>${product.name}</h3>
+</a>
+
+      <div class="category-product-price ${product.oldPrice ? 'red-price' : ''}">
+
+    <div class="category-product-price-main">
+    <span>${Number(product.price).toFixed(2)} грн</span>
+    ${product.unit ? `<small>/${product.unit}</small>` : ""}
+</div>
+
+  ${product.oldPrice ? `
+    <span class="category-product-old-price">
+      ${Number(product.oldPrice).toFixed(2)} грн
+    </span>
+` : ""}
+
+</div>
+
+      <button class="category-add-to-cart" data-id="${product.id}">
+        У кошик
+      </button>
+    </div>
+  `).join("");
+}
+
+if (priceRange && priceValue) {
+    priceRange.addEventListener("input", () => {
+        priceValue.textContent = priceRange.value;
+    });
+}
+
+if (applyFilterBtn) {
+    applyFilterBtn.addEventListener("click", renderCategoryProducts);
+}
+
+if (sortProductsSelect) {
+    sortProductsSelect.addEventListener("change", renderCategoryProducts);
+}
+
+if (resetFilterBtn) {
+    resetFilterBtn.addEventListener("click", () => {
+        document.querySelectorAll(".subcategory-filter").forEach((input) => {
+            input.checked = false;
+        });
+
+        if (priceRange) priceRange.value = 250;
+        if (priceValue) priceValue.textContent = "250";
+        if (sortProductsSelect) sortProductsSelect.value = "popular";
+
+        renderCategoryProducts();
+    });
+}
+
+document.addEventListener("click", function (e) {
+    const button = e.target.closest(".category-add-to-cart");
+    if (!button) return;
+
+    const productId = button.dataset.id;
+    const allProducts = getSearchProductsSafe();
+
+    const product = allProducts.find((item) => String(item.id) === String(productId));
+    if (!product) return;
+
+    const title = product.name;
+    const price = product.price.toFixed(2) + " грн";
+    const productImg = product.image;
+    const size = "";
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const alreadyInCart = cartItems.some((item) => {
+        return item.title === title;
+    });
+
+    if (alreadyInCart) {
+        showToast("Цей товар вже є у кошику. Змініть кількість у кошику.", {
+            type: "info",
+            title: "Товар вже додано"
+        });
+        return;
+    }
+
+    addProductToCart(title, price, productImg, size);
+
+    updateTotal();
+    saveCartItems();
+    updateCartIcon();
+
+    showToast("Товар додано у кошик", {
+        type: "success",
+        title: "Додано"
+    });
+});
+
+renderCategoryProducts();
+
+const marketCatalog = document.querySelector(".market-catalog");
+
+if (marketCatalog) {
+    marketCatalog.addEventListener("click", function (e) {
+        if (window.innerWidth <= 576) {
+            e.preventDefault();
+            marketCatalog.classList.toggle("open");
+        }
+    });
+}
+
+// =======================
+// PRODUCT PAGE
+// =======================
+
+// =======================
+// PRODUCT PAGE
+// =======================
+
+const productDetails = document.getElementById("productDetails");
+const relatedProductsContainer = document.getElementById("relatedProducts");
+
+function getProductIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
+
+function getAllStoreProducts() {
+    return [
+        ...(typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : []),
+        ...(typeof dairyProducts !== "undefined" ? dairyProducts : []),
+        ...(typeof meatProducts !== "undefined" ? meatProducts : []),
+        ...(typeof drinksProducts !== "undefined" ? drinksProducts : []),
+        ...(typeof sweetsProducts !== "undefined" ? sweetsProducts : [])
+    ];
+}
+
+function getProductCategoryData(product) {
+    const id = String(product.id);
+
+    if (typeof dairyProducts !== "undefined" &&
+        dairyProducts.some((item) => String(item.id) === id)) {
+        return {
+            link: "milk-products.html",
+            name: "Молокопродукти, яйця"
+        };
+    }
+
+    if (typeof meatProducts !== "undefined" &&
+        meatProducts.some((item) => String(item.id) === id)) {
+        return {
+            link: "meat.html",
+            name: "М’ясо та ковбаси"
+        };
+    }
+
+    if (typeof drinksProducts !== "undefined" &&
+        drinksProducts.some((item) => String(item.id) === id)) {
+        return {
+            link: "drinks.html",
+            name: "Напої"
+        };
+    }
+
+    if (typeof sweetsProducts !== "undefined" &&
+    sweetsProducts.some((item) => String(item.id) === id)) {
+    return {
+        link: "sweets.html",
+        name: "Солодощі"
+    };
+}
+    
+
+    return {
+        link: "vegetables.html",
+        name: "Овочі, фрукти, гриби"
+    };
+}
+
+function renderProductPage() {
+    if (!productDetails) return;
+
+    const productId = getProductIdFromUrl();
+    const allProducts = getAllStoreProducts();
+
+    const product = allProducts.find(
+        (item) => String(item.id) === String(productId)
+    );
+
+    if (!product) {
+        productDetails.innerHTML = `
+            <p>Товар не знайдено</p>
+        `;
+        return;
+    }
+
+    const productBreadcrumb = document.getElementById("productBreadcrumb");
+    const categoryData = getProductCategoryData(product);
+
+    if (productBreadcrumb) {
+        productBreadcrumb.innerHTML = `
+            <a href="index.html"><i class="fas fa-home"></i></a>
+            <span>></span>
+            <a href="${categoryData.link}">${categoryData.name}</a>
+        `;
+    }
+
+    productDetails.innerHTML = `
+        <div class="product-image-main">
+            <img src="${product.image}" alt="${product.name}">
+        </div>
+
+        <div class="product-info-main">
+            <h1>${product.name}</h1>
+
+            <div class="product-price-main">
+                ${Number(product.price).toFixed(2)} грн
+                ${product.unit ? `<small>/${product.unit}</small>` : ""}
+            </div>
+
+            <button class="product-add-btn" data-id="${product.id}">
+                У кошик
+            </button>
+
+            ${product.description ? `
+                <div class="product-description">
+                    <strong>Опис товару</strong><br><br>
+                    ${product.description}
+                </div>
+            ` : ""}
+        </div>
+    `;
+
+    renderRelatedProducts(product);
+}
+
+function renderRelatedProducts(currentProduct) {
+    if (!relatedProductsContainer) return;
+
+    const allProducts = getAllStoreProducts();
+    const currentCategory = currentProduct.subcategory || currentProduct.category;
+
+    let related = allProducts
+        .filter((item) =>
+            String(item.id) !== String(currentProduct.id) &&
+            (item.subcategory || item.category) === currentCategory
+        )
+        .slice(0, 4);
+
+    if (!related.length) {
+        related = allProducts
+            .filter((item) => String(item.id) !== String(currentProduct.id))
+            .slice(0, 4);
+    }
+
+    relatedProductsContainer.innerHTML = related.map((product) => `
+        <div class="related-product-card">
+            <a href="product.html?id=${product.id}">
+                <div class="related-product-img">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+
+                <h3>${product.name}</h3>
+
+                <div class="related-product-price">
+                    ${Number(product.price).toFixed(2)} грн
+                    ${product.unit ? `/${product.unit}` : ""}
+                </div>
+            </a>
+        </div>
+    `).join("");
+}
+
+document.addEventListener("click", function (e) {
+    const button = e.target.closest(".product-add-btn");
+    if (!button) return;
+
+    const productId = button.dataset.id;
+    const allProducts = getAllStoreProducts();
+
+    const product = allProducts.find(
+        (item) => String(item.id) === String(productId)
+    );
+
+    if (!product) return;
+
+    const title = product.name;
+    const price = Number(product.price).toFixed(2) + " грн";
+    const productImg = product.image;
+    const size = "";
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const alreadyInCart = cartItems.some((item) => {
+        return item.title === title;
+    });
+
+    if (alreadyInCart) {
+        showToast("Цей товар вже є у кошику. Змініть кількість у кошику.", {
+            type: "info",
+            title: "Товар вже додано"
+        });
+        return;
+    }
+
+    addProductToCart(title, price, productImg, size);
+
+    updateTotal();
+    saveCartItems();
+    updateCartIcon();
+
+    showToast("Товар додано у кошик", {
+        type: "success",
+        title: "Додано"
+    });
+});
+
+renderProductPage();
+
+const promotionsGroups = document.getElementById("promotionsGroups");
+
+function renderPromotionsPage() {
+    if (!promotionsGroups) return;
+
+    const allProducts = getAllStoreProducts();
+
+    const promoProducts = allProducts.filter((product) => product.oldPrice);
+
+    const groups = {
+        "Овочі та фрукти": promoProducts.filter((p) =>
+            CATEGORY_PRODUCTS?.some((item) => String(item.id) === String(p.id))
+        ),
+        "Молокопродукти, яйця": promoProducts.filter((p) =>
+            dairyProducts?.some((item) => String(item.id) === String(p.id))
+        ),
+        "М’ясо та ковбаси": promoProducts.filter((p) =>
+            meatProducts?.some((item) => String(item.id) === String(p.id))
+        ),
+        "Напої": promoProducts.filter((p) =>
+            drinksProducts?.some((item) => String(item.id) === String(p.id))
+        ),
+        "Солодощі": promoProducts.filter((p) =>
+            sweetsProducts?.some((item) => String(item.id) === String(p.id))
+        )
+    };
+
+    promotionsGroups.innerHTML = Object.entries(groups)
+        .filter(([, products]) => products.length)
+        .map(([title, products]) => `
+            <div class="promotion-category-block">
+                <h2>${title}</h2>
+
+                <div class="promotion-products-grid">
+                    ${products.map((product) => `
+                        <div class="category-product-card">
+                            <a href="product.html?id=${product.id}" class="category-product-link">
+                                <div class="category-product-img">
+                                    <img src="${product.image}" alt="${product.name}">
+                                </div>
+
+                                <h3>${product.name}</h3>
+                            </a>
+
+                            <div class="category-product-price red-price">
+                                <div class="category-product-price-main">
+                                    <span>${Number(product.price).toFixed(2)} грн</span>
+                                    ${product.unit ? `<small>/${product.unit}</small>` : ""}
+                                </div>
+
+                                <span class="category-product-old-price">
+                                    ${Number(product.oldPrice).toFixed(2)} грн
+                                </span>
+                            </div>
+
+                            <button class="category-add-to-cart" data-id="${product.id}">
+                                У кошик
+                            </button>
+                        </div>
+                    `).join("")}
+                </div>
+            </div>
+        `).join("");
+}
+
+renderPromotionsPage();
+
+const promotionsProducts = document.getElementById("promotionsProducts");
+const promoCategoryButtons = document.querySelectorAll(".promo-category-btn");
+
+function getPromoProductsByCategory(categoryKey = "all") {
+    const groups = {
+        vegetables: typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : [],
+        milk: typeof dairyProducts !== "undefined" ? dairyProducts : [],
+        meat: typeof meatProducts !== "undefined" ? meatProducts : [],
+        drinks: typeof drinksProducts !== "undefined" ? drinksProducts : [],
+        sweets: typeof sweetsProducts !== "undefined" ? sweetsProducts : []
+    };
+
+    if (categoryKey === "all") {
+        return Object.values(groups)
+            .flat()
+            .filter((product) => product.oldPrice);
+    }
+
+    return (groups[categoryKey] || []).filter((product) => product.oldPrice);
+}
+
+function renderPromotionsProducts(categoryKey = "all") {
+    if (!promotionsProducts) return;
+
+    const products = getPromoProductsByCategory(categoryKey);
+
+    if (!products.length) {
+        promotionsProducts.innerHTML = `<p class="category-empty">Акційні товари не знайдено</p>`;
+        return;
+    }
+
+    promotionsProducts.innerHTML = products.map((product) => `
+        <div class="category-product-card">
+            <a href="product.html?id=${product.id}" class="category-product-link">
+                <div class="category-product-img">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+
+                <h3>${product.name}</h3>
+            </a>
+
+            <div class="category-product-price red-price">
+                <div class="category-product-price-main">
+                    <span>${Number(product.price).toFixed(2)} грн</span>
+                    ${product.unit ? `<small>/${product.unit}</small>` : ""}
+                </div>
+
+                <span class="category-product-old-price">
+                    ${Number(product.oldPrice).toFixed(2)} грн
+                </span>
+            </div>
+
+            <button class="category-add-to-cart" data-id="${product.id}">
+                У кошик
+            </button>
+        </div>
+    `).join("");
+}
+
+promoCategoryButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        promoCategoryButtons.forEach((item) => item.classList.remove("active"));
+        btn.classList.add("active");
+
+        renderPromotionsProducts(btn.dataset.promoCategory);
+    });
+});
+
+renderPromotionsProducts();
+
+const thirdDeliveryDay = document.getElementById("thirdDeliveryDay");
+
+if (thirdDeliveryDay) {
+
+    const days = [
+        "Неділя",
+        "Понеділок",
+        "Вівторок",
+        "Середа",
+        "Четвер",
+        "Пʼятниця",
+        "Субота"
+    ];
+
+    const today = new Date();
+
+    const thirdDayIndex = (today.getDay() + 2) % 7;
+
+    thirdDeliveryDay.textContent = days[thirdDayIndex];
+}
+
+const productSearchForm = document.getElementById("productSearchForm");
+const productSearchInput = document.getElementById("productSearchInput");
+
+function getSearchProductsSafe() {
+    return [
+        ...(typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : []),
+        ...(typeof dairyProducts !== "undefined" ? dairyProducts : []),
+        ...(typeof meatProducts !== "undefined" ? meatProducts : []),
+        ...(typeof drinksProducts !== "undefined" ? drinksProducts : []),
+        ...(typeof sweetsProducts !== "undefined" ? sweetsProducts : [])
+    ];
+}
+
+if (productSearchForm && productSearchInput) {
+
+    productSearchForm.onsubmit = function (e) {
+        e.preventDefault();
+
+        const query = productSearchInput.value.trim();
+
+        if (!query) return;
+
+        window.location.href =
+            "search.html?q=" + encodeURIComponent(query);
+    };
+
+}
+
+const searchProducts = document.getElementById("searchProducts");
+const searchTitle = document.getElementById("searchTitle");
+
+function renderSearchPage() {
+    if (!searchProducts) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const query = (params.get("q") || "").trim().toLowerCase();
+
+    if (searchTitle) {
+        searchTitle.textContent = query
+            ? `Результати пошуку: ${params.get("q")}`
+            : "Результати пошуку";
+    }
+
+    if (!query) {
+        searchProducts.innerHTML =
+            `<p class="category-empty">Введіть назву товару для пошуку</p>`;
+        return;
+    }
+
+    const allProducts = getSearchProductsSafe();
+
+    const results = allProducts.filter((product) => {
+        const name = (product.name || "").toLowerCase();
+        const category = (
+            product.category ||
+            product.subcategory ||
+            ""
+        ).toLowerCase();
+
+        return (
+            name.includes(query) ||
+            category.includes(query)
+        );
+    });
+
+    if (!results.length) {
+        searchProducts.innerHTML =
+            `<p class="category-empty">Товарів не знайдено</p>`;
+        return;
+    }
+
+    searchProducts.innerHTML = results.map((product) => `
+        <div class="category-product-card">
+            <a href="product.html?id=${product.id}" class="category-product-link">
+                <div class="category-product-img">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+
+                <h3>${product.name}</h3>
+            </a>
+
+            <div class="category-product-price ${product.oldPrice ? 'red-price' : ''}">
+                <div class="category-product-price-main">
+                    <span>${Number(product.price).toFixed(2)} грн</span>
+                    ${product.unit ? `<small>/${product.unit}</small>` : ""}
+                </div>
+
+                ${product.oldPrice ? `
+                    <span class="category-product-old-price">
+                        ${Number(product.oldPrice).toFixed(2)} грн
+                    </span>
+                ` : ""}
+            </div>
+
+            <button class="category-add-to-cart" data-id="${product.id}">
+                У кошик
+            </button>
+        </div>
+    `).join("");
+}
+
+renderSearchPage();

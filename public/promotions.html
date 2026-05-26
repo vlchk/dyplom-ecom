@@ -27,7 +27,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body class="meat-page">
     <!-- NAVIGATION -->
     <nav class="market-header fixed-top">
         <div class="market-header-top container">
@@ -43,11 +43,13 @@
             </div>
 
             <form class="market-search" id="productSearchForm">
+
                 <input type="text" id="productSearchInput" placeholder="Введіть назву товару" autocomplete="off">
 
                 <button type="submit">
                     <i class="fas fa-search"></i>
                 </button>
+
             </form>
 
             <div class="market-info-box">
@@ -76,8 +78,8 @@
                         </div>
                     </div>
 
-                    <a href="test.html">Акції</a>
-                    <a href="#">Оплата і доставка</a>
+                    <a href="promotions.html">Акції</a>
+                    <a href="payment-delivery.html">Оплата і доставка</a>
                 </div>
 
                 <a href="#" class="help-army">Допомога ЗСУ</a>
@@ -102,20 +104,62 @@
         <i class="bx bx-x" id="close-cart"></i>
     </div>
 
-    <main class="product-page">
+    <main class="category-page promotions-page">
         <div class="container">
-            <div class="product-breadcrumb-market" id="productBreadcrumb"></div>
 
-            <div class="product-details" id="productDetails">
-                <!-- товар підтягнеться з JS -->
+            <div class="category-breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i></a>
+                <span>></span>
+                <span>Акції</span>
             </div>
 
-            <section class="related-products-section">
-                <h2>Схожі товари</h2>
-                <div class="related-products" id="relatedProducts">
-                    <!-- схожі товари підтягнуться з JS -->
-                </div>
-            </section>
+            <div class="category-head">
+                <h1>Акції</h1>
+                <p class="promo-subtitle">Спеціальна пропозиція</p>
+            </div>
+
+            <div class="category-layout">
+
+                <aside class="category-filter">
+                    <div class="filter-box">
+                        <div class="filter-title">
+                            <span>Категорія</span>
+                            <i class="fas fa-caret-up"></i>
+                        </div>
+
+                        <div class="promo-category-list">
+                            <button class="promo-category-btn active" data-promo-category="all">
+                                Усі акції
+                            </button>
+
+                            <button class="promo-category-btn" data-promo-category="vegetables">
+                                Овочі та фрукти
+                            </button>
+
+                            <button class="promo-category-btn" data-promo-category="milk">
+                                Молокопродукти, яйця
+                            </button>
+
+                            <button class="promo-category-btn" data-promo-category="meat">
+                                М’ясо та ковбаси
+                            </button>
+
+                            <button class="promo-category-btn" data-promo-category="drinks">
+                                Напої
+                            </button>
+
+                            <button class="promo-category-btn" data-promo-category="sweets">
+                                Солодощі
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <section class="category-products" id="promotionsProducts">
+                    <!-- акційні товари -->
+                </section>
+
+            </div>
 
         </div>
     </main>

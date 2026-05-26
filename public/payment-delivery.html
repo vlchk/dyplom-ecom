@@ -27,7 +27,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body class="meat-page">
     <!-- NAVIGATION -->
     <nav class="market-header fixed-top">
         <div class="market-header-top container">
@@ -104,113 +104,115 @@
         <i class="bx bx-x" id="close-cart"></i>
     </div>
 
-    <section class="grocery-hero">
-        <div class="grocery-hero-bg">
-            <div class="container">
-                <div class="hero-slider">
-
-                    <div class="hero-slide active">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzWX2Jb8bgESFzs_I9tdCVwbQQ3EYussO35EYM0td9mDCTitSmuY5b_d2bSdPGlQJSNkveI41ukWpMIjgsR1NXFbF8e0cqS1ah0CcV9W1CFwqygvpCRdzSKWyFeFsCbKdgzM3dTQEtcxHTl0ZqIi-d5rbf4EOLcNd2-8H039vpDt9toz_gJdiOGmbm6iCN/s16000/fdeaa96b18352a41bd5711b36473f9ea.jpeg"
-                            alt="Акційний банер 1">
-                    </div>
-
-                    <div class="hero-slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY5mhU-r9JfewO6IwM9-xDU_nGnSfWRvXJ5lnt3e1i9iEQnQok24K-FnzPea9WCp7X3hJ97aqI0Kddt4YtRXm4GY4LIbpCM5WvpIeSOVb0HqLBoxJRz3iErL7xMvHWg0qPCh83WHkYFsOczxmDmSMGV2FLN4jrmtVzIyVqHnbcruNYrYflPX_2PD4eC-5S/s16000/19a3a776ed3eaff1bbf8d0daf5248753.jpeg"
-                            alt="Акційний банер 2">
-                    </div>
-
-                    <div class="hero-slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJWw_siGpwOLknCT2_1EBOtxYzvR8MOVPmyBbD8Yha5CmUTZvd1a_tfSt_2d3JSrWYgEMmPVrbt6cdcfiSdydqxcVLjLO-B7F2m-8xs9XqCNI23Te_nTYNroQo3Qm5rAjZn6ON21HNWEWkJNWh0S1-LeTExET89wXl5l7SRzpJPsy-Z5rtrJkGuQrUX3UL/s16000/43c7acf388886681d907027c79669ed2.jpeg"
-                            alt="Акційний банер 3">
-                    </div>
-
-                    <div class="hero-slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6L8tqYsy7vOVhWlbZ8Kq67QmcOJc5U0HY4jDVdPrxAF_cMjioVl0Jdy1jcnkjw0sovIu03wgV3Jd1aZC6tPRRjjFOQNdTJuAwf_vu04cAcuhJhArDEC-Q0VmPgbAL6MD6N2dlda3P8mz50qp7xLsV4lVqqLmZGvUblQzyhFCU_l5TUa1bqo3G1fbXqeL5/s16000/8a3dddb178ab6579401e6d1173303e96.jpeg"
-                            alt="Акційний банер 4">
-                    </div>
-
-                    <div class="hero-slide">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5resyBzuXTl-c7O_GaRt5UzJgmaCVoi5sNSHARqUQXCXVKmDT6Eyrwp2G_WDX9qSZo_SClaOOK6t6Q3CEKpd9-kOn70oDZgOo0DVMW1RIIERMZ2wXjy5zPPaRTZC8Ij-jgHx7aGrcrSvb550-3H9IOib6SBk1BWRw5zOMovWmUMyqoLUTNeJM2_KKjyAB/s16000/31d9867d45aea2e1d69795d6092bd2e7.png"
-                            alt="Акційний банер 5">
-                    </div>
-
-                    <div class="hero-dots">
-                        <button class="hero-dot active" data-slide="0"></button>
-                        <button class="hero-dot" data-slide="1"></button>
-                        <button class="hero-dot" data-slide="2"></button>
-                        <button class="hero-dot" data-slide="3"></button>
-                        <button class="hero-dot" data-slide="4"></button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="promo-products-section">
-        <div class="container">
-            <div class="promo-products-head">
-                <h2>Акції</h2>
-                <a href="test.html">більше товарів</a>
-            </div>
-
-            <div class="promo-products-wrapper">
-                <button class="promo-arrow promo-arrow-left" type="button">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="promo-products-slider" id="promoProductsSlider">
-                    <!-- товари підтягнуться з JS -->
-                </div>
-
-                <button class="promo-arrow promo-arrow-right" type="button">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section class="promo-categories-section">
+    <main class="delivery-page">
         <div class="container">
 
-            <div class="promo-categories-title">
-                <h2>Акційні пропозиції</h2>
+            <div class="category-breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i></a>
+                <span>></span>
+                <span>Оплата і доставка</span>
             </div>
 
-            <div class="promo-categories-grid">
-                <a href="#" class="promo-category-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuHsqjLEgd64HrT6ci0nKOJixYK6NvQ7vxdGBh1Vbq1Cb6MzCV-j2DmAVcvN8JlPPwp4KOyOhIP8KKDYp7g2YAx70ljuLMzmHC3N5Zjkf3VIU6T5nt9SPeDGNAIrZyKqMT9deFfBN0vtHa9YB3Xwy0c_G-_xC_LtZcsit1kb80wmZaUIM0TLedIY2Wv0pP/s16000/312ba3c83b993456e18aaaf44a892d0b.jpeg"
-                        alt="М’ясна лавка">
-                </a>
+            <section class="delivery-section">
+                <h1>Доставка</h1>
 
-                <a href="#" class="promo-category-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwcIb2rwQgHF8E2GnbxqFJk4TJGHVKXzU7Y5Afnc_7voEQH9EwLfWCKj9Bc1n0WJOPdo_H9VC6N72n32uYOwtnT7bH82WeUerzv4wpVsiXcpdmFygpEFjF2hUrTDWhmXcHGaWLKkTL5eqj6H3Ce0liJunv5jaXR6LZVcKhYdPsylvjCE93Yq8nXldrF8Ql/s16000/a99502a6408e7e0c61e71724a2059b9b.png"
-                        alt="Власний імпорт">
-                </a>
+                <div class="delivery-text">
+                    <p>Мінімальна сума замовлення по місту Луцьк — 350 грн.</p>
+                    <p>Вартість доставки с. Зміїнець, с. Тарасове, с. Рованці — 70 грн. Мінімальне замовлення — 450 грн.
+                    </p>
+                    <p>Вартість доставки с. Липини, с. Княгининок, с. Прилуцьке, с. Боголюби, с. Озерце — 90 грн.
+                        Мінімальне замовлення — 480 грн.</p>
+                    <p>Вартість доставки по м. Луцьк 65 грн. Вартість доставки не залежить від суми замовлення.</p>
+                    <p>Доставка здійснюється до під’їзду, воріт, при потребі — до дверей Вашої квартири.</p>
+                </div>
 
-                <a href="#" class="promo-category-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNmyEktklGVBFVTiAXZVdSWdDI1YENbj5gCgUFgi9XXkXwra-VjKme8uhUUvFqGGBTpFWMazvyMtQUnwe2INGR9dZuIerb1Y9ga9WUu5ueULU52bCh5joeUEtPmiA2h0EUgf8HnDqMtOUbIeGTa6NmAA7lcASClBi_LFh9dJmO91cRqE7W-YdSyUCSI8Vo/s16000/1fba6c955ef53e3d4a2a9476138309e4.png"
-                        alt="Елітний алкоголь">
-                </a>
+                <h2>Час доставки <span>ℹ️</span></h2>
 
-                <a href="#" class="promo-category-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRZdcUWkiy11KcfnXGoG86W1P76gq_AZT8oKH9DTLgZl6i_6460MsDi6qS52QPfi1-_XUEpAe7IjC3bEkE8yVfrP0LFZJ79RWGr7DpAZ3PLIbeuLEc4Gm-4nX0x4nyHlskuinAh3kAcG8DEqN1p7TtyOfzshaKalIYkMCx2H8SNL8fIiYtfRTqFENPzAkl/s16000/3b72cadb3e1dcd6c2e46d8967b5c699b.jpeg"
-                        alt="Рецепти">
-                </a>
+                <div class="delivery-table">
+                    <div class="delivery-column">
+                        <div class="delivery-day">Сьогодні</div>
+                        <div class="delivery-slot disabled">Завантажено<br><small>8:00-11:00</small></div>
+                        <div class="delivery-slot disabled">Завантажено<br><small>11:00-13:00</small></div>
+                        <div class="delivery-slot busy">Завантажено<br><small>13:00-15:00</small></div>
+                        <div class="delivery-slot">15:00-17:00</div>
+                        <div class="delivery-slot">17:00-19:00</div>
+                        <div class="delivery-slot">19:00-21:00</div>
+                    </div>
 
-                <a href="#" class="promo-category-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKUiG0-ljf3QE-R7XeWKGFsRAomqo0x_48lgZ3qdlnLj941LzDiXyEPY94z7lGkZl64JD6UzLhCVHoRx30K_StPwVTs2LYaraV_LDzZ2IGew5B8Qe73JdhZAcrj0X63Z0RayXQXisDXaBsFavXIDn-TX9V4TwkEymkGEw5_tb543-pNsMzRMicgODjcuak/s16000/7bda3969d14c5f94dd89d5235ff612e6.png"
-                        alt="Кулінарія">
-                </a>
+                    <div class="delivery-column">
+                        <div class="delivery-day">Завтра</div>
+                        <div class="delivery-slot">8:00-11:00</div>
+                        <div class="delivery-slot">11:00-13:00</div>
+                        <div class="delivery-slot">13:00-15:00</div>
+                        <div class="delivery-slot">15:00-17:00</div>
+                        <div class="delivery-slot">17:00-19:00</div>
+                        <div class="delivery-slot">19:00-21:00</div>
+                    </div>
 
-                <a href="#" class="promo-category-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcZCkha74cspf0BYUWsVlysrmpaR8yt_aA7WqLVGrTx_dspAeR977o8bWe0-dt4OlMNb21I-XV_ABk8cHmiI5SpW2qSinn_mCIJFZF-RnFBjD7-n95U_st8rl9DXOUo_rxBh28QmekfRzzr7R0_T5ifsqBYgk3Ns7vCTXFs5jFo2MCnwMF53Acs4O7BqA9/s16000/c66087a7505788e9c91332ca94e7f4e4.png"
-                        alt="Eurospar">
-                </a>
-            </div>
+                    <div class="delivery-column">
+                        <div class="delivery-day" id="thirdDeliveryDay"></div>
+                        <div class="delivery-slot">8:00-11:00</div>
+                        <div class="delivery-slot">11:00-13:00</div>
+                        <div class="delivery-slot">13:00-15:00</div>
+                        <div class="delivery-slot">15:00-17:00</div>
+                        <div class="delivery-slot">17:00-19:00</div>
+                        <div class="delivery-slot">19:00-21:00</div>
+                    </div>
+                </div>
+
+                <h1>Самовивіз</h1>
+
+                <div class="pickup-box">
+                    <p>Самовивіз здійснюється з магазину:</p>
+                    <div class="pickup-address">
+                        магазин SPAR вул. Шевченка, 13
+                    </div>
+                </div>
+
+                <h1>Оплата готівкою</h1>
+
+                <p>
+                    Кур'єр привозить товар за вказаною адресою. Ви перевіряєте комплектацію,
+                    зовнішній вигляд, якість товару, і тільки потім оплачуєте замовлення.
+                    При послузі самовивозу Ви оплачуєте товар, отримуючи його в магазині.
+                </p>
+
+                <h1>Оплата карткою</h1>
+
+                <p>
+                    Після оформлення замовлення на сайті протягом однієї години на Вашу
+                    електронну скриньку надійде рахунок на оплату. Оплату можна здійснити
+                    зручним онлайн способом.
+                </p>
+
+                <p>
+                    Після надходження грошей на наш рахунок кур’єр доставляє Вам замовлення
+                    і надає чек. У присутності кур’єра Ви можете перевірити комплектацію,
+                    зовнішній вигляд та якість товару.
+                </p>
+
+                <h1>Увага!</h1>
+
+                <ul class="delivery-list">
+                    <li>Ціни на товари в інтернет-магазині такі ж, як і на полицях супермаркету, де збирається Ваше
+                        замовлення.</li>
+                    <li>При оформленні замовлення Ви можете залишити коментар для збиральника, якщо кожної позиції
+                        товару треба більше.</li>
+                    <li>При отриманні замовлення Ви завжди можете відмовитись від будь-якого доставленого товару.</li>
+                    <li>Ціни в супермаркеті можуть змінюватися.</li>
+                    <li>Ви можете скористатись бонусною карткою, попередньо ввівши її номер при оформленні замовлення.
+                    </li>
+                </ul>
+
+                <p>
+                    Оформити замовлення онлайн можна цілодобово.<br>
+                    Оформити замовлення по телефону можна з 9:00 до 20:00.<br>
+                    Доставка замовлень здійснюється з 10:00 до 20:00.
+                </p>
+            </section>
 
         </div>
-    </section>
+    </main>
 
     <footer class="market-footer">
 
