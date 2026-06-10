@@ -573,32 +573,58 @@ const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
 const applyFilterBtn = document.getElementById("applyFilterBtn");
 const resetFilterBtn = document.getElementById("resetFilterBtn");
+function getAdminProductsForCategory(categoryName) {
+    const adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
+
+    return adminProducts
+        .filter((product) => product.category === categoryName)
+        .map((product) => ({
+            id: `admin-${product.id}`,
+            name: product.name,
+            price: Number(product.price),
+            oldPrice: null,
+            category: product.category,
+            subcategory: product.category,
+            image: product.image || "images/no-image.png",
+            unit: "шт",
+            popularity: 1,
+            description: "Товар додано через адміністративну панель."
+        }));
+}
+
 function getCurrentCategoryProducts() {
+    const adminProducts = getAdminStoreProducts();
+
     if (document.body.classList.contains("milk-page")) {
-        return typeof dairyProducts !== "undefined" ? dairyProducts : [];
+        const base = typeof dairyProducts !== "undefined" ? dairyProducts : [];
+        return [...base, ...adminProducts.filter(p => p.category === "Молокопродукти")];
     }
 
     if (document.body.classList.contains("meat-page")) {
-        return typeof meatProducts !== "undefined" ? meatProducts : [];
+        const base = typeof meatProducts !== "undefined" ? meatProducts : [];
+        return [...base, ...adminProducts.filter(p => p.category === "М’ясо та ковбаси")];
     }
 
     if (document.body.classList.contains("drinks-page")) {
-        return typeof drinksProducts !== "undefined" ? drinksProducts : [];
+        const base = typeof drinksProducts !== "undefined" ? drinksProducts : [];
+        return [...base, ...adminProducts.filter(p => p.category === "Напої")];
     }
 
     if (document.body.classList.contains("sweets-page")) {
-        return typeof sweetsProducts !== "undefined" ? sweetsProducts : [];
+        const base = typeof sweetsProducts !== "undefined" ? sweetsProducts : [];
+        return [...base, ...adminProducts.filter(p => p.category === "Солодощі")];
     }
 
-    return typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : [];
+    const base = typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : [];
+    return [...base, ...adminProducts.filter(p => p.category === "Овочі та фрукти")];
 }
 
 function getFilteredCategoryProducts() {
     const currentProducts = getCurrentCategoryProducts();
 
-if (!currentProducts.length) return [];
+    if (!currentProducts.length) return [];
 
-let products = [...currentProducts];
+    let products = [...currentProducts];
 
     const checkedSubcategories = Array.from(
         document.querySelectorAll(".subcategory-filter:checked")
@@ -787,12 +813,28 @@ function getProductIdFromUrl() {
 }
 
 function getAllStoreProducts() {
+    const adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
+
+    const normalizedAdminProducts = adminProducts.map((product) => ({
+        id: `admin-${product.id}`,
+        name: product.name,
+        price: Number(product.price),
+        oldPrice: null,
+        category: product.category,
+        subcategory: product.category,
+        image: product.image || "images/no-image.png",
+        unit: "шт",
+        popularity: 1,
+        description: "Товар додано через адміністративну панель."
+    }));
+
     return [
         ...(typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : []),
         ...(typeof dairyProducts !== "undefined" ? dairyProducts : []),
         ...(typeof meatProducts !== "undefined" ? meatProducts : []),
         ...(typeof drinksProducts !== "undefined" ? drinksProducts : []),
-        ...(typeof sweetsProducts !== "undefined" ? sweetsProducts : [])
+        ...(typeof sweetsProducts !== "undefined" ? sweetsProducts : []),
+        ...normalizedAdminProducts
     ];
 }
 
@@ -824,13 +866,13 @@ function getProductCategoryData(product) {
     }
 
     if (typeof sweetsProducts !== "undefined" &&
-    sweetsProducts.some((item) => String(item.id) === id)) {
-    return {
-        link: "sweets.html",
-        name: "Солодощі"
-    };
-}
-    
+        sweetsProducts.some((item) => String(item.id) === id)) {
+        return {
+            link: "sweets.html",
+            name: "Солодощі"
+        };
+    }
+
 
     return {
         link: "vegetables.html",
@@ -1140,13 +1182,7 @@ const productSearchForm = document.getElementById("productSearchForm");
 const productSearchInput = document.getElementById("productSearchInput");
 
 function getSearchProductsSafe() {
-    return [
-        ...(typeof CATEGORY_PRODUCTS !== "undefined" ? CATEGORY_PRODUCTS : []),
-        ...(typeof dairyProducts !== "undefined" ? dairyProducts : []),
-        ...(typeof meatProducts !== "undefined" ? meatProducts : []),
-        ...(typeof drinksProducts !== "undefined" ? drinksProducts : []),
-        ...(typeof sweetsProducts !== "undefined" ? sweetsProducts : [])
-    ];
+    return getAllStoreProducts();
 }
 
 if (productSearchForm && productSearchInput) {
@@ -1373,3 +1409,20 @@ if (reviewsPagination) {
 }
 
 renderReviewsPage();
+
+function getAdminStoreProducts() {
+    const adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
+
+    return adminProducts.map((product) => ({
+        id: `admin-${product.id}`,
+        name: product.name,
+        price: Number(product.price),
+        oldPrice: null,
+        category: product.category,
+        subcategory: product.category,
+        image: product.image || "images/no-image.png",
+        unit: "шт",
+        popularity: 1,
+        description: "Товар додано через адміністративну панель."
+    }));
+}

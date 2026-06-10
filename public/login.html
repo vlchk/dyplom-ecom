@@ -27,7 +27,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body class="meat-page">
+<body>
     <!-- NAVIGATION -->
     <nav class="market-header fixed-top">
         <div class="market-header-top container">
@@ -106,63 +106,21 @@
         <i class="bx bx-x" id="close-cart"></i>
     </div>
 
-    <main class="category-page promotions-page">
-        <div class="container">
+    <main class="auth-page">
+        <div class="auth-box">
+            <h1>Вхід</h1>
 
-            <div class="category-breadcrumb">
-                <a href="index.html"><i class="fas fa-home"></i></a>
-                <span>></span>
-                <span>Акції</span>
-            </div>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
 
-            <div class="category-head">
-                <h1>Акції</h1>
-                <p class="promo-subtitle">Спеціальна пропозиція</p>
-            </div>
+                <button type="submit">Увійти</button>
+            </form>
 
-            <div class="category-layout">
-
-                <aside class="category-filter">
-                    <div class="filter-box">
-                        <div class="filter-title">
-                            <span>Категорія</span>
-                            <i class="fas fa-caret-up"></i>
-                        </div>
-
-                        <div class="promo-category-list">
-                            <button class="promo-category-btn active" data-promo-category="all">
-                                Усі акції
-                            </button>
-
-                            <button class="promo-category-btn" data-promo-category="vegetables">
-                                Овочі та фрукти
-                            </button>
-
-                            <button class="promo-category-btn" data-promo-category="milk">
-                                Молокопродукти, яйця
-                            </button>
-
-                            <button class="promo-category-btn" data-promo-category="meat">
-                                М’ясо та ковбаси
-                            </button>
-
-                            <button class="promo-category-btn" data-promo-category="drinks">
-                                Напої
-                            </button>
-
-                            <button class="promo-category-btn" data-promo-category="sweets">
-                                Солодощі
-                            </button>
-                        </div>
-                    </div>
-                </aside>
-
-                <section class="category-products" id="promotionsProducts">
-                    <!-- акційні товари -->
-                </section>
-
-            </div>
-
+            <p>
+                Ще не маєте акаунта?
+                <a href="register.html">Зареєструватися</a>
+            </p>
         </div>
     </main>
 
