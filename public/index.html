@@ -172,6 +172,43 @@
         </div>
     </section>
 
+    <section class="smart-cart-section">
+    <div class="container">
+        <div class="smart-cart-box">
+            <div class="smart-cart-info">
+                <span class="smart-cart-label">Інтелектуальний модуль</span>
+                <h2>Розумний кошик</h2>
+                <p>
+                    Додайте важливі товари в кошик, вкажіть бюджет, а система автоматично
+                    доповнить покупку оптимальним набором продуктів.
+                </p>
+            </div>
+
+            <div class="smart-cart-panel">
+                <input
+                    type="number"
+                    id="smartBudgetInput"
+                    placeholder="Ваш бюджет, грн"
+                    min="1"
+                >
+
+                <select id="smartModeSelect">
+                    <option value="balanced">Збалансована покупка</option>
+                    <option value="economy">Економ</option>
+                    <option value="family">Сімейна покупка</option>
+                    <option value="sport">Спортивне харчування</option>
+                </select>
+
+                <button id="smartCartBtn">
+                    Підібрати товари
+                </button>
+            </div>
+
+            <div id="smartCartResult" class="smart-cart-result"></div>
+        </div>
+    </div>
+</section>
+
     <section class="promo-categories-section">
         <div class="container">
 

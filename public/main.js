@@ -1426,3 +1426,362 @@ function getAdminStoreProducts() {
         description: "Товар додано через адміністративну панель."
     }));
 }
+
+const smartBudgetInput = document.getElementById("smartBudgetInput");
+const smartModeSelect = document.getElementById("smartModeSelect");
+const smartCartBtn = document.getElementById("smartCartBtn");
+const smartCartResult = document.getElementById("smartCartResult");
+
+function getCartTotalValue() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    return cartItems.reduce((sum, item) => {
+        const price = parseFloat(String(item.price).replace("грн", "").trim()) || 0;
+        const quantity = Number(item.quantity) || 1;
+
+        return sum + price * quantity;
+    }, 0);
+}
+
+function getSmartModeCategories(mode) {
+    const modes = {
+        economy: [
+            "Овочі та фрукти",
+            "Молокопродукти",
+            "Напої"
+        ],
+
+        balanced: [
+            "Овочі та фрукти",
+            "Молокопродукти",
+            "М’ясо та ковбаси",
+            "Напої",
+            "Солодощі"
+        ],
+
+        family: [
+            "Молокопродукти",
+            "М’ясо та ковбаси",
+            "Напої",
+            "Солодощі",
+            "Овочі та фрукти"
+        ],
+
+        sport: [
+            "М’ясо та ковбаси",
+            "Молокопродукти",
+            "Овочі та фрукти"
+        ]
+    };
+
+    return modes[mode] || modes.balanced;
+}
+
+function getProductModeScore(product, mode) {
+    const text = `
+        ${product.name || ""}
+        ${product.category || ""}
+        ${product.subcategory || ""}
+    `.toLowerCase();
+
+    if (mode === "family") {
+        let score = 0;
+
+        if (text.includes("молоко") || text.includes("йогурт") || text.includes("сир")) score += 3;
+        if (text.includes("мʼяс") || text.includes("кур") || text.includes("ковбас")) score += 3;
+        if (text.includes("напій") || text.includes("сік") || text.includes("вода")) score += 2;
+        if (text.includes("печиво") || text.includes("солод")) score += 1;
+
+        return score;
+    }
+
+    if (mode === "sport") {
+        let score = 0;
+
+        if (text.includes("кур") || text.includes("мʼяс") || text.includes("яйце")) score += 4;
+        if (text.includes("сир") || text.includes("молоко") || text.includes("йогурт")) score += 3;
+        if (text.includes("банан") || text.includes("яблуко") || text.includes("овоч")) score += 2;
+
+        return score;
+    }
+
+    return 0;
+}
+
+function getSmartProductsByMode(mode) {
+    let allProducts = getAllStoreProducts()
+        .filter((product) => Number(product.price) > 0);
+
+    if (mode === "economy") {
+        return allProducts.sort((a, b) => Number(a.price) - Number(b.price));
+    }
+
+    if (mode === "family") {
+        return allProducts.sort((a, b) => {
+            const aScore = getProductModeScore(a, "family");
+            const bScore = getProductModeScore(b, "family");
+
+            return bScore - aScore || Number(a.price) - Number(b.price);
+        });
+    }
+
+    if (mode === "sport") {
+        return allProducts.sort((a, b) => {
+            const aScore = getProductModeScore(a, "sport");
+            const bScore = getProductModeScore(b, "sport");
+
+            return bScore - aScore || Number(a.price) - Number(b.price);
+        });
+    }
+
+    return allProducts.sort((a, b) => Number(a.price) - Number(b.price));
+}
+
+function getProductSmartCategory(product) {
+    const text = `
+        ${product.name || ""}
+        ${product.category || ""}
+        ${product.subcategory || ""}
+    `.toLowerCase();
+
+    if (
+        text.includes("кур") ||
+        text.includes("мʼяс") ||
+        text.includes("м’яс") ||
+        text.includes("ялович") ||
+        text.includes("свин") ||
+        text.includes("фарш") ||
+        text.includes("ребра") ||
+        text.includes("стейк") ||
+        text.includes("яйце")
+    ) return "protein";
+
+    if (
+        text.includes("молоко") ||
+        text.includes("вершки") ||
+        text.includes("сир") ||
+        text.includes("йогурт") ||
+        text.includes("сметана")
+    ) return "dairy";
+
+    if (
+        text.includes("банан") ||
+        text.includes("яблу") ||
+        text.includes("апельсин") ||
+        text.includes("ківі") ||
+        text.includes("полуниц") ||
+        text.includes("овоч") ||
+        text.includes("картоп") ||
+        text.includes("морк") ||
+        text.includes("огір") ||
+        text.includes("помід")
+    ) return "fruitveg";
+
+    if (
+        text.includes("вода") ||
+        text.includes("напій") ||
+        text.includes("сік") ||
+        text.includes("кола") ||
+        text.includes("чай") ||
+        text.includes("кава")
+    ) return "drink";
+
+    if (
+        text.includes("цукер") ||
+        text.includes("печиво") ||
+        text.includes("бісквіт") ||
+        text.includes("шоколад") ||
+        text.includes("десерт")
+    ) return "sweet";
+
+    return "other";
+}
+
+function getModePlan(mode) {
+    const plans = {
+        economy: {
+            protein: 1,
+            dairy: 2,
+            fruitveg: 3,
+            drink: 1,
+            sweet: 0,
+            other: 1
+        },
+
+        balanced: {
+            protein: 2,
+            dairy: 2,
+            fruitveg: 3,
+            drink: 1,
+            sweet: 1,
+            other: 1
+        },
+
+        family: {
+            protein: 2,
+            dairy: 3,
+            fruitveg: 2,
+            drink: 2,
+            sweet: 2,
+            other: 1
+        },
+
+        sport: {
+            protein: 4,
+            dairy: 2,
+            fruitveg: 2,
+            drink: 0,
+            sweet: 0,
+            other: 0
+        }
+    };
+
+    return plans[mode] || plans.balanced;
+}
+
+function generateSmartCart(budget, mode) {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartTotal = getCartTotalValue();
+
+    if (cartTotal > budget) {
+        return {
+            status: "over-budget",
+            cartTotal,
+            remaining: budget - cartTotal,
+            selected: []
+        };
+    }
+
+    let remaining = budget - cartTotal;
+    const selected = [];
+
+    const existingTitles = cartItems.map((item) => item.title);
+
+    const allProducts = getAllStoreProducts()
+        .filter((product) => Number(product.price) > 0)
+        .filter((product) => Number(product.price) <= remaining)
+        .filter((product) => !existingTitles.includes(product.name))
+        .map((product) => ({
+            ...product,
+            smartCategory: getProductSmartCategory(product)
+        }));
+
+    const plan = getModePlan(mode);
+
+    Object.entries(plan).forEach(([category, limit]) => {
+        if (limit <= 0) return;
+
+        const categoryProducts = allProducts
+            .filter((product) => product.smartCategory === category)
+            .filter((product) => !selected.some((item) => item.id === product.id))
+            .sort((a, b) => Number(a.price) - Number(b.price));
+
+        let added = 0;
+
+        for (const product of categoryProducts) {
+            if (added >= limit) break;
+            if (Number(product.price) > remaining) continue;
+
+            selected.push(product);
+            remaining -= Number(product.price);
+            added++;
+        }
+    });
+
+    let fillers = allProducts
+        .filter((product) => !selected.some((item) => item.id === product.id))
+        .filter((product) => Number(product.price) <= remaining)
+        .sort((a, b) => Number(b.price) - Number(a.price));
+
+    while (fillers.length) {
+        const product = fillers.find((item) => Number(item.price) <= remaining);
+
+        if (!product) break;
+
+        selected.push(product);
+        remaining -= Number(product.price);
+
+        fillers = fillers.filter((item) => item.id !== product.id);
+    }
+
+    return {
+        status: "success",
+        cartTotal,
+        remaining,
+        selected
+    };
+}
+
+function addSmartProductsToCart(products) {
+    products.forEach((product) => {
+        const title = product.name;
+        const price = Number(product.price).toFixed(2) + " грн";
+        const productImg = product.image;
+        const size = "";
+
+        addProductToCart(title, price, productImg, size);
+    });
+
+    updateTotal();
+    saveCartItems();
+    updateCartIcon();
+}
+
+if (smartCartBtn) {
+    smartCartBtn.addEventListener("click", function () {
+        const budget = Number(smartBudgetInput.value);
+        const mode = smartModeSelect.value;
+
+        smartCartResult.className = "smart-cart-result";
+
+        if (!budget || budget <= 0) {
+            smartCartResult.classList.add("error");
+            smartCartResult.innerHTML = "Вкажіть коректний бюджет.";
+            return;
+        }
+
+        const result = generateSmartCart(budget, mode);
+
+        if (result.status === "over-budget") {
+            smartCartResult.classList.add("error");
+            smartCartResult.innerHTML = `
+                Поточна сума кошика ${result.cartTotal.toFixed(2)} грн перевищує бюджет ${budget.toFixed(2)} грн.
+            `;
+            return;
+        }
+
+        if (!result.selected.length) {
+            smartCartResult.classList.add("error");
+            smartCartResult.innerHTML = `
+                Не вдалося підібрати товари на залишок бюджету.
+            `;
+            return;
+        }
+
+        addSmartProductsToCart(result.selected);
+
+        const selectedTotal = result.selected.reduce(
+            (sum, product) => sum + Number(product.price),
+            0
+        );
+
+        smartCartResult.classList.add("success");
+        smartCartResult.innerHTML = `
+        <div class="smart-cart-note">
+            Система врахувала обраний режим покупки, поточний кошик, бюджет та доступні категорії товарів.
+        </div>
+            <strong>Підібрано ${result.selected.length} товарів</strong>
+            <div class="smart-cart-result-list">
+                ${result.selected.map((product) => `
+                    <div class="smart-cart-result-item">
+                        <span>${product.name}</span>
+                        <span>${Number(product.price).toFixed(2)} грн</span>
+                    </div>
+                `).join("")}
+            </div>
+            <br>
+            Додано товарів на ${selectedTotal.toFixed(2)} грн.
+            Залишок бюджету: ${result.remaining.toFixed(2)} грн.
+        `;
+    });
+}
